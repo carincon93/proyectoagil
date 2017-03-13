@@ -1,0 +1,23 @@
+html, body {
+	height: 100%;
+}
+.navigation {
+	width: 15rem;
+	height: 100%;
+	background-color: #ccc;
+}	
+	nav a {
+		display: block;
+		padding: 1rem;
+	}
+	nav ul {
+		padding: 0;
+	}
+	nav ul li {
+		list-style: none;
+	}
+	nav ul li a {
+		display: block;
+		text-decoration: none;
+		padding: 1rem;
+	}
