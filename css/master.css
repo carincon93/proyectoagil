@@ -1,23 +1,31 @@
 html, body {
 	height: 100%;
 }
-.navigation {
+div.navigation {
 	width: 15rem;
 	height: 100%;
-	background-color: #ccc;
-}	
-	nav a {
-		display: block;
-		padding: 1rem;
-	}
-	nav ul {
-		padding: 0;
-	}
-	nav ul li {
-		list-style: none;
-	}
-	nav ul li a {
-		display: block;
-		text-decoration: none;
-		padding: 1rem;
-	}
+	background-color: #384346;
+}
+a.dashboard {
+	padding: 1rem 0.3rem;
+	color: #fff;
+	display: block;
+	text-decoration: none;
+}
+.vehiculos {
+	padding: 0;
+}
+.vehiculos li {
+	list-style: none;
+}
+.vehiculos li a {
+	color: #fff;
+	display: block;
+	padding: 1rem;
+	text-decoration: none;
+	padding: 1rem 1rem 1rem 2rem;
+}
+.vehiculos li a:hover {
+	background-color: #4D5D61;
+	
+}
