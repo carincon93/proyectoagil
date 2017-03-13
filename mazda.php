@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css"">
     <link rel="stylesheet" href="css/master.css">
   </head>
@@ -25,6 +26,36 @@
     			</li>
     		</ul>
     	</nav>
+    </div>
+    <div class="mazda">
+        <div>
+            <ul>
+                <li>
+                    <div>
+                        <h1>Mazda CX-5</h1>
+                        <figure class="car1"></figure>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.</p>
+                        <div class="buttons">
+                            <button class="icon-cart"></button>
+                            <button class="icon-search"></button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h1>Mazda CX-3</h1>
+                        <figure class="car2"></figure>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.</p>
+                        <div class="buttons">
+                            <button class="icon-cart"></button>
+                            <button class="icon-search"></button>
+                        </div>
+                        
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
     </div>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
