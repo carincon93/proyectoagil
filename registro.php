@@ -47,7 +47,7 @@
 </head>
 <body>
 	<h1>Registro</h1>
-	<form action="" method="">
+	<form action="" method="POST">
 		<label for="">Nombre</label>
 		<input type="text" name="nombre"  required=""><br><br>
 
@@ -86,6 +86,35 @@
 
 
 	</form>
+	      <?php 
+            if ($_POST) {
+
+                $nombre =$_POST["nombre"];
+                $apellido1 = $_POST["apellido1"];
+                $apellido2 = $_POST["apellido2"];
+                $sexo = $_POST["sexo"];
+                $telefono = $_POST["telefono"];
+                $tipo_doc = $_POST["tipo_doc"];
+                $numero_doc = $_POST["numero_doc"];
+                $email = $_POST["email"];
+
+
+                if ($nombre !='' && $apellido1 !='' && $apellido2 !='' && $sexo !='' && $telefono !='' && $tipo_doc !='' && $numero_doc !='' && $email !='') {
+                
+                    $con = mysqli_connect("localhost","root","","proyecto_agil_bd");
+                    $sql = "INSERT INTO registro_tbl VALUES ('','$nombre','$apellido1','$apellido2','$sexo','$telefono','$tipo_doc', '$numero_doc', '$email')";
+
+                    $row=mysqli_query($con,$sql);
+                    if ($row) {
+                        echo "<script>alert('exito');
+                        windows.location.replace(dashboard.php)</script>";
+                    }else{
+                        echo "<script>alert('no conect')</script>";
+                        
+                    }
+                }
+            }
+     ?>
 	
 </body>
 </html>
