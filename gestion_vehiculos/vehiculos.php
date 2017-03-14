@@ -13,7 +13,7 @@
                     <th>Actions</th>
                 </tr>
                 <?php 
-                    $query = mysqli_query($con, "SELECT * FROM vehiculos");
+                    $query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl");
                     while($row = mysqli_fetch_array($query)){
                         echo "
                             <tr>
@@ -31,14 +31,14 @@
             </table>
         </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="<?php echo $base_url; ?>/public/js/bootstrap.min.js"</script>
+    <script src="<?php echo $base_url; ?>/layouts/js/bootstrap.min.js"</script>
 
     <script>
         
         $(document).ready(function() {
             $(".eliminar-vehiculo").click(function(event) {
                 $id = $(this).attr("data-id");
-                $confirm = confirm("en reealidad desea eliminar el vehiculo");
+                $confirm = confirm("en realidad desea eliminar el vehiculo");
 
                 if ($confirm) {
                     window.location.replace("eliminar_vehiculo.php?id="+$id);

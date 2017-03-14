@@ -1,13 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vehiculos</title>
 <?php 
-    require "../public/header.php";
-    require "../public/seguridad1.php";
+    require "../layouts/conexion.php";
 ?>
   <style>
         input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button{
             -webkit-appearance:none;
-        }
-        body{
-          background: url("../public/imgs/Fondo-Gris.jpg");
         }
         nav{
             height: 36px;
@@ -61,74 +62,43 @@
   </nav>
   <div class="container col-md-offset-5">
     <form method="POST">
-      <h1>new environment</h1>
+      <h1>nuevo vehiculo</h1>
       <hr>
-      <label><em><ins>Environment Name</ins></em></label>
-      <input type="text" name="environment_name" class="form-control" required>
-      <label><em><ins>State Environment:</ins></em></label>
-      <select class="btn btn-default select" name="state_environment" >    
-        <option>select state....</option>
-        <option value="free">free</option>
-        <option value="ocuppied">ocuppied</option>
-      </select>
-      <label ><em><ins>Assigned Instructor</ins></em></label>
-      <input type="text" name="assigned_instructor" class="form-control" required>
-      <label><em><ins>Assigned file</ins></em></label>
-      <input type="number" name="assigned_file" class="form-control" required>
-      <label><em><ins>Apprentices Number</ins></em></label>
-      <input type="number" name="apprentices_number" class="form-control" required>
-      <label><em><ins>Formation Center</ins></em></label>
-      <input type="text" name="formation_center" class="form-control" required>
-      <label><em><ins>Department:</ins></em></label>
-      <select class="btn btn-default select" name="department" >    
-        <option>select department....</option>
-        <option value="cundinamarca">cundinamarca</option>
-        <option value="caldas">caldas</option>
-        <option value="antioquia">antioquia</option>
-        <option value="risaralda">risaralda</option>
-        <option value="magdalena">magdalena</option>
-      </select>
-      <label><em><ins>City:</ins></em></label>
-      <select class="btn btn-default select" name="city" >   
-        <option>select city....</option>
-        <option value="manizales">manizales</option>
-        <option value="medellin">medellin</option>
-        <option value="bogota">bogota</option>
-        <option value="pereira">pereira</option>
-        <option value="santa marta">santa marta</option>
-      </select>
+      <label><em><ins>Marca:</ins></em></label>
+      <input type="text" name="marca" class="form-control" required>
+      <label><em><ins>Modelo:</ins></em></label>
+      <input type="number" name="modelo" class="form-control" required>
+      <label ><em><ins>Color</ins></em></label>
+      <input type="text" name="color" class="form-control" required>
+      <label><em><ins>Placa</ins></em></label>
+      <input type="text" name="placa" class="form-control" required>
       <br><br>
-      <input class="btn btn-success" type="submit" value="send">
-      <input class="btn btn-info" type="reset" value="reset">
+      <input class="btn btn-success" type="submit" value="enviar">
+      <input class="btn btn-info" type="reset" value="borrar">
     </form>
   </div>
   <div class="img">
-      <a href="environment.php"><img src="../public/imgs/return.jpg"></a>
+      <a href="vehiculos.php">return</a>
   </div>
   <?php 
         if ($_POST) {
-            $environment_name = $_POST["environment_name"];
-            $state_environment = $_POST["state_environment"];
-            $assigned_instructor = $_POST["assigned_instructor"];
-            $assigned_file = $_POST["assigned_file"];
-            $apprentices_number = $_POST["apprentices_number"];
-            $formation_center = $_POST["formation_center"];
-            $department = $_POST["department"];
-            $city = $_POST["city"];
+            $marca = $_POST["marca"];
+            $modelo = $_POST["modelo"];
+            $color = $_POST["color"];
+            $placa = $_POST["placa"];
 
-            if ($environment_name != "" && $state_environment != "" && $assigned_instructor != "" && $assigned_file != "" && $apprentices_number != "" && $formation_center != "" && $department != "" && $city != "") {
+            if ($marca != "" && $modelo != "" && $color != "" && $placa != "") {
 
-                $con  = mysqli_connect('localhost','root','','proyect');
-                $query ="INSERT INTO environments VALUES('','$environment_name','$state_environment','$assigned_instructor','$assigned_file','$apprentices_number','$formation_center','$department','$city')";
+                $query ="INSERT INTO environments VALUES('','$marca','$modelo','$color','$placa')";
                   $row=mysqli_query($con,$query);
                 if ($row) {
-                    echo "<script>alert('User registered successfully....');</script>";
+                    echo "<script>alert('Usuario registrado exitosamente');</script>";
                 
 
             } else{
-                echo "<script>alert('There are empty fields, I remember filling out the entire form ...')</script>";
+                echo "<script>alert('hay campos sin llenar')</script>";
             }
-            }
+          }
         }
     ?>
-<?php require "../public/footer.php" ?>
+<?php require "../layouts/footer.php" ?>

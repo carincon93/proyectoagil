@@ -1,13 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vehiculos</title>
 <?php 
-    require "../public/header.php";
-    require "../public/seguridad1.php";
+    require "../layouts/conexion.php";
 ?>
   <style>
         input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button{
             -webkit-appearance:none;
-        }
-        body{
-          background: url("../public/imgs/Fondo-Gris.jpg");
         }
         nav{
             height: 36px;
@@ -49,10 +50,9 @@
 </head>
 <body>
   <?php 
-    $con=mysqli_connect('localhost','root','','proyect');
     if ($_GET) {
       $id=$_GET['id'];
-      $query=mysqli_query($con,"SELECT * FROM environments WHERE id_environment=$id");
+      $query=mysqli_query($con,"SELECT * FROM gestion_vehiculos_tbl WHERE id_vehiculos=$id");
       $row=mysqli_fetch_array($query);
     }
   ?>
@@ -69,69 +69,40 @@
   </nav>
     <div class="container col-md-offset-5">
     <form method="POST">
-      <h1>Edit environment</h1>
+      <h1>nuevo vehiculo</h1>
       <hr>
-      <label><em><ins>Environment Name</ins></em></label>
-      <input type="text" name="environment_name"  class="form-control" value="<?php echo $row['environment_name']; ?>" required>
-      <label><em><ins>State Environment:</ins></em></label>
-      <select  class="btn btn-default select"  name="state_environment" >    
-        <option <?php if ($row['state_environment'] == "free") echo "selected"; ?> value="free">free</option>
-        <option <?php if ($row['state_environment'] == "ocuppied") echo "selected"; ?> value="ocuppied">ocuppied</option>
-      </select>
-      <label ><em><ins>Assigned Instructor</ins></em></label>
-      <input type="text" name="assigned_instructor" class="form-control" value="<?php echo $row['assigned_instructor']; ?>" required>
-      <label><em><ins>Assigned file</ins></em></label>
-      <input type="number" name="assigned_file" class="form-control" value="<?php echo $row['assigned_file']; ?>" required>
-      <label><em><ins>Apprentices Number</ins></em></label>
-      <input type="number" name="apprentices_number" class="form-control" value="<?php echo $row['apprentices_number']; ?>" required>
-      <label><em><ins>Formation Center</ins></em></label>
-      <input type="text" name="formation_center" class="form-control" value="<?php echo $row['formation_center']; ?>" required>
-      <label><em><ins>Department:</ins></em></label>
-      <select class="btn btn-default select" name="department" >    
-        <option <?php if ($row['department'] == "cundinamarca") echo "selected"; ?> value="cundinamarca">cundinamarca</option>
-        <option <?php if ($row['department'] == "caldas") echo "selected"; ?> value="caldas">caldas</option>
-        <option <?php if ($row['department'] == "antioquia") echo "selected"; ?> value="antioquia">antioquia</option>
-        <option <?php if ($row['department'] == "risaralda") echo "selected"; ?> value="risaralda">risaralda</option>
-        <option <?php if ($row['department'] == "magdalena") echo "selected"; ?> value="magdalena">magdalena</option>
-      </select>
-      <br>
-      <label><em><ins>City:</ins></em></label>
-      <select class="btn btn-default select" name="city" >   
-        <option <?php if ($row['city'] == "manizales") echo "selected"; ?> value="manizales">manizales</option>
-        <option <?php if ($row['city'] == "medellin") echo "selected"; ?> value="medellin">medellin</option>
-        <option <?php if ($row['city'] == "bogota") echo "selected"; ?> value="bogota">bogota</option>
-        <option <?php if ($row['city'] == "pereira") echo "selected"; ?> value="pereira">pereira</option>
-        <option <?php if ($row['city'] == "santa marta") echo "selected"; ?> value="santa marta">santa marta</option>
-      </select>
-      <br>
-      <input class="btn btn-success select" type="submit" value="send">
-      <input class="btn btn-info select" type="reset" value="reset">
+      <label><em><ins>Marca:</ins></em></label>
+      <input type="text" name="marca" class="form-control" value="<?php echo $row['marca']; ?>" required>
+      <label><em><ins>Modelo:</ins></em></label>
+      <input type="number" name="modelo" class="form-control" value="<?php echo $row['modelo']; ?>" required>
+      <label ><em><ins>Color</ins></em></label>
+      <input type="text" name="color" class="form-control" value="<?php echo $row['color']; ?>" required>
+      <label><em><ins>Placa</ins></em></label>
+      <input type="text" name="placa" class="form-control" value="<?php echo $row['placa']; ?>" required>
+      <br><br>
+      <input class="btn btn-success" type="submit" value="enviar">
+      <input class="btn btn-info" type="reset" value="borrar">
     </form>
   </div>
   <div class="img">
-      <a href="environment.php"><img src="../public/imgs/return.jpg"></a>
+      <a href="vehiculos.php">return</a>
   </div>
   <?php 
-        if ($_POST) {
-            $environment_name = $_POST["environment_name"];
-            $state_environment = $_POST["state_environment"];
-            $assigned_instructor = $_POST["assigned_instructor"];
-            $assigned_file = $_POST["assigned_file"];
-            $apprentices_number = $_POST["apprentices_number"];
-            $formation_center = $_POST["formation_center"];
-            $department = $_POST["department"];
-            $city = $_POST["city"];
-             if ($environment_name != "" && $state_environment != "" && $assigned_instructor != "" && $assigned_file != "" && $apprentices_number != "" && $formation_center != "" && $department != "" && $city != "") {
-              $con = mysqli_connect('localhost','root','','proyect');
-              $query="UPDATE environments SET environment_name='$environment_name', state_environment='$state_environment', assigned_instructor='$assigned_instructor', assigned_file='$assigned_file', apprentices_number='$apprentices_number', formation_center='$formation_center', department='$department', city='$city' WHERE id_environment = $id";
+       if ($_POST) {
+            $marca = $_POST["marca"];
+            $modelo = $_POST["modelo"];
+            $color = $_POST["color"];
+            $placa = $_POST["placa"];
+             if ($marca != "" && $modelo != "" && $color != "" && $placa != "") {
+              $query="UPDATE gestionar_vehiculos_tbl SET marca='$marca', modelo='$modelo', color='$color', placa='$placa' WHERE id_vehiculos = $id";
               $row=mysqli_query($con,$query);
               if($row) {
-                  echo "<script>alert('Data updated successfully ...');</script>";
+                  echo "<script>alert('Datos modificados con exito ...');</script>";
           }
           else{
-          echo "<script>alert('no conect')<script>";
+          echo "<script>alert('no conectado')<script>";
         }
         }
       }
     ?>
-<?php require "../public/footer.php" ?>
+<?php require "../layouts/footer.php" ?>
