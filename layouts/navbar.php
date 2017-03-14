@@ -1,8 +1,8 @@
     <div class="navigation">
     	<nav>
-            <a href="dashboard.php" class="link">Dashboard</a>
-    		<a href="" class="link" data-toggle="collapse" href="#" data-target="#aside-nav" aria-expanded="false" aria-controls="aside-nav">Vehiculos</a>
-    		<ul class="collapse vehicles <?php if ($page != 'dashboard') { echo "show";} ?>" id="aside-nav" aria-expanded="false">
+            <a href="dashboard.php" class="link">Inicio</a>
+    		<a href="" class="link" data-toggle="collapse" href="#" data-target="#vehicles-toggle" aria-expanded="false" aria-controls="vehicles-toggle">Vehiculos</a>
+    		<ul class="collapse vehicles <?php if ($page != 'dashboard') { echo "show";} ?>" id="vehicles-toggle" aria-expanded="false">
     			<li>
     				<a href="mazda.php" class="<?php if ($page == 'mazda') { echo 'active';} ?>">Mazda</a>
     			</li>
@@ -13,5 +13,7 @@
     				<a href="volkswagen.php" class="<?php if ($page == 'volkswagen') { echo 'active';} ?>">Volkswagen</a>
     			</li>
     		</ul>
+            <a href="gestion_vehiculos/vehiculos.ph" class="link <?php if ($page == 'gestionar_vehiculos') { echo 'active';} ?>">Gestionar Vehículos</a>
+            <a href="" class="link <?php if ($page == 'gestionar_empleados') { echo 'active';} ?>">Gestionar Empleados</a>
     	</nav>
     </div>
