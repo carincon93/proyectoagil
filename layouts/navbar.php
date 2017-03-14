@@ -15,5 +15,6 @@
     		</ul>
             <a href="gestion_vehiculos/vehiculos.php" class="link <?php if ($page == 'gestionar_vehiculos') { echo 'active';} ?>">Gestionar Vehículos</a>
             <a href="" class="link <?php if ($page == 'gestionar_empleados') { echo 'active';} ?>">Gestionar Empleados</a>
+            <a href="" class="link <?php if ($page == 'gestionar_usuarios') { echo 'active';} ?>">Gestionar Usuarios</a>
     	</nav>
     </div>
