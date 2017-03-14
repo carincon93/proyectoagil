@@ -1,11 +1,13 @@
+<?php 
+    require "../layouts/conexion.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>vehiculos</title>
-<?php 
-    require "../layouts/conexion.php";
-?>
+ <link rel="stylesheet" href="../css/bootstrap.min.css">
+
   <style>
         input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button{
             -webkit-appearance:none;
@@ -13,20 +15,17 @@
         nav{
             height: 36px;
             width: 100%;
-            background-color: white;
+            background-color: black;
         }
         .container{
           width: 300px;
         }
-        .dropdown{
-           margin-left: 1190px; 
-        }
-        h1{
-          color: #151414;
-        }
         li{
             display: inline-block;
             list-style: none;
+        }
+        h1{
+          color: #151414;
         }
         label{
           color: #151414;
@@ -34,11 +33,6 @@
         }
         .select{
           margin: 5px;
-        }
-        .img{
-          position: absolute;
-          left: 300px;
-          bottom: 250px;
         }
         form{
           width: 295px;
@@ -56,20 +50,9 @@
       $row=mysqli_fetch_array($query);
     }
   ?>
-  <nav>
-    <div class="dropdown">
-      <button class="glyphicon glyphicon-user btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        <li><?php echo $_SESSION['name']; ?></li>
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-       <li><a class="off" href="../sing_off.php">sing off</a></li>
-      </ul>
-    </div>
-  </nav>
     <div class="container col-md-offset-5">
     <form method="POST">
-      <h1>nuevo vehiculo</h1>
+      <h1>editar vehiculo</h1>
       <hr>
       <label><em><ins>Marca:</ins></em></label>
       <input type="text" name="marca" class="form-control" value="<?php echo $row['marca']; ?>" required>
@@ -82,10 +65,8 @@
       <br><br>
       <input class="btn btn-success" type="submit" value="enviar">
       <input class="btn btn-info" type="reset" value="borrar">
+      <a class="btn btn-primary" href="vehiculos.php">return</a>
     </form>
-  </div>
-  <div class="img">
-      <a href="vehiculos.php">return</a>
   </div>
   <?php 
        if ($_POST) {
@@ -94,7 +75,7 @@
             $color = $_POST["color"];
             $placa = $_POST["placa"];
              if ($marca != "" && $modelo != "" && $color != "" && $placa != "") {
-              $query="UPDATE gestionar_vehiculos_tbl SET marca='$marca', modelo='$modelo', color='$color', placa='$placa' WHERE id_vehiculos = $id";
+              $query="UPDATE gestion_vehiculos_tbl SET marca='$marca', modelo='$modelo', color='$color', placa='$placa' WHERE id_vehiculos = $id";
               $row=mysqli_query($con,$query);
               if($row) {
                   echo "<script>alert('Datos modificados con exito ...');</script>";

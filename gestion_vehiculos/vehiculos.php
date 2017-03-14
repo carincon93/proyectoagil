@@ -6,8 +6,8 @@
     <h1>gestionar vehiculos</h1>
     <hr>
         <div class="container">
-            <a class="glyphicon glyphicon-plus btn btn-success add" href="adicionar_vehiculo.php"></a>
-            <table>
+            <a class="btn btn-success add" href="adicionar_vehiculo.php">adicionar</a>
+            <table border="1px">
                 <tr>
                     <th>marca</th>
                     <th>Actions</th>
@@ -19,9 +19,9 @@
                             <tr>
                                 <td>".$row['marca']."</td>
                                 <td>
-                                    <a class='glyphicon glyphicon-search btn btn-warning' href='consultar_vehiculo.php?id=".$row['id_vehiculos']."'></a>
-                                    <a class='glyphicon glyphicon-pencil btn btn-primary' href='editar_vehiculo.php?id=".$row['id_vehiculos']."'></a>
-                                    <a href='javascript:;' class='glyphicon glyphicon-trash btn btn-danger eliminar-vehiculo' data-id='".$row['id_vehiculos']."'>eliminar</a>
+                                    <a class='btn btn-warning' href='consultar_vehiculo.php?id=".$row['id_vehiculos']."'>consultar</a>
+                                    <a class='btn btn-primary' href='editar_vehiculo.php?id=".$row['id_vehiculos']."'>editar</a>
+                                    <a class='btn btn-danger' href='eliminar_vehiculo.php?id=".$row['id_vehiculos']."'>eliminar</a>
                                 </td>
                             </tr>
                         ";
@@ -30,21 +30,5 @@
                 
             </table>
         </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="<?php echo $base_url; ?>/layouts/js/bootstrap.min.js"</script>
-
-    <script>
-        
-        $(document).ready(function() {
-            $(".eliminar-vehiculo").click(function(event) {
-                $id = $(this).attr("data-id");
-                $confirm = confirm("en realidad desea eliminar el vehiculo");
-
-                if ($confirm) {
-                    window.location.replace("eliminar_vehiculo.php?id="+$id);
-                }
-            });
-        });
-    </script>
 </body>
 </html>

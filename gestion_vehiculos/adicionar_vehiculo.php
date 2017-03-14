@@ -1,13 +1,13 @@
+<?php 
+    require "../layouts/conexion.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>vehiculos</title>
  <link rel="stylesheet" href="../css/bootstrap.min.css">
-<?php 
-    require "../layouts/conexion.php";
 
-?>
   <style>
         input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button{
             -webkit-appearance:none;
@@ -19,9 +19,6 @@
         }
         .container{
           width: 300px;
-        }
-        .dropdown{
-           margin-left: 590px; 
         }
         li{
             display: inline-block;
@@ -37,11 +34,6 @@
         .select{
           margin: 5px;
         }
-        .img{
-          position: absolute;
-          left: 300px;
-          bottom: 250px;
-        }
         form{
           width: 295px;
         }
@@ -51,17 +43,6 @@
     </style>
 </head>
 <body>
-  <nav>
-    <div class="dropdown">
-      <button class="glyphicon glyphicon-user btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        <li><?php echo $_SESSION['name']; ?></li>
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-       <li><a class="off" href="../sing_off.php">sing off</a></li>
-      </ul>
-    </div> 
-  </nav>
   <div class="container col-md-offset-5">
     <form method="POST">
       <h1>nuevo vehiculo</h1>
@@ -77,10 +58,9 @@
       <br><br>
       <input class="btn btn-success" type="submit" value="enviar">
       <input class="btn btn-info" type="reset" value="borrar">
+      <a class="btn btn-primary" href="vehiculos.php">return</a>
+      
     </form>
-  </div>
-  <div class="img">
-      <a href="vehiculos.php">return</a>
   </div>
   <?php 
         if ($_POST) {
@@ -91,7 +71,7 @@
 
             if ($marca != "" && $modelo != "" && $color != "" && $placa != "") {
 
-                $query ="INSERT INTO environments VALUES('','$marca','$modelo','$color','$placa')";
+                $query ="INSERT INTO gestion_vehiculos_tbl VALUES('','$marca','$modelo','$color','$placa')";
                   $row=mysqli_query($con,$query);
                 if ($row) {
                     echo "<script>alert('Usuario registrado exitosamente');</script>";
@@ -103,4 +83,5 @@
           }
         }
     ?>
-<?php require "../layouts/footer.php" ?>
+</body>
+</html>
