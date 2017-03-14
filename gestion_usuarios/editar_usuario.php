@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Registro</title>
+  <title>usuario</title>
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <style>
     body{
@@ -55,10 +55,15 @@
   </style>
 </head>
 <body>
+  <?php 
+    if ($_GET) {
+      $id=$_GET['id'];
+      $query=mysqli_query($con,"SELECT * FROM registro_tbl WHERE id_registro=$id");
+      $row=mysqli_fetch_array($query);
+    }
+    ?>
   <form method="POST">
-    <h1>Editar Registro</h1>
-    
-
+    <h1>Editar usuario</h1>
     <br><br>
     <label>Nombre</label>
     <input type="text" name="nombre" value="<?php echo $row['nombre']; ?>" required><br><br>
@@ -71,10 +76,9 @@
     <input type="text" name="apellido2" value="<?php echo $row['apellido2']; ?>" ><br><br>
     
     <label>Sexo</label>
-    <select name="sexo" id="">
-      <option>Seleccione..</option>
-      <option <?php if ($row['sexo'] == "F") echo "checked"; ?> value="F">Femenino</option>
-      <option <?php if ($row['sexo'] == "M") echo "checked"; ?> value="M">Masculino</option>
+    <select name="sexo">
+      <option <?php if ($row['sexo'] == "F") echo "selected"; ?> value="F">F</option>
+      <option <?php if ($row['sexo'] == "M") echo "selected"; ?> value="M">M</option>
     </select><br><br> 
 
     <label>Telefono</label>
@@ -91,14 +95,14 @@
     
     
     <label>Correo</label>
-    <input type="email" name="correo" value="<?php echo $row['correo']; ?>"  required><br><br>
+    <input type="correo" name="correo" value="<?php echo $row['correo']; ?>"  required><br><br>
 
 
     <label>Contraseña</label>
-    <input type="password" name="contrasena"><br><br>
+    <input type="password" value="<?php echo $row['contrasena']; ?>" name="contrasena"><br><br>
     
 
-    <input type="submit" value="Registrarse">
+    <input type="submit" value="enviar">
 
 
   </form>
@@ -112,19 +116,19 @@
                 $telefono = $_POST["telefono"];
                 $tipo_documento = $_POST["tipo_documento"];
                 $numero_documento = $_POST["numero_documento"];
-                $email = $_POST["email"];
+                $correo = $_POST["correo"];
                 $contrasena = $_POST["contrasena"];
 
 
 
-                if ($nombre !='' && $apellido1 !='' && $apellido2 !='' && $sexo !='' && $telefono !='' && $tipo_documento !='' && $numero_documento !='' && $email !='' && $contrasena !='') {
+                if ($nombre !='' && $apellido1 !='' && $apellido2 !='' && $sexo !='' && $telefono !='' && $tipo_documento !='' && $numero_documento !='' && $correo !='' && $contrasena !='') {
                 
                     $query="UPDATE registro_tbl SET nombre='$nombre', apellido1='$apellido1', apellido2='$apellido2', sexo='$sexo', telefono='$telefono', tipo_documento='$tipo_documento', numero_documento='$numero_documento', correo='$correo', contrasena='$contrasena' WHERE id_registro = $id";
 
                     $row=mysqli_query($con,$query);
                     if ($row) {
-                        echo "<script>alert('exito');
-                        windows.location.replace(dashboard.php)</script>";
+                        echo "<script>alert('se han actualizado los datos con exito');
+                        windows.location.replace(usuarios.php)</script>";
                     }else{
                         echo "<script>alert('no conect')</script>";
                         

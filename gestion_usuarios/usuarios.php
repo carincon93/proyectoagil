@@ -1,27 +1,96 @@
 <?php 
-    require "../layouts/header.php";
     require "../layouts/conexion.php";
 ?>
-    <a class="glyphicon glyphicon-share-alt btn btn-primary return" href="../dashboard.php">Return</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>gestionar usuarios</title>
+ <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        body{
+          padding: 20px 400px;
+        }
+        table{
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+
+        @font-face {
+          font-family: 'icomoon';
+          src:  url('../fonts/icomoon.eot?fgv4ni');
+          src:  url('../fonts/icomoon.eot?fgv4ni#iefix') format('embedded-opentype'),
+            url('../fonts/icomoon.ttf?fgv4ni') format('truetype'),
+            url('../fonts/icomoon.woff?fgv4ni') format('woff'),
+            url('../fonts/icomoon.svg?fgv4ni#icomoon') format('svg');
+          font-weight: normal;
+          font-style: normal;
+        }
+        [class^="icon-"], [class*=" icon-"] {
+          /* use !important to prevent issues with browser extensions that change fonts */
+          font-family: 'icomoon' !important;
+          speak: none;
+          font-style: normal;
+          font-weight: normal;
+          font-variant: normal;
+          text-transform: none;
+          line-height: 1;
+
+          /* Better Font Rendering =========== */
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+        .icon-cart:before {
+          content: "\e93a";
+        }
+        .icon-search:before {
+          content: "\e986";
+        }
+        .icon-pencil:before {
+          content: "\e905";
+        }
+        .icon-bin:before {
+          content: "\e9ac";
+        }
+        .icon-plus:before {
+          content: "\ea0a";
+        }
+        .icon-undo:before {
+          content: "\e965";
+        }
+        .act{
+          position: relative;
+          left: 50px;
+        }
+        .ar{
+          margin-left: 20px;
+        }
+    </style>
     <h1>gestionar usuarios</h1>
     <hr>
+        <a class="icon-plus btn btn-success ar" href="../registro.php"></a>
+        <a class="btn btn-primary" href="../dashboard.php">volver</a>
         <div class="container">
-            <a class="btn btn-success add" href="adicionar_vehiculo.php">adicionar</a>
-            <table border="1px">
-                <tr>
-                    <th>marca</th>
-                    <th>Actions</th>
-                </tr>
+            <table class="table table-bordered">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>#</th>
+                        <th>correo</th>
+                        <th>Actions</th>
+                    </tr>
+                    
+                </thead>
                 <?php 
-                    $query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl");
+                    $query = mysqli_query($con, "SELECT * FROM registro_tbl");
                     while($row = mysqli_fetch_array($query)){
                         echo "
                             <tr>
-                                <td>".$row['marca']."</td>
+                                <td>".$row['id_registro']."</td>
+                                <td>".$row['correo']."</td>
                                 <td>
-                                    <a class='btn btn-warning' href='consultar_vehiculo.php?id=".$row['id_vehiculos']."'>consultar</a>
-                                    <a class='btn btn-primary' href='editar_vehiculo.php?id=".$row['id_vehiculos']."'>editar</a>
-                                    <a class='btn btn-danger' href='eliminar_vehiculo.php?id=".$row['id_vehiculos']."'>eliminar</a>
+                                    <a class='icon-search btn btn-warning' href='consultar_usuario.php?id=".$row['id_registro']."'></a>
+                                    <a class='icon-pencil btn btn-primary' href='editar_usuario.php?id=".$row['id_registro']."'></a>
+                                    <a class='icon-bin btn btn-danger' href='eliminar_usuario.php?id=".$row['id_registro']."'></a>
                                 </td>
                             </tr>
                         ";

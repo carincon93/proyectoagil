@@ -40,6 +40,10 @@
         .form-control{
           width: 97%;
         }
+        .btn-default{
+          border: 1px solid silver;
+          margin: 10px;
+        }
     </style>
 </head>
 <body>
@@ -57,7 +61,7 @@
       <label><em><ins>Nombre:</ins></em></label>
       <input type="text" name="nombre" class="form-control" value="<?php echo $row['nombre']; ?>" required>
       <label><em><ins>Cargo:</ins></em></label>
-      <input type="number" name="cargo" class="form-control" value="<?php echo $row['cargo']; ?>" required>
+      <input type="text" name="cargo" class="form-control" value="<?php echo $row['cargo']; ?>" required>
       <label ><em><ins>tipo de documento</ins></em></label>
       <select class="btn btn-default" name="tipo_documento" >    
         <option <?php if ($row['tipo_documento'] == "C.C") echo "selected"; ?> value="C.C">C.C</option>
