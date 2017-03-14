@@ -7,7 +7,7 @@
 	<style>
 		body{
 			font-family:  'Raleway', sans-serif;
-			background-color: #FFCFCF;
+			background-color: #5F6A6D;
 		}
 		h1{
 			text-align: center;
@@ -17,6 +17,7 @@
 			width: 600px;
 			height: 580px;
 			margin: 0 auto;
+			background-color: white;
 
 		}
 		input{
@@ -30,7 +31,7 @@
 			border:none;
 		}
 		input[type="submit"]{
-			background-color: #AB5357;
+			background-color: #384346;
 			padding: 5px;
 			width: 300px;
 			height: 30px;
@@ -48,6 +49,7 @@
 <body>
 	<h1>Registro</h1>
 	<form action="" method="POST">
+
 		<label for="">Nombre</label>
 		<input type="text" name="nombre"  required=""><br><br>
 
@@ -82,6 +84,11 @@
 		<label for="">E-mail</label>
 		<input type="email" name="email"  required=""><br><br>
 
+
+		<label for="">Contraseña</label>
+		<input type="password" name="contrasena" ><br><br>
+ 		
+
 		<input type="submit" value="Registrarse">
 
 
@@ -97,12 +104,14 @@
                 $tipo_doc = $_POST["tipo_doc"];
                 $numero_doc = $_POST["numero_doc"];
                 $email = $_POST["email"];
+                $contrasena = $_POST["contrasena"];
 
 
-                if ($nombre !='' && $apellido1 !='' && $apellido2 !='' && $sexo !='' && $telefono !='' && $tipo_doc !='' && $numero_doc !='' && $email !='') {
+
+                if ($nombre !='' && $apellido1 !='' && $apellido2 !='' && $sexo !='' && $telefono !='' && $tipo_doc !='' && $numero_doc !='' && $email !='' && $contrasena !='') {
                 
                     $con = mysqli_connect("localhost","root","","proyecto_agil_bd");
-                    $sql = "INSERT INTO registro_tbl VALUES ('','$nombre','$apellido1','$apellido2','$sexo','$telefono','$tipo_doc', '$numero_doc', '$email')";
+                    $sql = "INSERT INTO registro_tbl VALUES ('','$nombre','$apellido1','$apellido2','$sexo','$telefono','$tipo_doc', '$numero_doc', '$email', '$contrasena')";
 
                     $row=mysqli_query($con,$sql);
                     if ($row) {
