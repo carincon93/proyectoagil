@@ -33,12 +33,10 @@
     <form method="POST">
       <h1>Login</h1>
       <hr>
-      <label><em><ins>correo</ins></em></label>
+      <input  type="email" name="correo" value="<?php if (isset($_POST['correo'])) {echo $_POST['correo'];} ?>" class=" form-control" placeholder="Correo Electrónico" required>
       <br>
-      <input  type="email" name="correo" value="<?php if (isset($_POST['correo'])) {echo $_POST['correo'];} ?>" class=" form-control" placeholder="correo electronico" required>
-      <label><em><ins>contraseña</ins></em></label>
-      <input type="password" name="contrasena" class="form-control" placeholder="contraseña" required>
-      <input class="btn btn-success" type="submit" value="ingresar">
+      <input type="password" name="contrasena" class="form-control" placeholder="Contraseña" required>
+      <input class="btn btn-success" type="submit" value="Ingresar">
       <a class="btn btn-success" href="registro.php">Crear nueva cuenta</a>
     </form>
   </div>
