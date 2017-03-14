@@ -19,9 +19,9 @@
                             <tr>
                                 <td>".$row['marca']."</td>
                                 <td>
-                                    <a class='glyphicon glyphicon-search btn btn-warning' href='consultar_vehiculo.php?id=".$row['id_vehiculo']."'></a>
-                                    <a class='glyphicon glyphicon-pencil btn btn-primary' href='editar_vehiculo.php?id=".$row['id_vehiculo']."'></a>
-                                    <a href='javascript:;' class='glyphicon glyphicon-trash btn btn-danger eliminar-vehiculo' data-id='".$row['id_vehiculo']."'>eliminar</a>
+                                    <a class='glyphicon glyphicon-search btn btn-warning' href='consultar_vehiculo.php?id=".$row['id_vehiculos']."'></a>
+                                    <a class='glyphicon glyphicon-pencil btn btn-primary' href='editar_vehiculo.php?id=".$row['id_vehiculos']."'></a>
+                                    <a href='javascript:;' class='glyphicon glyphicon-trash btn btn-danger eliminar-vehiculo' data-id='".$row['id_vehiculos']."'>eliminar</a>
                                 </td>
                             </tr>
                         ";
