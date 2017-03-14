@@ -1,13 +1,13 @@
-<?php $page = "mazda"; ?>
+<?php $page = "ford"; ?>
 <?php include 'layouts/header.php'; ?>
 <?php include 'layouts/navbar.php' ?>
     <div class="content">
-        <div>
-            <ul>
+        <div class="container">
+            <ul class="row">
                 <li class="col-md-4 offset-md-1 col-sm-6 offset-sm-3 col-10 offset-1">
                     <div class="vehicle-card">
-                        <h1 class="card-title">Mazda CX-5</h1>
-                        <figure class="car1 img-container"></figure>
+                        <h1 class="card-title">Ford Fusion</h1>
+                        <figure class="car3 img-container"></figure>
                         <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.</p>
                         <div class="actions">
                             <button><a href="" class="icon-cart"></a></button>
@@ -17,8 +17,8 @@
                 </li>
                 <li class="col-md-4 offset-md-2 col-sm-6 offset-sm-3 col-10 offset-1">
                     <div class="vehicle-card">
-                        <h1 class="card-title">Mazda CX-3</h1>
-                        <figure class="car2 img-container"></figure>
+                        <h1 class="card-title">Ford Taurus</h1>
+                        <figure class="car4 img-container"></figure>
                         <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.</p>
                         <div class="actions">
                             <button><a href="" class="icon-cart"></a></button>
