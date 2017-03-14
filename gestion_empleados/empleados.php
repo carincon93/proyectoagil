@@ -3,7 +3,7 @@
     require "../layouts/conexion.php";
 ?>
     <a class="glyphicon glyphicon-share-alt btn btn-primary return" href="../dashboard.php">Return</a>
-    <h1>gestionar vehiculos</h1>
+    <h1>gestionar empleados</h1>
     <hr>
         <div class="container">
             <a class="btn btn-success add" href="adicionar_vehiculo.php">adicionar</a>

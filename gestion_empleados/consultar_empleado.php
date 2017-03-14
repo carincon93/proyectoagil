@@ -1,8 +1,11 @@
+<?php 
+    require "../layouts/conexion.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>gestionar vehiculos</title>
+	<title>gestionar empleados</title>
 <?php 
     require "../layouts/conexion.php";
 ?>
@@ -44,26 +47,26 @@
 	 <?php 
     if ($_GET) {
       $id=$_GET['id'];
-      $query=mysqli_query($con,"SELECT * FROM gestion_vehiculos_tbl WHERE id_vehiculos=$id");
+      $query=mysqli_query($con,"SELECT * FROM gestion_empleados_tbl WHERE id_empleados=$id");
       $row=mysqli_fetch_array($query);
     }
     ?>
     <table>
       <tr>
-        <th>marca</th>
-        <td><?php echo $row['marca']; ?></td>
+        <th>nombre</th>
+        <td><?php echo $row['nombre']; ?></td>
       </tr>
       <tr>
-        <th>modelo</th>
-        <td><?php echo $row['modelo']; ?></td>
+        <th>cargo</th>
+        <td><?php echo $row['cargo']; ?></td>
       </tr>
       <tr>
-        <th>color</th>
-        <td><?php echo $row['color']; ?></td>
+        <th>tipo documento</th>
+        <td><?php echo $row['tipo_documento']; ?></td>
       </tr>
       <tr>
-        <th>placa</th>
-        <td><?php echo $row['placa']; ?></td>
+        <th>numero documento</th>
+        <td><?php echo $row['numero_documento']; ?></td>
       </tr>   
     </table>
     <div class="img">

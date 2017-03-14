@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>vehiculos</title>
+  <title>gestionar empleados</title>
  <link rel="stylesheet" href="../css/bootstrap.min.css">
 
   <style>
@@ -52,8 +52,11 @@
       <label><em><ins>Cargo:</ins></em></label>
       <input type="number" name="cargo" class="form-control" required>
       <label ><em><ins>tipo de documento</ins></em></label>
-      <option>Seleccione tipo de documento.. </option>
-      <option value="T.I">t</option>
+      <select class="btn btn-default" name="tipo_documento" >    
+        <option>seleccione tipo de documento...</option>
+        <option value="C.C">C.C</option>
+         <option value="T.I">T.I</option>
+      </select>
       <label><em><ins>numero documento</ins></em></label>
       <input type="text" name="numero_documento" class="form-control" required>
       <br><br>
@@ -65,14 +68,14 @@
   </div>
   <?php 
         if ($_POST) {
-            $marca = $_POST["marca"];
-            $modelo = $_POST["modelo"];
-            $color = $_POST["color"];
-            $placa = $_POST["placa"];
+            $nombre = $_POST["nombre"];
+            $Cargo = $_POST["Cargo"];
+            $tipo_documento = $_POST["tipo_documento"];
+            $numero_documento = $_POST["numero_documento"];
 
-            if ($marca != "" && $modelo != "" && $color != "" && $placa != "") {
+            if ($nombre != "" && $Cargo != "" && $tipo_documento != "" && $numero_documento != "") {
 
-                $query ="INSERT INTO gestion_vehiculos_tbl VALUES('','$marca','$modelo','$color','$placa')";
+                $query ="INSERT INTO gestion_vehiculos_tbl VALUES('','$nombre','$Cargo','$tipo_documento','$numero_documento')";
                   $row=mysqli_query($con,$query);
                 if ($row) {
                     echo "<script>alert('Usuario registrado exitosamente');</script>";

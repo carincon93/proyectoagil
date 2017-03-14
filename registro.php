@@ -78,18 +78,18 @@
 		<input type="number" name="telefono"  required=""><br><br>
 
 		<label for="">Tipo de Documento</label>
-		<select name="tipo_doc" id="">
+		<select name="tipo_documento" id="">
 			<option>Seleccione..</option>
-			<option value="CC">Cédula de ciudadania</option>
-			<option value="TI">Tarjeta de identidad</option>
+			<option value="C.C">C.C</option>
+			<option value="T.I">T.I</option>
 		</select><br><br>	
 
 		<label for="">Número de documento</label>
-		<input type="number" name="numero_doc" required=""><br><br>
+		<input type="number" name="numero_documento" required=""><br><br>
 		
 		
-		<label for="">E-mail</label>
-		<input type="email" name="email"  required=""><br><br>
+		<label for="">Correo</label>
+		<input type="email" name="correo"  required=""><br><br>
 
 
 		<label for="">Contraseña</label>
@@ -108,17 +108,17 @@
                 $apellido2 = $_POST["apellido2"];
                 $sexo = $_POST["sexo"];
                 $telefono = $_POST["telefono"];
-                $tipo_doc = $_POST["tipo_doc"];
-                $numero_doc = $_POST["numero_doc"];
-                $email = $_POST["email"];
+                $tipo_documento = $_POST["tipo_documento"];
+                $numero_documento = $_POST["numero_documento"];
+                $correo = $_POST["correo"];
                 $contrasena = $_POST["contrasena"];
 
 
 
-                if ($nombre !='' && $apellido1 !='' && $apellido2 !='' && $sexo !='' && $telefono !='' && $tipo_doc !='' && $numero_doc !='' && $email !='' && $contrasena !='') {
+                if ($nombre !='' && $apellido1 !='' && $apellido2 !='' && $sexo !='' && $telefono !='' && $tipo_documento !='' && $numero_documento !='' && $correo !='' && $contrasena !='') {
                 
                     $con = mysqli_connect("localhost","root","","proyecto_agil_bd");
-                    $sql = "INSERT INTO registro_tbl VALUES ('','$nombre','$apellido1','$apellido2','$sexo','$telefono','$tipo_doc', '$numero_doc', '$email', '$contrasena')";
+                    $sql = "INSERT INTO registro_tbl VALUES ('','$nombre','$apellido1','$apellido2','$sexo','$telefono','$tipo_documento', '$numero_documento', '$correo', '$contrasena')";
 
                     $row=mysqli_query($con,$sql);
                     if ($row) {

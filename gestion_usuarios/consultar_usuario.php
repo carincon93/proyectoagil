@@ -1,8 +1,11 @@
+<?php 
+    require "../layouts/conexion.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>vehiculos</title>
+	<title>gestionar usuarios</title>
 <?php 
     require "../layouts/conexion.php";
 ?>
@@ -44,7 +47,7 @@
 	 <?php 
     if ($_GET) {
       $id=$_GET['id'];
-      $query=mysqli_query($con,"SELECT * FROM gestion_vehiculos_tbl WHERE id_vehiculos=$id");
+      $query=mysqli_query($con,"SELECT * FROM registro_tbl WHERE id_usuario=$id");
       $row=mysqli_fetch_array($query);
     }
     ?>

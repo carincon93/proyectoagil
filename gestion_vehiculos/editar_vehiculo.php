@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>vehiculos</title>
+  <title>gestionar vehiculos</title>
  <link rel="stylesheet" href="../css/bootstrap.min.css">
 
   <style>
