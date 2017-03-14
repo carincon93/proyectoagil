@@ -1,11 +1,11 @@
 <?php 
-  session_start(); 
+  require "layouts/conexion.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>proyect</title>
+  <title>login</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
@@ -46,24 +46,23 @@
   
   <?php 
   if ($_POST) {
-    $con=mysqli_connect("localhost","root","","proyecto_agil_bd");
     $correo=mysqli_real_escape_string($con,$_POST['correo']);  
     $contrasena=mysqli_real_escape_string($con,$_POST['contrasena']);
     if ($correo !="" && $contrasena !="") {
-      $query="SELECT nombre, apellido1, apellido2 FROM registro_tbl WHERE correo='$correo' AND contrasena= '$contrasena'"; 
+      $query="SELECT nombre, apellido1 FROM registro_tbl WHERE correo='$correo' AND contrasena='$contrasena'"; 
       $row=mysqli_query($con,$query);
 
       if (mysqli_num_rows($row)>0) {
         $data=mysqli_fetch_array($row);
-        $_SESSION['nombre']=$data['nombre']." ".$data['apellido1']." ".$data['apellido2'];
-        header("location:dashboard.php");
+        $_SESSION['name']=$data['nombre']." ".$data['apellido1'];
+        header("location: dashboard.php");
       }else{
         echo "<script>alert('el correo o la contraseña no son correctos')</script>";
       }
-    mysqli_free_result($row);
-    mysqli_close($con);
+      mysqli_free_result($row);
+      mysqli_close($con);
+    }
   }
-}
 ?>
 </body>
 </html>

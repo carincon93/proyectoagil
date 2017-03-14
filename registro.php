@@ -7,7 +7,7 @@
 	<style>
 		body{
 			font-family:  'Raleway', sans-serif;
-			background-color: #5F6A6D;
+			background-color: white;
 		}
 		h1{
 			text-align: center;
@@ -15,20 +15,24 @@
 		form{
 			text-align: center;	
 			width: 600px;
-			height: 580px;
 			margin: 0 auto;
 			background-color: white;
+			padding: 15px;
+			box-shadow: 2px 4px 3px 2px #dddada;
 
 		}
 		input{
 			padding: 5px;
-			border: none;
+			border:none;
+			border-bottom:  1px solid #AEAAAA;
 		}
 		input, select{
 			padding: 5px;
 			width: 350px;
 			display: inline-block;
 			border:none;
+			border-bottom:  1px solid #AEAAAA;
+
 		}
 		input[type="submit"]{
 			background-color: #384346;
@@ -36,6 +40,7 @@
 			width: 300px;
 			height: 30px;
 			color: white;
+
 		}
 
 		label{
@@ -47,9 +52,11 @@
 	</style>
 </head>
 <body>
-	<h1>Registro</h1>
 	<form action="" method="POST">
+		<h1>Registro</h1>
+		
 
+		<br><br>
 		<label for="">Nombre</label>
 		<input type="text" name="nombre"  required=""><br><br>
 

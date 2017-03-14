@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>vehiculos</title>
+ <link rel="stylesheet" href="../css/bootstrap.min.css">
 <?php 
     require "../layouts/conexion.php";
+
 ?>
   <style>
         input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button{
@@ -13,13 +15,13 @@
         nav{
             height: 36px;
             width: 100%;
-            background-color: white;
+            background-color: black;
         }
         .container{
           width: 300px;
         }
         .dropdown{
-           margin-left: 1190px; 
+           margin-left: 590px; 
         }
         li{
             display: inline-block;
