@@ -1,74 +1,39 @@
 <?php 
     require "../layouts/conexion.php";
+    require "../layouts/header.php";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>gestionar usuarios</title>
- <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <style>
-        body{
-          padding: 20px 400px;
-        }
-        table{
-            margin-top: 10px;
-            border: 1px solid black;
-        }
-
-        @font-face {
-          font-family: 'icomoon';
-          src:  url('../fonts/icomoon.eot?fgv4ni');
-          src:  url('../fonts/icomoon.eot?fgv4ni#iefix') format('embedded-opentype'),
-            url('../fonts/icomoon.ttf?fgv4ni') format('truetype'),
-            url('../fonts/icomoon.woff?fgv4ni') format('woff'),
-            url('../fonts/icomoon.svg?fgv4ni#icomoon') format('svg');
-          font-weight: normal;
-          font-style: normal;
-        }
-        [class^="icon-"], [class*=" icon-"] {
-          /* use !important to prevent issues with browser extensions that change fonts */
-          font-family: 'icomoon' !important;
-          speak: none;
-          font-style: normal;
-          font-weight: normal;
-          font-variant: normal;
-          text-transform: none;
-          line-height: 1;
-
-          /* Better Font Rendering =========== */
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-        }
-        .icon-cart:before {
-          content: "\e93a";
-        }
-        .icon-search:before {
-          content: "\e986";
-        }
-        .icon-pencil:before {
-          content: "\e905";
-        }
-        .icon-bin:before {
-          content: "\e9ac";
-        }
-        .icon-plus:before {
-          content: "\ea0a";
-        }
-        .icon-undo:before {
-          content: "\e965";
-        }
-        .act{
-          position: relative;
-          left: 50px;
-        }
-        .ar{
-          margin-left: 20px;
-        }
-    </style>
+    <nav class="arr">
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><li class="li"><?php echo $_SESSION['name']; ?></li>
+        </button>
+        <div class="dropdown-menu">
+          <a href="../cerrar_sesion.php">cerrar</a>
+        </div>
+      </div>
+    </nav>
+    <div class="navigation">
+      <nav>
+            <a href="dashboard.php" class="link">Inicio</a>
+        <a href="" class="link" data-toggle="collapse" href="#" data-target="#vehicles-toggle" aria-expanded="false" aria-controls="vehicles-toggle">Vehiculos</a>
+        <ul class="collapse vehicles <?php if ($page != 'dashboard') { echo "show";} ?>" id="vehicles-toggle" aria-expanded="false">
+          <li>
+            <a href="../mazda.php" class="<?php if ($page == 'mazda') { echo 'active';} ?>">Mazda</a>
+          </li>
+          <li>
+            <a href="../ford.php" class="<?php if ($page == 'ford') { echo 'active';} ?>">Ford</a>
+          </li>
+          <li>
+            <a href="../volkswagen.php" class="<?php if ($page == 'volkswagen') { echo 'active';} ?>">Volkswagen</a>
+          </li>
+        </ul>
+            <a href="../gestion_vehiculos/vehiculos.php" class="link <?php if ($page == 'gestionar_vehiculos') { echo 'active';} ?>">Gestionar Vehículos</a>
+            <a href="../gestion_empleados/empleados.php" class="link <?php if ($page == 'gestionar_empleados') { echo 'active';} ?>">Gestionar Empleados</a>
+            <a href="../gestion_usuarios/usuarios.php" class="link <?php if ($page == 'gestionar_usuarios') { echo 'active';} ?>">Gestionar Usuarios</a>
+      </nav>
+    </div>
     <h1>gestionar usuarios</h1>
     <hr>
-        <a class="icon-plus btn btn-success ar" href="../registro.php"></a>
+        <a class="fa fa-plus btn btn-success ar" href="../registro.php"></a>
         <a class="btn btn-primary" href="../dashboard.php">volver</a>
         <div class="container">
             <table class="table table-bordered">
@@ -88,9 +53,9 @@
                                 <td>".$row['id_registro']."</td>
                                 <td>".$row['correo']."</td>
                                 <td>
-                                    <a class='icon-search btn btn-warning' href='consultar_usuario.php?id=".$row['id_registro']."'></a>
-                                    <a class='icon-pencil btn btn-primary' href='editar_usuario.php?id=".$row['id_registro']."'></a>
-                                    <a class='icon-bin btn btn-danger' href='eliminar_usuario.php?id=".$row['id_registro']."'></a>
+                                    <a class='fa fa-search btn btn-info' href='consultar_usuario.php?id=".$row['id_registro']."'></a>
+                                    <a class='fa fa-pencil btn btn-primary' href='editar_usuario.php?id=".$row['id_registro']."'></a>
+                                    <a class='fa fa-trash btn btn-danger' href='eliminar_usuario.php?id=".$row['id_registro']."'></a>
                                 </td>
                             </tr>
                         ";
@@ -99,5 +64,4 @@
                 
             </table>
         </div>
-</body>
-</html>
+<?php include '../layouts/footer.php' ?>
