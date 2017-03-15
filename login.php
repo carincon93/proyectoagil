@@ -1,4 +1,5 @@
 <?php 
+  session_start();
   require "layouts/conexion.php";
 ?>
 <!DOCTYPE html>
@@ -52,8 +53,8 @@
 
       if (mysqli_num_rows($row)>0) {
         $data=mysqli_fetch_array($row);
-        $_SESSION['nombre']=$data['nombre']." ".$data['apellido1'];
-        header("location: dashboard.php");
+        $_SESSION['name']=$data['nombre']." ".$data['apellido1'];
+        header("location: dashboardadmin.php");
       }else{
         echo "<script>alert('el correo o la contraseña no son correctos')</script>";
       }

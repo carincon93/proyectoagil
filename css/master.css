@@ -24,6 +24,9 @@ text-decoration: none; }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-user:before {
+  content: "\e971";
+}
 .icon-cart:before {
   content: "\e93a";
 }
@@ -202,4 +205,14 @@ nav a.link:hover {
 }
 .buttons-container {
 	position: relative;
+}
+.arr{
+	background-color: #384346;
+}
+.btn-group{
+	margin-left: 1190px;
+}
+.li{
+	list-style: none;
+	display: inline-block;
 }

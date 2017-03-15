@@ -1,6 +1,13 @@
 <?php $page = "mazda"; ?>
 <?php include 'layouts/header.php'; ?>
 <?php include 'layouts/navbar.php' ?>
+<?php 
+    if ($_GET) {
+      $id=$_GET['id'];
+      $query=mysqli_query($con,"SELECT * FROM gestion_vehiculos_tbl WHERE id_vehiculos=$id_vehiculos");
+      $row=mysqli_fetch_array($query);
+    }
+?>
     <div class="content">
         <div>
             <ul>
@@ -11,7 +18,7 @@
                         <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.</p>
                         <div class="actions">
                             <button type="button" class="btn btn-primary icon-cart" data-toggle="modal" data-target="#myModal"></button>
-                                <button><a href="" class="icon-search"></a></button>
+                                <button><a href="gestion_vehiculos/consultar_vehiculo.php?id=1" class="icon-search"></a></button>
                         </div>
                     </div>
                 </li>
@@ -22,7 +29,7 @@
                         <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.</p>
                         <div class="actions">
                             <button type="button" class="btn btn-primary icon-cart" data-toggle="modal" data-target="#myModal"></button>
-                            <button><a href="" class="icon-search"></a></button>
+                            <button><a href="gestion_vehiculos/consultar_vehiculo.php?id=2" class="icon-search"></a></button>
                         </div>
                         
                     </div>
