@@ -1,39 +1,29 @@
 <?php $page = "mazda"; ?>
+<?php include 'layouts/conexion.php' ?>
+<?php 
+    $query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl WHERE marca = 'mazda' ");
+?>
 <?php include 'layouts/header.php'; ?>
 <?php include 'layouts/navbar.php' ?>
-<?php 
-    if ($_GET) {
-      $id=$_GET['id'];
-      $query=mysqli_query($con,"SELECT * FROM gestion_vehiculos_tbl WHERE id_vehiculos=$id_vehiculos");
-      $row=mysqli_fetch_array($query);
-    }
-?>
     <div class="content">
-        <div>
+        <div>            
             <ul>
-                <li class="col-md-4 offset-md-1 col-sm-6 offset-sm-3 col-10 offset-1">
-                    <div class="vehicle-card">
-                        <h1 class="card-title">Mazda CX-5</h1>
+                <?php while ($row = mysqli_fetch_array($query)): ?>
+                <li class="col-md-4 offset-md-1 col-sm-6 offset-sm-3 col-10 offset-1 vehicle-card">
+                    <div class="card-title">
+                        <h1 class="marca-title"><?= $row['marca'] ?></h1>
+                        <h2 class="modelo-title"><?= $row['linea'] ?></h2>
+                    </div>
+                    <div>
                         <figure class="car1 img-container"></figure>
-                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.</p>
+                        <p class="card-description"><?= $row['descripcion']  ?></p>
                         <div class="actions">
                             <button type="button" class="btn btn-primary icon-cart" data-toggle="modal" data-target="#myModal"></button>
-                                <button><a href="gestion_vehiculos/consultar_vehiculo.php?id=1" class="icon-search"></a></button>
+                            <button><a href="gestion_vehiculos/consultar_vehiculo.php?id=1" class="icon-search"></a></button>
                         </div>
                     </div>
                 </li>
-                <li class="col-md-4 offset-md-2 col-sm-6 offset-sm-3 col-10 offset-1">
-                    <div class="vehicle-card">
-                        <h1 class="card-title">Mazda CX-3</h1>
-                        <figure class="car2 img-container"></figure>
-                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.</p>
-                        <div class="actions">
-                            <button type="button" class="btn btn-primary icon-cart" data-toggle="modal" data-target="#myModal"></button>
-                            <button><a href="gestion_vehiculos/consultar_vehiculo.php?id=2" class="icon-search"></a></button>
-                        </div>
-                        
-                    </div>
-                </li>
+                <?php endwhile ?>       
             </ul>
         </div>        
     </div>

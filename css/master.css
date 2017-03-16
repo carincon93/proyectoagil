@@ -1,45 +1,29 @@
-a{ 
-text-decoration: none; }
+a{ text-decoration: none; }
+ul {padding: 0;}
 body { font-family:  'Raleway', sans-serif; }
 html, body { height: 100%; }
+.container-page {
+	min-height: 100%;
+	position: relative; }
 /*Login*/
-.hero {
-	background: url(../imgs/background.jpg) no-repeat center;
-	background-size: cover;
-	height: 100vh;
-	; }
-	.hero .overlay {
-		background-color: rgba(29, 20, 14, 0.96);
-		height: 100%;
-		left: 0;
-		position: absolute;
-		top: 0;
-		
-	}
-.login-form {
-	align-items: center;
+.container-login {
     display: flex;
     height: inherit;
-    justify-content: flex-end;
+    justify-content: space-around;
     padding: 0 15rem;
     position: relative; }
-    .login-form form { ; }
-    .login-form form h1 { color: #fff; }
-    .login-form form hr{ border: 0.2px solid #fff; }
-	.btn-form { display: flex; }
-	.login-form form div input:nth-child(1) {
-		flex: 1;
-	}
-	.login-form form input {
-		border-radius: initial;
-		border: none; }
+    .title-login {
+    	display: flex;
+    	align-items: center; }
+    .title-login h1 { font-size: 4rem; }
 	.btn { border-radius: initial; }
+
 /*Navbar*/
 .navigation {
-	;
-	height: 100%;
+	min-height: 100%;
 	background-color: #384346;
-	position: absolute; }
+	position: absolute;
+	z-index: 1;}
 nav a.link {
 	padding: 0.9rem 0.7rem;
 	color: #fff;
@@ -68,18 +52,16 @@ nav a.link:hover {
 /*CSS Catálogo de carros*/
 .content {
 	padding-left: 15rem;
-	height: 100%;
-    
+	height: 100%;    
     display: flex;
 }
 .content div {
 	padding: 1rem;
-	it;
 }
 .content div ul { 
 	margin: 0;
 	padding: 0;}
-.content div ul li {
+.vehicle-card {
 	background-color: #939798;
 	border-top: 10px solid #867043;
 	display: inline-block;
@@ -118,69 +100,96 @@ nav a.link:hover {
 			padding: 1rem;
 			text-decoration: none; }
 .active { background-color: #867043; }
-@media (max-) {
-	.navigation { display: none; }
-	.content { padding: 0; }
-	.content div ul li {
-		margin-bottom: 1rem; }
+@media (max-width: 991px) {
+    .navigation { display: none; }
+    .content { padding: 0; }
+    .content div ul li {
+        margin-bottom: 1rem; }
 }
-
+/*Página index*/
 .index-content {
     height: 100%;
-    
+    width: 100%;
     display: flex;
-    position: absolute;
     justify-content: center;
-    align-items: center;
-}
+    align-items: center; }
 .hero-index {
 	background: url(../imgs/background.jpg) no-repeat center center;
 	background-size: cover;
-	height: 100vh;
-}
+	height: 100vh; }
 .button-index {
 	background-color: #B8A340;
 	display: block;
 	border: none;
-	;
-	padding: 0;
-}
+	width: 15rem;
+	padding: 0; }
 	.button-index a {
 		text-decoration: none;
 		color: #fff;
 		display: block;
-		padding: 1rem;
-	}
+		padding: 1rem; 	}
 .overlay {
 	background-color: #6d5832;
-	top: 0;
+	display: flex;
+	align-items: center;
 	left: 0;
-	
+	top: 0;	
 	height: 100%;
 	position: absolute;
 	opacity: 0.8;
-}
-.buttons-container {
-	position: relative;
-}
-.arr{
+	width: 100%; }
+	.link-vehiculos { width: 10rem; }
+	.link-vehiculos ul { padding: 0; }
+	.link-vehiculos ul li { list-style: none; }
+	.link-vehiculos ul li a { 
+	    display: block;
+	    padding: 1rem;
+	    background-color: #384346;
+	    color: #fff;
+	    text-decoration: none; }
+	.link-vehiculos:hover { transform: scaleX(1.1); }
+
+
+.buttons-container { position: relative; }
+/*.logos { height: 15rem; }*/
+.logos .row {
+	display: flex;
+	justify-content: space-around;
+	padding: 1.3rem;
+	align-items: center;
+	height: inherit; }
+
+.logos figure:nth-child(1){ background: url(../imgs/ford_logo.png) no-repeat center center}
+.logos figure:nth-child(2){ background: url(../imgs/volkswagen_logo.png) no-repeat center center}
+.logos figure:nth-child(3){ background: url(../imgs/mazda_logo.png) no-repeat center center}
+.logos .row figure {
+    height: 10rem;
+    display: inline-block;
+	filter: grayscale(100%);
+	background-size: contain;
+	opacity: 0.6;
+	width: 20rem; }
+
+/*Tablas de gestión*/
+
+
+/*Botón para cerrar sesión*/
+.arr {
 	background-color: #384346;
-}
-.btn-group{
-	margin-left: 1190px;
-}
-.li{
+	display: flex;
+    justify-content: flex-end;
+    padding-right: 1rem; }
+.li {
 	list-style: none;
-	display: inline-block;
-}
+	display: inline-block; }
+.dropdown-menu { padding: 0.4rem; }
+
+
+
 table{
-	margin-top: 10px;
 	border: 1px solid black;
 }
-.act{
-	position: relative;
-	left: 50px;
-}
+
 .ar{
 	margin-left: 20px;
 }

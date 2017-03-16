@@ -1,34 +1,29 @@
 <?php $page = "ford"; ?>
+<?php include 'layouts/conexion.php' ?>
+<?php 
+    $query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl WHERE marca = 'ford' ");
+?>
 <?php include 'layouts/header.php'; ?>
 <?php include 'layouts/navbar.php' ?>
     <div class="content">
         <div class="container">
             <ul class="row">
-                <li class="col-md-4 offset-md-1 col-sm-6 offset-sm-3 col-10 offset-1">
-                    <div class="vehicle-card">
-                        <h1 class="card-title">Ford Fusion</h1>
-                        <figure class="car3 img-container"></figure>
-                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.</p>
+                <?php while ($row = mysqli_fetch_array($query)): ?>
+                <li class="col-md-4 offset-md-1 col-sm-6 offset-sm-3 col-10 offset-1 vehicle-card">
+                    <div class="card-title">
+                        <h1 class="marca-title"><?= $row['marca'] ?></h1>
+                        <h2 class="modelo-title"><?= $row['linea'] ?></h2>
+                    </div>
+                    <div>
+                        <figure class="car1 img-container"></figure>
+                        <p class="card-description"><?= $row['descripcion']  ?></p>
                         <div class="actions">
-                            <button><a href="" class="icon-cart"></a></button>
-                            <button><a href="gestion_vehiculos/consultar_vehiculo.php?id=3" class="icon-search"></a></button>
+                            <button type="button" class="btn btn-primary icon-cart" data-toggle="modal" data-target="#myModal"></button>
+                            <button><a href="gestion_vehiculos/consultar_vehiculo.php?id=1" class="icon-search"></a></button>
                         </div>
                     </div>
                 </li>
-                <li class="col-md-4 offset-md-2 col-sm-6 offset-sm-3 col-10 offset-1">
-                    <div class="vehicle-card">
-                        <h1 class="card-title">Ford Taurus</h1>
-                        <figure class="car4 img-container"></figure>
-                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.</p>
-                        <div class="actions">
-                            <button><a href="" class="icon-cart"></a></button>
-                            <button><a href="gestion_vehiculos/consultar_vehiculo.php?id=4" class="icon-search"></a></button>
-                        </div>
-                        
-                    </div>
-                </li>
-            </ul>
+                <?php endwhile; ?>
         </div>
-        
     </div>
 <?php include 'layouts/footer.php'; ?>
