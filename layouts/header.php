@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/master.css">
+    <link rel="stylesheet" href="<?php echo $base_url; ?>/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?php echo $base_url; ?>/css/owl.theme.default.min.css">
   </head>
   <body>
     <div class="container-page">
