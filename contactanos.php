@@ -1,6 +1,4 @@
-
 <?php 
-	$page = "contactanos"; 
 	session_start();
 	$base_url="http://localhost/proyectoagil";
 ?>
@@ -45,25 +43,17 @@
 	    				<a href="<?php echo $base_url; ?>/volkswagen.php" class="<?php if ($page == 'volkswagen') { echo 'active';} ?>">Volkswagen</a>
 	    			</li>
 	    		</ul>
-	    		<a href="contactanos.php" class="link">Contactanos</a>
+	    		<a href="" class="link" data-toggle="collapse" href="#" data-target="#vehicles-toggle" aria-expanded="false" aria-controls="vehicles-toggle">Contactanos</a>
 	    	</nav>	
 	    </div>	
+	    <div class="contacto">
+	    	
+	    	
+	    </div>
 
-		<div class="container col col-md-10">
-			<section class="owl-carousel owl-theme">
-				<img src="imgs/galeria2.jpg" alt="">
-				<img src="imgs/galeria3.jpg" alt="">
-				<img src="imgs/galeria4.jpg" alt="">
-				<img src="imgs/galeria8.jpg" alt="">
-				<img src="imgs/galeria9.jpg" alt="">
-			</section>
-		
-			<section class="descrip">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat sequi velit ipsum deserunt modi, accusamus assumenda culpa, reprehenderit ducimus nesciunt alias? Tempore voluptas sed eligendi ipsum fuga explicabo, id amet possimus, illo, libero ea deserunt. Omnis aperiam, quibusdam dolor nobis quidem quos soluta reprehenderit, sunt est eos, ratione quis. Quis!</p>
-			</section>
-        </div>
 
 <?php 
 	require "layouts/footer.php";
-
 ?> 
+
+	
