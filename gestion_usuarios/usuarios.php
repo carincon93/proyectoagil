@@ -10,14 +10,13 @@
             <h1>Gestionar usuarios</h1>
             <hr>
             <a class="fa fa-plus btn btn-success ar" href="../registro.php"></a>
-            <a class="btn btn-primary" href="../dashboard.php">volver</a>
             <div>
                 <table class="table table-bordered">
                     <thead class="thead-inverse">
                         <tr>
                             <th>#</th>
-                            <th>correo</th>
-                            <th>Actions</th>
+                            <th>Correo</th>
+                            <th>Acciones</th>
                         </tr>
                         
                     </thead>

@@ -17,6 +17,12 @@ html, body { height: 100%; }
     	align-items: center; }
     .title-login h1 { font-size: 4rem; }
 	.btn { border-radius: initial; }
+	.login-form {
+		display: flex;
+    	align-items: center; }
+    .flex-content {
+    	display: flex;
+    }
 
 /*Navbar*/
 .navigation {
@@ -49,7 +55,7 @@ nav a.link:hover {
 	background-color: #867043;
  }
 
-/*CSS Catálogo de carros*/
+/*CSS Catálogo de carros en index*/
 .content {
 	padding-left: 15rem;
 	height: 100%;    
@@ -71,18 +77,9 @@ nav a.link:hover {
     height: 6rem;
     text-align: center;
     text-shadow: 1px 2px #b5b9bd; }
-.car1 {	background: url(../imgs/mazdacx5.png); }
-.car2 {	background: url(../imgs/mazdacx3.png); }
-.car3 {	background: url(../imgs/fordfusion.png); }
-.car4 {	background: url(../imgs/fordtaurus.png); }
-.car5 {	background: url(../imgs/vwtiguan.png); }
-.car6 {	background: url(../imgs/vwpassat.png); }
-
-.img-container {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-	height: 10rem;}	
+.img-card {
+	height: 14rem;
+}
 .card-description {
 	color: #fff; }
 	.actions button {
@@ -149,9 +146,8 @@ nav a.link:hover {
 	    text-decoration: none; }
 	.link-vehiculos:hover { transform: scaleX(1.1); }
 
-
 .buttons-container { position: relative; }
-/*.logos { height: 15rem; }*/
+
 .logos .row {
 	display: flex;
 	justify-content: space-around;
@@ -170,9 +166,6 @@ nav a.link:hover {
 	opacity: 0.6;
 	width: 20rem; }
 
-/*Tablas de gestión*/
-
-
 /*Botón para cerrar sesión*/
 .arr {
 	background-color: #384346;
@@ -186,24 +179,23 @@ nav a.link:hover {
 
 
 
-table{
-	border: 1px solid black;
-}
+table { border: 1px solid black; }
 
-.ar{
-	margin-left: 20px;
-}
-.owl-carousel{
+.ar { margin-left: 20px; }
+.owl-carousel {
 	margin-top: 100px;
-	margin-left: 100px;
-
-}
-.descrip{
+	margin-left: 100px; }
+	.owl-nav {
+		display: flex;
+		justify-content: center; }
+	.owl-prev, .owl-next {
+		background: aliceblue;
+		text-transform: capitalize;
+    	padding: 0.4rem 0.8rem;	}
+.descrip {
 	margin-left: 150px;
 	text-align: center;
 	background-color: #5E5A5A;
 	color: white;
 	opacity: 0.4;
-	margin-top: 50px; 
-
-}
+	margin-top: 50px; }

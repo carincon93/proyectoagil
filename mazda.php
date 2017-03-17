@@ -15,7 +15,9 @@
                         <h2 class="modelo-title"><?= $row['linea'] ?></h2>
                     </div>
                     <div>
-                        <figure class="car1 img-container"></figure>
+                        <div class="img-card">
+                            <img src="imgs/<?= $row['imagen'] ?>" width="100%">
+                        </div>
                         <p class="card-description"><?= $row['descripcion']  ?></p>
                         <div class="actions">
                             <button type="button" class="btn btn-primary icon-cart" data-toggle="modal" data-target="#myModal"></button>

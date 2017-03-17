@@ -11,7 +11,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo $base_url; ?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/master.css">
   </head>
   <body>
@@ -27,7 +26,6 @@
 		</div>
 		<div class="buttons-container">
 			<button class="button-index"><a href="login.php">Login</a></button>
-			<button class="button-index"><a href="registro.php">Registrarse</a></button>
 		</div>		
 	</div>
 	<div id="catalogo" class="logos container">
@@ -37,21 +35,22 @@
 			<figure></figure>
 		</div>						
 	</div>
-	<div class="container">
-		<div class="row">
-			<ul>
+	<div >
+		<div class="container">
+			<ul class="row justify-content-around">
 				<?php while($row = mysqli_fetch_array($query)): ?>
-                <li class="col-md-4 offset-md-1 col-sm-6 offset-sm-3 col-10 offset-1 vehicle-card">
+                <li class="col-md-4 vehicle-card">
                     <div>
                         <div class="card-title">
                             <h1 class="marca-title"><?= $row['marca'] ?></h1>
                             <h2 class="modelo-title"><?= $row['linea'] ?></h2>
                         </div>
-                        <figure class="car1 img-container"></figure>
+                        <div class="img-card">
+                            <img src="imgs/<?= $row['imagen'] ?>" width="100%">
+                        </div>
                         <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.</p>
                         <div class="actions">
-                            <button type="button" class="btn btn-primary icon-cart" data-toggle="modal" data-target="#myModal"></button>
-                            <button><a href="gestion_vehiculos/consultar_vehiculo.php?id=1" class="icon-search"></a></button>
+                            <button><a href="login.php" class="icon-search">Cotizar vehículo</a></button>
                         </div>
                     </div>
                 </li>

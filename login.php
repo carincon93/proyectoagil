@@ -27,24 +27,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Login</title>
   <link rel="stylesheet" href="<?php echo $base_url; ?>/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo $base_url; ?>/css/master.css">
   <link rel="stylesheet" href="<?php echo $base_url; ?>/css/font-awesome.min.css">
 </head>
 <body>
-  <div class="container-login">
-    <div class="title-login">
-      <h1>Login</h1>
-    </div>
-    <div>
-      <form method="POST">        
-        <input  type="email" name="correo" value="<?php if (isset($_POST['correo'])) {echo $_POST['correo'];} ?>" class=" form-control" placeholder="Correo Electrónico" required>
-        <br>
-        <input type="password" name="contrasena" class="form-control" placeholder="Contraseña" required>
-        <input class="btn btn-success" type="submit" value="Ingresar">
-        <a class="btn btn-success" href="registro.php">Crear nueva cuenta</a>
-      </form>
+  <div class="container-login container">
+    <div class="flex-content row">
+      <div class="title-login col-md-4">
+        <h1>Login</h1>
+      </div>
+      <div class="login-form col-md-4">
+        <form method="POST">        
+          <input  type="email" name="correo" value="<?php if (isset($_POST['correo'])) {echo $_POST['correo'];} ?>" class=" form-control" placeholder="Correo Electrónico" required>
+          <br>
+          <input type="password" name="contrasena" class="form-control" placeholder="Contraseña" required>
+          <input class="btn btn-success" type="submit" value="Ingresar">
+          <a class="btn btn-success" href="registro.php">Crear nueva cuenta</a>
+        </form>
+      </div>
     </div>
   </div>
 <?php include 'layouts/footer.php' ?>

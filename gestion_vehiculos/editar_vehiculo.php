@@ -13,6 +13,7 @@
  if ($_POST) {
   $marca = $_POST["marca"];
   $linea = $_POST["linea"];
+  $imagen = $_POST["imagen"];
   $color = $_POST["color"];
   $placa = $_POST["placa"];
   $descripcion = $_POST["descripcion"];
@@ -21,7 +22,8 @@
   if ($marca != "" && $linea != "" && $color != "" && $placa != "" && $descripcion != "" && $precio != "") {
     $query= "UPDATE gestion_vehiculos_tbl SET 
     marca='$marca', 
-    linea='$linea', 
+    linea='$linea',
+    imagen = '$imagen', 
     color='$color', 
     placa='$placa', 
     descripcion='$descripcion', 
@@ -40,12 +42,14 @@
   <div class="content">
     <div>
       <form method="POST">
-        <h1>Editar vehiculo</h1>
+        <h1>Editar vehículo</h1>
         <hr>
         <label>Marca:</label>
         <input type="text" name="marca" class="form-control" value="<?php echo $row['marca']; ?>" required>
-        <label>Modelo:</label>
+        <label>Línea:</label>
         <input type="text" name="linea" class="form-control" value="<?php echo $row['linea']; ?>" required>
+        <label>Imágen:</label>
+        <input type="file" name="linea" class="form-control" required>
         <label >Color</label>
         <input type="text" name="color" class="form-control" value="<?php echo $row['color']; ?>" required>
         <label>Placa</label>

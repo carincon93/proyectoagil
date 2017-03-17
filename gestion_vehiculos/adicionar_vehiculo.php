@@ -4,13 +4,14 @@
   if ($_POST) {
       $marca = $_POST["marca"];
       $linea = $_POST["linea"];
+      $color = $_POST["imagen"];
       $color = $_POST["color"];
       $placa = $_POST["placa"];
       $descripcion = $_POST["descripcion"];
       $precio = $_POST["precio"];
 
       if ($marca != "" && $linea != "" && $color != "" && $placa != "" && $descripcion != "" && $precio != "") {
-          $query = "INSERT INTO gestion_vehiculos_tbl VALUES('','$marca','$linea','$color','$placa', '$descripcion', '$precio')";
+          $query = "INSERT INTO gestion_vehiculos_tbl VALUES('','$marca','$linea', '$imagen','$color','$placa', '$descripcion', '$precio')";
           $row = mysqli_query($con,$query);
           if ($row) {
               echo "<script>alert('Vehículo registrado exitosamente');</script>";     
@@ -32,6 +33,8 @@
         <input type="text" name="marca" class="form-control" required>
         <label>Línea:</label>
         <input type="text" name="linea" class="form-control" required>
+        <label>Imágen</label>
+        <input type="file" name="imagen" class="form-control">
         <label >Color</label>
         <input type="text" name="color" class="form-control" required>
         <label>Placa</label>

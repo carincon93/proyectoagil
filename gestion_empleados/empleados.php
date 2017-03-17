@@ -10,7 +10,6 @@
             <h1>Gestionar empleados</h1>
             <hr>
             <a class="fa fa-plus btn btn-success ar" href="adicionar_empleado.php"></a>
-            <a class="btn btn-primary" href="../dashboard.php">Volver</a>
             <div>
                 <table class="table table-bordered">
                     <thead class="thead-inverse">
