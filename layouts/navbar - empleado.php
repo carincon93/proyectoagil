@@ -1,13 +1,12 @@
 <?php 
     if (isset($_SESSION["name"])) {
         $usuario = $_SESSION["name"];
-    }else {
+    } else {
         echo "<script>
             alert('El contenido no esta disponible... Por favor Inicie Sesión');
             window.location.replace('http://localhost/proyectoagil/login.php');
         </script>";
     }
-
  ?>
     <nav class="arr">
       <div class="btn-group">
@@ -23,15 +22,16 @@
     		<a href="" class="link" data-toggle="collapse" href="#" data-target="#vehicles-toggle" aria-expanded="false" aria-controls="vehicles-toggle">Vehiculos</a>
     		<ul class="collapse vehicles <?php if ($page != 'dashboard') { echo "show";} ?>" id="vehicles-toggle" aria-expanded="false">
     			<li>
-    				<a href="<?php echo $base_url; ?>/mazda-user.php" class="<?php if ($page == 'mazda') { echo 'active';} ?>">Mazda</a>
+    				<a href="<?php echo $base_url; ?>/mazda.php" class="<?php if ($page == 'mazda') { echo 'active';} ?>">Mazda</a>
     			</li>
     			<li>
-    				<a href="<?php echo $base_url; ?>/ford-user.php" class="<?php if ($page == 'ford') { echo 'active';} ?>">Ford</a>
+    				<a href="<?php echo $base_url; ?>/ford.php" class="<?php if ($page == 'ford') { echo 'active';} ?>">Ford</a>
     			</li>
     			<li>
-    				<a href="<?php echo $base_url; ?>/volkswagen-user.php" class="<?php if ($page == 'volkswagen') { echo 'active';} ?>">Volkswagen</a>
+    				<a href="<?php echo $base_url; ?>/volkswagen.php" class="<?php if ($page == 'volkswagen') { echo 'active';} ?>">Volkswagen</a>
     			</li>
     		</ul>
-            <a href="contactanos.php" class="link">Buzón de sugerencias</a>
+            <a href="<?php echo $base_url; ?>/gestion_vehiculos/vehiculos.php" class="link <?php if ($page == 'gestionar_vehiculos') { echo 'active';} ?>">Gestionar Vehículos</a>
+         
     	</nav>
     </div>

@@ -199,3 +199,27 @@ table { border: 1px solid black; }
 	color: white;
 	opacity: 0.4;
 	margin-top: 50px; }
+
+/*Vista user */
+i.fa-user {
+    position: relative;
+    top: 25px;
+    left: 10px;
+}
+.form-control{
+	padding: .5rem 2em;
+}
+i.fa-envelope{
+	position: relative;
+	top:25px;
+	left: 10px;
+}
+form.sugerencias{
+	height: 550px;
+	position: relative;
+	left: 210px;
+	top: 30px;
+	box-shadow: 1px 1px #AAA6A6;
+	padding: 15px;
+}
+
