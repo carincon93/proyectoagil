@@ -12,6 +12,15 @@
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/master.css">
+    <script>
+        function myMap() {
+        var mapProp= {
+            center:new google.maps.LatLng(5.032678, -75.451303),
+            zoom:5,
+        };
+        var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+        }
+    </script>
   </head>
   <body>
 	<div class="index-content hero-index">
@@ -58,6 +67,11 @@
             </ul>
 		</div>
 	</div>
+    <div id="googleMap" style="width:100%;height:400px;"></div>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="<?php echo $base_url; ?>/js/jquery-3.1.1.min.js"></script>
     <script src="<?php echo $base_url; ?>/js/bootstrap.min.js"></script>
