@@ -1,32 +1,32 @@
-<?php include 'layouts/conexion.php' ?>
 <?php 
-$base_url="http://localhost/proyectoagil";
-if ($_POST) {
+	include 'layouts/conexion.php';
+	$base_url="http://localhost/proyectoagil";
+	if ($_POST) {
 
-    $nombre =$_POST["nombre"];
-    $apellido1 = $_POST["apellido1"];
-    $apellido2 = $_POST["apellido2"];
-    $sexo = $_POST["sexo"];
-    $telefono = $_POST["telefono"];
-    $tipo_documento = $_POST["tipo_documento"];
-    $numero_documento = $_POST["numero_documento"];
-    $correo = $_POST["correo"];
-    $contrasena = $_POST["contrasena"];
+	    $nombre =$_POST["nombre"];
+	    $apellido1 = $_POST["apellido1"];
+	    $apellido2 = $_POST["apellido2"];
+	    $sexo = $_POST["sexo"];
+	    $telefono = $_POST["telefono"];
+	    $tipo_documento = $_POST["tipo_documento"];
+	    $numero_documento = $_POST["numero_documento"];
+	    $correo = $_POST["correo"];
+	    $contrasena = $_POST["contrasena"];
 
 
 
-    if ($nombre !='' && $apellido1 !='' && $apellido2 !='' && $sexo !='' && $telefono !='' && $tipo_documento !='' && $numero_documento !='' && $correo !='' && $contrasena !='') {
-        $sql = "INSERT INTO registro_tbl VALUES ('','$nombre','$apellido1','$apellido2','$sexo','$telefono','$tipo_documento', '$numero_documento', '$correo', '$contrasena')";
+	    if ($nombre !='' && $apellido1 !='' && $apellido2 !='' && $sexo !='' && $telefono !='' && $tipo_documento !='' && $numero_documento !='' && $correo !='' && $contrasena !='') {
+	        $sql = "INSERT INTO registro_tbl VALUES (default, '$nombre', '$apellido1', '$apellido2', '$sexo', '$telefono', '$tipo_documento', '$numero_documento', '$correo', '$contrasena')";
 
-        $row=mysqli_query($con,$sql);
-        if ($row) {
-            echo "<script>alert('exito');
-            windows.location.replace(dashboard.php)</script>";
-        }else{
-            echo "<script>alert('no conect')</script>";            
-        }
-    }
-}
+	        $row=mysqli_query($con,$sql);
+	        if ($row) {
+	            echo "<script>alert('Registro realizado con exito!');
+	            windows.location.replace(dashboard.php)</script>";
+	        }else{
+	            echo "<script>alert('Error al realizar la consulta!')</script>";            
+	        }
+	    }
+	}
 ?>
 
 <!DOCTYPE html>

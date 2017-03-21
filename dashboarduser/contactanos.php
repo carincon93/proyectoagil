@@ -1,8 +1,7 @@
 <?php 
 	session_start();
 	$base_url="http://localhost/proyectoagil";
-
-	include 'layouts/navbar-user.php';
+	include '../layouts/navbar-user.php';
 ?>
 
 <!DOCTYPE html>
@@ -29,13 +28,7 @@
     			<input class="btn btn-primary" type="submit" value="Enviar">
     		</form>
     	</div>
-    
-
-
     </div>
-
-<?php 
-	require "layouts/footer.php";
-?> 
+<?php require "../layouts/footer.php"; ?> 
 
 	

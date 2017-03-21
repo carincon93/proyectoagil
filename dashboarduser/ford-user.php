@@ -1,10 +1,8 @@
 <?php $page = "ford"; ?>
-<?php include 'layouts/conexion.php' ?>
-<?php 
-    $query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl WHERE marca = 'ford' ");
-?>
-<?php include 'layouts/header.php'; ?>
-<?php include 'layouts/navbar-user.php' ?>
+<?php include '../layouts/conexion.php' ?>
+<?php $query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl WHERE marca = 'ford' "); ?>
+<?php include '../layouts/header.php'; ?>
+<?php include '../layouts/navbar-user.php' ?>
     <div class="content">
         <div class="container">
             <ul class="row">
@@ -16,7 +14,7 @@
                     </div>
                     <div>
                         <div class="img-card">
-                            <img src="imgs/<?= $row['imagen'] ?>" width="100%">
+                            <img src="../imgs/<?= $row['imagen'] ?>" width="100%">
                         </div>
                         <p class="card-description"><?= $row['descripcion']  ?></p>
                         <div class="actions">
@@ -27,4 +25,4 @@
                 <?php endwhile; ?>
         </div>
     </div>
-<?php include 'layouts/footer.php'; ?>
+<?php include '../layouts/footer.php'; ?>

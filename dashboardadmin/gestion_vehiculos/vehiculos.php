@@ -1,16 +1,16 @@
-<?php $page = "gestionar_vehiculos" ?>
-<?php require "../layouts/conexion.php"; ?>
 <?php 
+    $page = "gestionar_vehiculos";
+    require "../../layouts/conexion.php";
     $query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl");
+    include '../../layouts/header.php';
+    require "../../layouts/navbar.php"; 
 ?>
-<?php include '../layouts/header.php'; ?>
-<?php require "../layouts/navbar.php"; ?>
     <div class="content">
-        <div>
+        <div class="container-fluid">
             <h1>Gestionar vehículos</h1>
             <hr>
             <a class="fa fa-plus btn btn-success ar" href="adicionar_vehiculo.php"></a>
-            <div>
+            <div class="table-fluid">
                 <table class="table table-bordered">
                     <thead class="thead-inverse">
                         <tr>
@@ -26,9 +26,9 @@
                         <td><?= $row['marca'] ?></td>
                         <td><?= $row['linea'] ?></td>
                         <td>
-                            <a class='fa fa-search btn btn-info act' href='consultar_vehiculo.php?id=<?= $row['id_vehiculos'] ?>'></a>
-                            <a class='fa fa-pencil btn btn-primary act' href='editar_vehiculo.php?id=<?= $row['id_vehiculos'] ?>'></a>
-                            <a class='fa fa-trash btn btn-danger act' href='eliminar_vehiculo.php?id=<?= $row['id_vehiculos'] ?>'></a>
+                            <a class='fa fa-search btn btn-info btn-actions' href='consultar_vehiculo.php?id=<?= $row['id_vehiculos'] ?>'></a>
+                            <a class='fa fa-pencil btn btn-primary btn-actions' href='editar_vehiculo.php?id=<?= $row['id_vehiculos'] ?>'></a>
+                            <a class='fa fa-trash btn btn-danger btn-actions' href='eliminar_vehiculo.php?id=<?= $row['id_vehiculos'] ?>' onclick="return confirm('Seguro que quieres eliminar este vehículo?')"></a>
                         </td>
                     </tr>
                     <?php endwhile; ?>
@@ -36,4 +36,4 @@
             </div>
         </div>
     </div>
-<?php include '../layouts/footer.php' ?>
+<?php include '../../layouts/footer.php' ?>

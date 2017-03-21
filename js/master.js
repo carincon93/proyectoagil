@@ -2,6 +2,57 @@ $(document).ready(function() {
 	$('#myModal').on('shown.bs.modal', function () {
 	  $('#myInput').focus();
 	});
-	
-	
+
+	$('.fa-comment-o').click(function(event) {
+		$('.chat').toggleClass('toggle-chat');
+	});
+	$('.chat-header').click(function(event) {
+		$('.chat').toggleClass('toggle-chat');
+	});
+	$('.fa-bars').click(function(event) {
+		$('.navigation').toggleClass('toggle-nav');
+	});
+
+//----------------Chat---------------- 
+	var btn  = document.getElementById('btnSend');
+	var msgs = document.getElementById('msgs');
+	var answ = new Array();
+	answ[0] = 'Cómo va tu dia?'; 
+	answ[1] = 'Mi nombre es sim-chat'; 
+	answ[2] = 'Es un placer hablar contigo'; 
+	answ[3] = 'Cuál es tu nombre?'; 
+	answ[4] = 'Te puedo ayudar en algo?'; 
+
+	$('#btnSend').click(function(event) {
+		var msg = document.getElementById('msg').value;
+	  	if(msg.length > 0) {
+		    document.getElementById("msg").readOnly = true;
+		    document.getElementById('msg').value = '';
+		    setTimeout(function(){
+			    msgs.innerHTML += "<li class='user'>"+msg+"</li>";
+			},1200);
+		    setTimeout(function(){
+		      	var ransw = Math.round(Math.random()*4);
+		      	msgs.innerHTML += "<li class='machine'>"+answ[ransw]+"</li>";
+		      	document.getElementById("msg").readOnly = false;
+		    },3400);
+	  	}
+	});
+
+	//----------------Shopping cart----------------
+	$('.buy-item').click(function() {
+		var item = $(this).parents('.vehicle-card');
+		// var precio = parseInt($(this).parents('.actions').prev('p').html());
+		
+		total(item);
+	});
+
+	function total(item) {
+		$it = parseInt(item.find('.precio').html());
+		var total = 0;
+
+		totalf = $it + total;
+		$('.total').html(total);
+		$('.table-cart').find('tbody').append('<tr><td></td><td></td><td class="precio">'+$it+'</td></tr>');
+	}
 });

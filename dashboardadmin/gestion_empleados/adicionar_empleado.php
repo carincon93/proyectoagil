@@ -1,30 +1,27 @@
-<?php require "../layouts/conexion.php"; ?>
-<?php 
+<?php require "../../layouts/conexion.php";
   if ($_POST) {
-      $nombre = $_POST["nombre"];
-      $cargo = $_POST["Cargo"];
-      $tipo_documento = $_POST["tipo_documento"];
-      $numero_documento = $_POST["numero_documento"];
+    $nombre = $_POST["nombre"];
+    $cargo = $_POST["cargo"];
+    $tipo_documento = $_POST["tipo_documento"];
+    $numero_documento = $_POST["numero_documento"];
 
-      if ($nombre != "" && $Cargo != "" && $tipo_documento != "" && $numero_documento != "") {
+    if ($nombre != "" && $cargo != "" && $tipo_documento != "" && $numero_documento != "") {
 
-          $query ="INSERT INTO gestion_vehiculos_tbl VALUES('','$nombre','$cargo','$tipo_documento','$numero_documento')";
-            $row=mysqli_query($con,$query);
-          if ($row) {
-              echo "<script>alert('Usuario registrado exitosamente');</script>";
-          
-
+      $query = "INSERT INTO gestion_vehiculos_tbl VALUES('','$nombre','$cargo','$tipo_documento','$numero_documento')";
+      $row   = mysqli_query($con,$query);
+      if ($row) {
+          echo "<script>alert('Empleado registrado exitosamente!');</script>";
       } else{
-          echo "<script>alert('hay campos sin llenar')</script>";
+        echo "<script>alert('Error al realizar la consulta!')</script>";
       }
     }
   }
+  include '../../layouts/header.php';
+  include '../../layouts/navbar.php';
 ?>
-<?php include '../layouts/header.php'; ?>
-<?php include '../layouts/navbar.php' ?>
   <div class="content">
-    <div>
-      <form method="POST">
+    <div class="container">
+      <form method="POST" class="form-group">
         <h1>Nuevo empleado</h1>
         <hr>
         <label>Nombre</label>
@@ -46,5 +43,4 @@
       </form>
     </div>
   </div>
-<?php require "../seguridad/auth.php"; ?>
-<?php include '../layouts/footer.php' ?>
+<?php include '../../layouts/footer.php' ?>

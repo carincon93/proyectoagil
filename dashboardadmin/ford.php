@@ -1,10 +1,11 @@
-<?php $page = "mazda"; ?>
-<?php include 'layouts/conexion.php' ?>
 <?php 
-    $query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl WHERE marca = 'mazda' ");
+    $page = "ford";
+    $base_url="http://localhost/proyectoagil";
+    include '../layouts/conexion.php';
+    $query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl WHERE marca = 'ford' ");
+    include '../layouts/header.php';
+    include '../layouts/navbar.php';
 ?>
-<?php include 'layouts/header.php'; ?>
-<?php include 'layouts/navbar.php' ?>
     <div class="content">
         <div>            
             <ul>
@@ -16,12 +17,13 @@
                     </div>
                     <div>
                         <div class="img-card">
-                            <img src="imgs/<?= $row['imagen'] ?>" width="100%">
+                            <img src="../imgs/<?= $row['imagen'] ?>" width="100%">
                         </div>
-                        <p class="card-description"><?= $row['descripcion']  ?></p>
+                        <p class="card-description"><?= $row['descripcion'] ?></p>
+                        <p class="precio"><?= $row['precio'] ?></p>
                         <div class="actions">
-                            <button type="button" class="btn btn-primary icon-cart" data-toggle="modal" data-target="#myModal"></button>
-                            <button><a href="gestion_vehiculos/consultar_vehiculo.php?id=1" class="icon-search"></a></button>
+                            <button type="button" class="btn buy-item" data-toggle="modal" data-target="#myModal">Cotizar vehículo</button>
+                            <button type="button" class="btn fa fa-pencil"><a href="gestion_vehiculos/editar_vehiculo.php?id=<?= $row['id_vehiculos'] ?>"> Editar vehículo</a></button>
                         </div>
                     </div>
                 </li>
@@ -41,26 +43,22 @@
             </button>
           </div>
           <div class="modal-body">
-            <table>
+            <table class="table-cart">
                 <thead>
                     <th>Marca</th>
                     <th>Modelo</th>
                     <th>Precio</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>CX-3</td>
-                        <td>2017</td>
-                        <td id=""><?= $vehiculo['precio'] ?></td>
-                    </tr>
                 </tbody>
             </table>
           </div>
           <div class="modal-footer">
+            <span class="total">0</span>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
     </div>
-<?php include 'layouts/footer.php'; ?>
+<?php include '../layouts/footer.php'; ?>

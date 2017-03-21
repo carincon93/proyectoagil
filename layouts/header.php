@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/master.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/owl.theme.default.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   </head>
   <body>
     <div class="container-page">

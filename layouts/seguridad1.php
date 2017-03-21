@@ -2,9 +2,9 @@
 	 if (!isset($_SESSION['name'])){
 		echo "
 		<script>
-			alert('debe loguearse para poder ingresar...');
+			alert('Debes iniciar sesión!');
 			window.location.replace('../login.php');
 		</script>
 		";
 	}
- ?>
+?>

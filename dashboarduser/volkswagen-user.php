@@ -1,10 +1,10 @@
 <?php $page = "volkswagen"; ?>
-<?php include 'layouts/conexion.php' ?>
+<?php include '../layouts/conexion.php' ?>
 <?php 
     $query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl WHERE marca = 'volkswagen' ");
 ?>
-<?php include 'layouts/header.php'; ?>
-<?php include 'layouts/navbar.php' ?>
+<?php include '../layouts/header.php'; ?>
+<?php include '../layouts/navbar-user.php' ?>
     <div class="content">
         <div>
             <ul>
@@ -16,12 +16,11 @@
                     </div>
                     <div>
                         <div class="img-card">
-                            <img src="imgs/<?= $row['imagen'] ?>" width="100%">
+                            <img src="../imgs/<?= $row['imagen'] ?>" width="100%">
                         </div>
                         <p class="card-description"><?= $row['descripcion']  ?></p>
                         <div class="actions">
                             <button type="button" class="btn btn-primary icon-cart" data-toggle="modal" data-target="#myModal"></button>
-                            <button><a href="gestion_vehiculos/consultar_vehiculo.php?id=1" class="icon-search"></a></button>
                         </div>
                     </div>
                 </li>
@@ -29,4 +28,4 @@
             </ul>
         </div>        
     </div>
-<?php include 'layouts/footer.php'; ?>
+<?php include '../layouts/footer.php'; ?>
