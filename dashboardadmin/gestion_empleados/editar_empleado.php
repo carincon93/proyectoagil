@@ -10,7 +10,7 @@
     $tipo_documento   = $_POST["tipo_documento"];
     $numero_documento = $_POST["numero_documento"];    
     
-    $query ="UPDATE gestion_vehiculos_tbl SET nombre ='$nombre', cargo ='$cargo', tipo_documento ='$tipo_documento', numero_documento ='$numero_documento' WHERE id_vehiculos = $id";
+    $query ="UPDATE gestion_empleado_tbl SET nombre ='$nombre', cargo ='$cargo', tipo_documento ='$tipo_documento', numero_documento ='$numero_documento' WHERE id_empleados = $id";
     $row   = mysqli_query($con,$query);
     if ($row) {
         echo "<script>alert('Empleado modificado con exito!');</script>";

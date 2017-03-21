@@ -7,7 +7,7 @@
 
     if ($nombre != "" && $cargo != "" && $tipo_documento != "" && $numero_documento != "") {
 
-      $query = "INSERT INTO gestion_vehiculos_tbl VALUES('','$nombre','$cargo','$tipo_documento','$numero_documento')";
+      $query = "INSERT INTO gestion_empleados_tbl VALUES('','$nombre','$cargo','$tipo_documento','$numero_documento')";
       $row   = mysqli_query($con,$query);
       if ($row) {
           echo "<script>alert('Empleado registrado exitosamente!');</script>";
@@ -27,7 +27,7 @@
         <label>Nombre</label>
         <input type="text" name="nombre" class="form-control" required>
         <label>Cargo</label>
-        <input type="number" name="cargo" class="form-control" required>
+        <input type="text" name="cargo" class="form-control" required>
         <label >Tipo de documento</label>
         <select class="form-control" name="tipo_documento" >    
           <option>Seleccione tipo de documento...</option>
@@ -35,7 +35,7 @@
           <option value="C.E">C.E</option>
         </select>
         <label>Número de documento</label>
-        <input type="text" name="numero_documento" class="form-control" required>
+        <input type="number" name="numero_documento" class="form-control" required>
         <br>
         <input class="btn btn-success" type="submit" value="Enviar">
         <input class="btn btn-info" type="reset" value="Borrar">

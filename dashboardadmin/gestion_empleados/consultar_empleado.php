@@ -1,7 +1,7 @@
 <?php require "../../layouts/conexion.php"; 
   if ($_GET) {
     $id     = $_GET['id'];
-    $query  = mysqli_query($con, "SELECT * FROM registro_tbl WHERE id_registro = $id");
+    $query  = mysqli_query($con, "SELECT * FROM gestion_empleados_tbl WHERE id_empleados = $id");
     $row    = mysqli_fetch_array($query);
   }
   require '../../layouts/header.php'; 
