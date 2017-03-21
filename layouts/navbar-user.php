@@ -15,7 +15,7 @@
             <li class="name-user"><?php echo $usuario; ?></li>
            </button>
            <div class="dropdown-menu">
-             <a href="../cerrar_sesion.php">Cerrar Sesión</a>
+             <a href="<?php echo $base_url; ?>/cerrar_sesion.php">Cerrar Sesión</a>
            </div>
         </div>
     </nav>

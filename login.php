@@ -18,6 +18,9 @@
           case '123':
             header("location: dashboardadmin/index.php");
             break;
+          case '12':
+            header("location: dashboardempleado/index.php");
+            break;
           default:
             header("location: dashboarduser/index.php");
             break;

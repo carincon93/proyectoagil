@@ -13,7 +13,7 @@
         <div class="btn-group">
             <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><li class="name-user"><?php echo $usuario; ?></li></button>
         <div class="dropdown-menu">
-          <a href="../cerrar_sesion.php">Cerrar sesión</a>
+          <a href="<?php echo $base_url; ?>/cerrar_sesion.php">Cerrar sesión</a>
         </div>
       </div>
     </nav>
