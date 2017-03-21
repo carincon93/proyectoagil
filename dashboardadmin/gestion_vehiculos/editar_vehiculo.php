@@ -74,10 +74,9 @@
         <textarea name="descripcion" class="form-control" cols="30" rows="10"><?php echo $row['descripcion']; ?></textarea>
         <label>Precio</label>
         <input type="number" name="precio" class="form-control" value="<?php echo $row['precio']; ?>">
-
         <br>
-        <input class="btn btn-success" type="submit" value="Editar">
-        <a class="btn btn-primary" href="vehiculos.php">Volver</a>
+        <button type="submit" class="btn btn-success">Editar</button>
+        <button type="button" class="btn "><a href="vehiculos.php">Volver</a></button>
       </form>
     </div>
   </div>

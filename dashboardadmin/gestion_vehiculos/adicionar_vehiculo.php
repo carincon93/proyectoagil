@@ -67,9 +67,10 @@
         <label>Precio</label>
         <input type="number" name="precio" class="form-control" required>
         <br>
-        <input class="btn btn-success" type="submit" value="Enviar">
-        <input class="btn btn-info" type="reset" value="Borrar">
-        <a class="btn btn-primary" href="vehiculos.php">Volver</a>      
+        <button type="submit" class="btn btn-success">Enviar</button>
+        <button type="reset" class="btn btn-info">Borrar</button>
+        <button type="button" class="btn"><a href="vehiculos.php">Volver</a></button>
+    
       </form>
     </div>
   </div>

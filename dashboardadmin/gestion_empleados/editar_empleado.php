@@ -27,21 +27,20 @@
       <form method="POST" class="form-group">
         <h1>nuevo empleado</h1>
         <hr>
-        <label><em><ins>Nombre:</ins></em></label>
+        <label>Nombre</label>
         <input type="text" name="nombre" class="form-control" value="<?php echo $row['nombre']; ?>" required>
-        <label><em><ins>Cargo:</ins></em></label>
+        <label>Cargo</label>
         <input type="text" name="cargo" class="form-control" value="<?php echo $row['cargo']; ?>" required>
-        <label ><em><ins>tipo de documento</ins></em></label>
+        <label>tipo de documento</label>
         <select class="btn btn-default" name="tipo_documento" >    
           <option <?php if ($row['tipo_documento'] == "C.C") echo "selected"; ?> value="C.C">C.C</option>
-          <option <?php if ($row['tipo_documento'] == "T.I") echo "selected"; ?> value="T.I">T.I</option>
+          <option <?php if ($row['tipo_documento'] == "C.E") echo "selected"; ?> value="C.E">C.E</option>
         </select>
-        <label><em><ins>numero documento</ins></em></label>
+        <label>Número documento</label>
         <input type="text" name="numero_documento" class="form-control" value="<?php echo $row['numero_documento']; ?>" required>
         <br><br>
-        <input class="btn btn-success" type="submit" value="enviar">
-        <input class="btn btn-info" type="reset" value="borrar">
-        <a class="btn btn-primary" href="empleados.php">return</a>        
+        <button type="submit" class="btn btn-success">Editar</button>
+        <button type="button" class="btn"><a href="empleados.php">Volveer</a></button>
       </form>
     </div>
   </div>

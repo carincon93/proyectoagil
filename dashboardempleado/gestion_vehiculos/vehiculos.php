@@ -3,7 +3,7 @@
     require "../../layouts/conexion.php";
     $query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl");
     include '../../layouts/header.php';
-    require "../../layouts/navbar.php"; 
+    require "../../layouts/navbar-empleado.php"; 
 ?>
     <div class="content">
         <div class="container-fluid">

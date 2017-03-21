@@ -4,7 +4,7 @@
     include '../layouts/conexion.php';
     $query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl WHERE marca = 'mazda' ");
     include '../layouts/header.php';
-    include '../layouts/navbar.php'; 
+    include '../layouts/navbar-empleado.php'; 
 ?>
     <div class="content">
         <div>            
@@ -21,7 +21,6 @@
                         </div>
                         <p class="card-description"><?= $row['descripcion']  ?></p>
                         <div class="actions">
-                            <button type="button" class="btn btn-primary icon-cart" data-toggle="modal" data-target="#myModal"></button>
                             <button><a href="gestion_vehiculos/editar_vehiculo.php?id=<?= $row['id_vehiculos'] ?>" class="btn fa fa-pencil"> Editar vehículo</a></button>
                         </div>
                     </div>
@@ -29,39 +28,5 @@
                 <?php endwhile ?>       
             </ul>
         </div>        
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <table>
-                <thead>
-                    <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>Precio</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>CX-3</td>
-                        <td>2017</td>
-                        <td id=""><?= $vehiculo['precio'] ?></td>
-                    </tr>
-                </tbody>
-            </table>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
     </div>
 <?php include '../layouts/footer.php'; ?>

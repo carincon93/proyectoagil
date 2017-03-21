@@ -37,9 +37,9 @@
         <label>Número de documento</label>
         <input type="number" name="numero_documento" class="form-control" required>
         <br>
-        <input class="btn btn-success" type="submit" value="Enviar">
-        <input class="btn btn-info" type="reset" value="Borrar">
-        <a class="btn btn-primary" href="empleados.php">Volver</a>        
+        <button type="submit" class="btn btn-success">Enviar</button>
+        <button type="reset" class="btn btn-info">Borrar</button>
+        <button type="button" class="btn"><a href="empleados.php">Volver</a></button>      
       </form>
     </div>
   </div>

@@ -38,21 +38,4 @@ $(document).ready(function() {
 		    },3400);
 	  	}
 	});
-
-	//----------------Shopping cart----------------
-	$('.buy-item').click(function() {
-		var item = $(this).parents('.vehicle-card');
-		// var precio = parseInt($(this).parents('.actions').prev('p').html());
-		
-		total(item);
-	});
-
-	function total(item) {
-		$it = parseInt(item.find('.precio').html());
-		var total = 0;
-
-		totalf = $it + total;
-		$('.total').html(total);
-		$('.table-cart').find('tbody').append('<tr><td></td><td></td><td class="precio">'+$it+'</td></tr>');
-	}
 });

@@ -1,7 +1,9 @@
 <?php 
-	$page = "contactanos"; 
+	$page = "catalogo"; 
 	session_start();
 	$base_url="http://localhost/proyectoagil";
+	include '../layouts/conexion.php';
+	$query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,27 +22,35 @@
     <div class="container-page">	
 	<?php include '../layouts/navbar-user.php'; ?>
 	<div class="content">
-	
-		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-		  <div class="carousel-inner" role="listbox">
-		    <div class="carousel-item active">
-		      <img class="d-block img-fluid" src="../imgs/galeria3.jpg" alt="First slide">
-		    </div>
-		    <div class="carousel-item">
-		      <img class="d-block img-fluid" src="../imgs/galeria2.jpg" alt="Second slide">
-		    </div>
-		    <div class="carousel-item">
-		      <img class="d-block img-fluid" src="../imgs/galeria4.jpg" alt="Third slide">
-		    </div>
-		  </div>
-		  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		    <span class="sr-only">Previous</span>
-		  </a>
-		  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-		    <span class="sr-only">Next</span>
-		  </a>
-		</div>
+		<div class="container-fluid">
+			<h1>Nuestro Cátalogo</h1>
+			<ul class="row justify-content-around">
+				<?php while($row = mysqli_fetch_array($query)): ?>
+                <li class="col-md-4 vehicle-card-user">
+                    <div>
+                        <div class="card-title">
+                            <h1 class="marca-title"><?= $row['marca'] ?></h1>
+                            <h2 class="modelo-title"><?= $row['linea'] ?></h2>
+                        </div>
+                        <div class="img-card">
+                            <img src="../imgs/<?= $row['imagen'] ?>" width="100%">
+                        </div>
+                        <p class="card-description"><?= $row['descripcion'] ?></p>
+                        <div class="actions">
+                        <?php if ($row['marca'] == 'mazda'): ?>
+                            <button><a href="mazda-user.php" class="icon-search">Cotizar vehículo</a></button>
+                        <?php endif; ?>
+                        <?php if ($row['marca'] == 'ford'): ?>
+                            <button><a href="ford-user.php" class="icon-search">Cotizar vehículo</a></button>
+                        <?php endif; ?>
+                        <?php if ($row['marca'] == 'volkswagen'): ?>
+                            <button><a href="volkswagen-user.php" class="icon-search">Cotizar vehículo</a></button>
+                        <?php endif; ?>
+                        </div>
+                    </div>
+                </li>
+            	<?php endwhile; ?>
+            </ul>
+        </div>
 	</div>
 <?php require "../layouts/footer.php"; ?> 

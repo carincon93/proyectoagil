@@ -62,8 +62,8 @@
         <input type="correo" name="correo" class="form-control" value="<?php echo $row['correo']; ?>" >
         <label>Contraseña</label>
         <input type="password" class="form-control" value="<?php echo $row['contrasena']; ?>" name="contrasena">
-        <input type="submit" class="btn btn-success" value="Enviar">
-        <a class="btn btn-primary" href="usuarios.php">Volver</a>
+        <button type="submit" class="btn btn-success">Editar</button>
+        <button type="button" class="btn"><a href="usuarios.php">Volver</a></button>
       </form>
     </div>
   </div>

@@ -22,16 +22,16 @@
     		<a href="" class="link" data-toggle="collapse" href="#" data-target="#vehicles-toggle" aria-expanded="false" aria-controls="vehicles-toggle">Vehiculos</a>
     		<ul class="collapse vehicles <?php if ($page == 'mazda' || $page == 'ford' || $page == 'volkswagen') { echo "show";} ?>" id="vehicles-toggle" aria-expanded="false">
     			<li>
-    				<a href="<?php echo $base_url; ?>/dashboardadmin/mazda.php" class="<?php if ($page == 'mazda') { echo 'active';} ?>">Mazda</a>
+    				<a href="<?php echo $base_url; ?>/dashboardempleado/mazda.php" class="<?php if ($page == 'mazda') { echo 'active';} ?>">Mazda</a>
     			</li>
     			<li>
-    				<a href="<?php echo $base_url; ?>/dashboardadmin/ford.php" class="<?php if ($page == 'ford') { echo 'active';} ?>">Ford</a>
+    				<a href="<?php echo $base_url; ?>/dashboardempleado/ford.php" class="<?php if ($page == 'ford') { echo 'active';} ?>">Ford</a>
     			</li>
     			<li>
-    				<a href="<?php echo $base_url; ?>/dashboardadmin/volkswagen.php" class="<?php if ($page == 'volkswagen') { echo 'active';} ?>">Volkswagen</a>
+    				<a href="<?php echo $base_url; ?>/dashboardempleado/volkswagen.php" class="<?php if ($page == 'volkswagen') { echo 'active';} ?>">Volkswagen</a>
     			</li>
     		</ul>
-            <a href="<?php echo $base_url; ?>/dashboardadmin/gestion_vehiculos/vehiculos.php" class="link <?php if ($page == 'gestionar_vehiculos') { echo 'active';} ?>">Gestionar Vehículos</a>
+            <a href="<?php echo $base_url; ?>/dashboardempleado/gestion_vehiculos/vehiculos.php" class="link <?php if ($page == 'gestionar_vehiculos') { echo 'active';} ?>">Gestionar Vehículos</a>
       
     	</nav>
     </div>

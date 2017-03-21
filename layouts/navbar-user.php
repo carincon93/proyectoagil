@@ -21,6 +21,7 @@
     </nav>
     <div class="navigation">
     	<nav>
+            <a href="../dashboarduser/index.php" class="link <?php if ($page == 'catalogo') { echo 'active';} ?>">Cátalogo de vehículos</a>
     		<a href="" class="link" data-toggle="collapse" href="#" data-target="#vehicles-toggle" aria-expanded="false" aria-controls="vehicles-toggle">Vehiculos</a>
     		<ul class="collapse vehicles <?php if ($page == 'mazda' || $page == 'ford' || $page == 'volkswagen') { echo "show";} ?>" id="vehicles-toggle" aria-expanded="false">
     			<li>
@@ -33,7 +34,25 @@
     				<a href="<?php echo $base_url; ?>/dashboarduser/volkswagen-user.php" class="<?php if ($page == 'volkswagen') { echo 'active';} ?>">Volkswagen</a>
     			</li>
     		</ul>
-            <a href="contactanos.php" class="link">Buzón de sugerencias</a>
+            <a href="contactanos.php" class="link <?php if ($page == 'sugerencias') { echo 'active';} ?>">Buzón de sugerencias</a>
     	</nav>
     </div>
-    <div class="chat"></div>
+    <i class="fa fa-comment-o"></i>
+    <div class="chat toggle-chat">
+        <section>
+            <div class="chat-header">
+                <h3>CHAT</h3>
+            </div>
+            <div class="chat-content">
+                <nav class="view">
+                    <ul id="msgs">
+                        <li class="machine">Hola, bienvenido.</li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="send">
+                <input id="msg" type="text" placeholder="Escribir..."/>
+                <button id="btnSend" class="fa fa-paper-plane"></button>
+            </div>            
+        </section>
+    </div>

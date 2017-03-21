@@ -41,11 +41,12 @@
   	<link rel="stylesheet" href="<?php echo $base_url; ?>/css/font-awesome.min.css">	
 </head>
 <body>
-	<div class="container-login">
+	<div class="container-fluid">
 	    <div class="title-login">
-	      <h1>Registro</h1>
+	      
 	    </div>
-	    <div>
+	    <div class="sign-form col-md-6 offset-md-3 col-sm-6">
+	    	<h1>Registro</h1>
 			<form action="" method="POST">
 				<label for="">Nombre</label>
 				<input type="text" name="nombre" class="form-control" required="">
@@ -65,7 +66,7 @@
 				<select name="tipo_documento" class="form-control">
 					<option>Seleccione..</option>
 					<option value="C.C">C.C</option>
-					<option value="T.I">T.I</option>
+					<option value="C.E">C.E</option>
 				</select>
 				<label for="">Número de documento</label>
 				<input type="number" name="numero_documento" class="form-control" required="">		
