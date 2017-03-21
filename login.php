@@ -45,20 +45,16 @@
   <link rel="stylesheet" href="<?php echo $base_url; ?>/css/font-awesome.min.css">
 </head>
 <body>
-  <div class="container-login container">
-    <div class="flex-content row">
-      <div class="title-login col-md-4">
-        <h1>Login</h1>
-      </div>
-      <div class="login-form col-md-6 offset-md-1">
+  <div class="container">
+    <div class="col-md-4 offset-md-4" style="margin-top:150px;">
+      <h1>Login</h1>
         <form method="POST" class="form-group">   
           <input type="password" name="code" placeholder="Código" class="form-control">     
           <input  type="email" name="correo" value="<?php if (isset($_POST['correo'])) {echo $_POST['correo'];} ?>" class=" form-control" placeholder="Correo Electrónico" required>
           <input type="password" name="contrasena" class="form-control" placeholder="Contraseña" required>
           <button class="btn btn-success" type="submit">Ingresar</button>
-          <a class="btn btn-success" href="registro.php">Crear nueva cuenta</a>
+          <a class="btn btn-success" style="color:white" href="registro.php">Crear nueva cuenta</a>
         </form>
-      </div>
     </div>
   </div>
 <?php include 'layouts/footer.php' ?>
