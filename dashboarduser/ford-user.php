@@ -18,7 +18,19 @@
                         </div>
                         <p class="card-description"><?= $row['descripcion']  ?></p>
                         <div class="actions">
-                            <button type="button" class="btn btn-primary icon-cart" data-toggle="modal" data-target="#myModal"></button>
+                                <form method="post" action="https://www.paypal.com/cgi-bin/webscr">
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="add" value="1">
+                                    <input type="hidden" name="business" value="payments@yoursite.com">
+                                    <input type="hidden" name="item_name" value="<?= $row['marca']." ".$row['linea'] ?>">
+                                    <input type="hidden" name="item_number" value="<?= $row['id_vehiculos'] ?>">
+                                    <input type="hidden" name="amount" value="<?= $row['precio'] ?>">
+                                    <input type="hidden" name="currency_code" value="COP">
+                                    <input type="hidden" name="return" value="http://www.yoursite.com/thankyou.htm">
+                                    <input type="hidden" name="undefined_quantity" value="1">
+                                    <input type="hidden" name="lc" value="HN">
+                                    <input type="image" src="http://www.paypalobjects.com/es_XC/i/btn/x-click-but22.gif" border="0" name="submit" width="87" height="23" alt="Realice pagos con PayPal: es rápido, gratis y seguro.">
+                                </form>
                         </div>
                     </div>
                 </li>
