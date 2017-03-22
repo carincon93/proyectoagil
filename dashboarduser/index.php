@@ -38,13 +38,13 @@
                         <p class="card-description"><?= $row['descripcion'] ?></p>
                         <div class="actions">
                         <?php if ($row['marca'] == 'mazda'): ?>
-                            <button><a href="mazda-user.php" class="icon-search">Cotizar vehículo</a></button>
+                            <a href="mazda-user.php" class="button-card">Cotizar vehículo</a>
                         <?php endif; ?>
                         <?php if ($row['marca'] == 'ford'): ?>
-                            <button><a href="ford-user.php" class="icon-search">Cotizar vehículo</a></button>
+                            <a href="ford-user.php" class="button-card">Cotizar vehículo</a>
                         <?php endif; ?>
                         <?php if ($row['marca'] == 'volkswagen'): ?>
-                            <button><a href="volkswagen-user.php" class="icon-search">Cotizar vehículo</a></button>
+                            <a href="volkswagen-user.php" class="button-card">Cotizar vehículo</a>
                         <?php endif; ?>
                         </div>
                     </div>

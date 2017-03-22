@@ -8,7 +8,7 @@
 ?>
   <div class="content">
     <div class="container-fluid">
-      <a class="btn btn-primary" href="empleados.php">return</a>
+      <a class="btn btn-primary" href="empleados.php">Volver</a>
       <div class="table-fluid">
         <table class="table">
           <tr>

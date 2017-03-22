@@ -39,8 +39,7 @@
         <br>
         <button type="submit" class="btn btn-success">Enviar</button>
         <button type="reset" class="btn btn-info">Borrar</button>
-        <button type="button" class="btn"><a href="empleados.php">Volver</a></button>      
-      </form>
+        <a class="btn btn-primary" href="empleados.php">Volver</a>
     </div>
   </div>
 <?php include '../../layouts/footer.php' ?>

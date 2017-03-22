@@ -76,7 +76,7 @@
         <input type="number" name="precio" class="form-control" value="<?php echo $row['precio']; ?>">
         <br>
         <button type="submit" class="btn btn-success">Editar</button>
-        <button type="button" class="btn "><a href="vehiculos.php">Volver</a></button>
+        <a class="btn btn-primary" href="vehiculos.php">Volver</a>
       </form>
     </div>
   </div>

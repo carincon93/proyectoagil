@@ -40,8 +40,10 @@
     }
   }
 ?>
-<?php include '../../layouts/header.php' ?>
-<?php include '../../layouts/navbar.php' ?>
+<?php 
+  include '../../layouts/header.php';
+  include '../../layouts/navbar-empleado.php'; 
+?>
   <div class="content">
     <div class="container">
       <form method="POST" class="form-group" enctype="multipart/form-data">

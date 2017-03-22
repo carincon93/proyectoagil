@@ -20,8 +20,8 @@
 	<div class="index-content hero-index">
 		<div class="overlay"></div>
 		<div class="buttons-container">
-			<button class="button-index"><a href="login.php">Login</a></button>
-            <button class="button-index"><a href="#catalogo">Ver vehículos</a></button>
+			<a href="login.php" class="button-index">Login</a>
+            <a href="#catalogo" class="button-index">Ver vehículos</a>
 		</div>		
 	</div>
 	<div id="catalogo" class="logos container">
@@ -46,7 +46,7 @@
                         </div>
                         <p class="card-description"><?= $row['descripcion'] ?></p>
                         <div class="actions">
-                            <button><a href="login.php" class="icon-search">Cotizar vehículo</a></button>
+                            <a href="login.php" class="button-card">Cotizar vehículo</a>
                         </div>
                     </div>
                 </li>

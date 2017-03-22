@@ -69,7 +69,7 @@
         <br>
         <button type="submit" class="btn btn-success">Enviar</button>
         <button type="reset" class="btn btn-info">Borrar</button>
-        <button type="button" class="btn"><a href="vehiculos.php">Volver</a></button>
+        <a href="vehiculos.php" class="btn btn-primary">Volver</a>
     
       </form>
     </div>

@@ -39,8 +39,8 @@
         <label>Número documento</label>
         <input type="text" name="numero_documento" class="form-control" value="<?php echo $row['numero_documento']; ?>" required>
         <br><br>
-        <button type="submit" class="btn btn-success">Editar</button>
-        <button type="button" class="btn"><a href="empleados.php">Volveer</a></button>
+        <input class="btn btn-success input-edit" type="submit" value="Editar">
+        <a class="btn btn-primary" href="empleados.php">Volver</a>
       </form>
     </div>
   </div>

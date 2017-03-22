@@ -53,7 +53,7 @@
     }
   }
   include '../../layouts/header.php';
-  include '../../layouts/navbar.php';  
+  include '../../layouts/navbar-empleado.php'; 
 ?>
   <div class="content">
     <div class="container">
@@ -76,7 +76,7 @@
         <input type="number" name="precio" class="form-control" value="<?php echo $row['precio']; ?>">
 
         <br>
-        <input class="btn btn-success" type="submit" value="Editar">
+        <input class="btn btn-success input-edit" type="submit" value="Editar">
         <a class="btn btn-primary" href="vehiculos.php">Volver</a>
       </form>
     </div>

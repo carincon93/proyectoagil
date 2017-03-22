@@ -21,7 +21,7 @@
                         </div>
                         <p class="card-description"><?= $row['descripcion'] ?></p>
                         <div class="actions">
-                            <button><a href="gestion_vehiculos/editar_vehiculo.php?id=<?= $row['id_vehiculos'] ?>" class="btn fa fa-pencil"> Editar vehículo</a></button>
+                            <a href="gestion_vehiculos/editar_vehiculo.php?id=<?= $row['id_vehiculos'] ?>" class="button-card"><i class="fa fa-pencil"></i> Editar vehículo</a>
                         </div>
                     </div>
                 </li>

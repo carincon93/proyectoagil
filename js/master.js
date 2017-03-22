@@ -38,4 +38,5 @@ $(document).ready(function() {
 		    },3400);
 	  	}
 	});
+
 });

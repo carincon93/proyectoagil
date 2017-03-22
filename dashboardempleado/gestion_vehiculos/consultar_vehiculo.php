@@ -7,7 +7,7 @@
     $row    = mysqli_fetch_array($query);
   }
   include '../../layouts/header.php';
-  include '../../layouts/navbar.php';
+  include '../../layouts/navbar-empleado.php';
 ?>
   <div class="content">
     <div class="container-fluid">

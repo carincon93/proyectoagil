@@ -60,9 +60,10 @@
         <label>Correo</label>
         <input type="correo" name="correo" class="form-control" required>
         <label>Contraseña</label>
+        <input type="password" name="contrasena" class="form-control" required>
         <button type="submit" class="btn btn-success">Enviar</button>
         <button type="reset" class="btn btn-info">Borrar</button>
-        <button type="button" class="btn"><a href="usuarios.php">Volver</a></button>
+        <a class="btn btn-primary" href="usuarios.php">Volver</a>
       </form>
     </div>
   </div>
