@@ -46,28 +46,47 @@
 ?>
   <div class="content">
     <div class="container">
-      <form method="POST" class="form-group" enctype="multipart/form-data">
+      <form method="POST" class="form-group" enctype="multipart/form-data" id="add">
         <h1>Nuevo vehiculo</h1>
         <hr>
-        <label>Marca:</label>
-        <select name="marca" class="form-control" required>
-          <option value>Seleccione marca</option>
-          <option value="mazda">Mazda</option>
-          <option value="ford">Ford</option>
-          <option value="volkswagen">Volkswagen</option>
-        </select>
-        <label>Línea:</label>
-        <input type="text" name="linea" class="form-control" required>
-        <label>Imágen</label>
-        <input type="file" name="imagen" class="form-control" accept="image/png" required>
-        <label >Color</label>
-        <input type="text" name="color" class="form-control" required>
-        <label>Placa</label>
-        <input type="text" name="placa" class="form-control" required>
-        <label>Descripción</label>
-        <textarea name="descripcion" class="form-control" cols="30" rows="10"></textarea>
-        <label>Precio</label>
-        <input type="number" name="precio" class="form-control" required>
+        <div>
+          <label>Marca</label>
+          <select name="marca" class="form-control" data-validation="required">
+            <option value>Seleccione marca</option>
+            <option value="mazda">Mazda</option>
+            <option value="ford">Ford</option>
+            <option value="volkswagen">Volkswagen</option>
+          </select>
+        </div>
+        <div>
+          <label>Línea</label>
+          <input type="text" name="linea" class="form-control" data-validation="required">
+        </div>
+        
+        <div>
+          <label>Imágen</label>
+          <input type="file" name="imagen" class="form-control" accept="image/png" data-validation="required">          
+        </div>
+        
+        <div>
+          <label >Color</label>
+          <input type="text" name="color" class="form-control" data-validation="required">          
+        </div>
+        <div>
+          <label>Placa</label>
+          <input type="text" name="placa" class="form-control" data-validation="required">          
+        </div>
+        
+        <div>
+          <label>Descripción</label>
+          <textarea name="descripcion" class="form-control" cols="30" rows="10" data-validation="required"></textarea>          
+        </div>
+        
+        <div>
+          <label>Precio</label>
+          <input type="number" name="precio" class="form-control" data-validation="required">
+        </div>
+        
         <br>
         <input class="btn btn-success" type="submit" value="Enviar">
         <input class="btn btn-info" type="reset" value="Borrar">

@@ -47,33 +47,56 @@
 	    </div>
 	    <div class="sign-form col-md-6 offset-md-3 col-sm-6">
 	    	<h1>Registro</h1>
-			<form action="" method="POST">
-				<label for="">Nombre</label>
-				<input type="text" name="nombre" class="form-control" required="">
-				<label for="">Primer apellido</label>
-				<input type="text" name="apellido1" class="form-control" required="">		
-				<label for="">Segundo apellido</label>
-				<input type="text" name="apellido2" class="form-control"> 		
-				<label for="">Sexo</label>
-				<select name="sexo" class="form-control">
-					<option>Seleccione..</option>
-					<option value="F">Femenino</option>
-					<option value="M">Masculino</option>
-				</select>
-				<label for="">Telefono</label>
-				<input type="number" name="telefono" class="form-control" required="">
-				<label for="">Tipo de Documento</label>
-				<select name="tipo_documento" class="form-control">
-					<option>Seleccione..</option>
-					<option value="C.C">C.C</option>
-					<option value="C.E">C.E</option>
-				</select>
-				<label for="">Número de documento</label>
-				<input type="number" name="numero_documento" class="form-control" required="">		
-				<label for="">Correo</label>
-				<input type="email" name="correo" class="form-control" required="">
-				<label for="">Contraseña</label>
-				<input type="password" name="contrasena" class="form-control">
+			<form action="" method="POST" id="add">
+				<div>
+					<label for="">Nombre</label>
+					<input type="text" name="nombre" class="form-control" data-validation="length" data-validation-length="min4">
+				</div>
+				<div>
+					<label for="">Primer apellido</label>
+					<input type="text" name="apellido1" class="form-control" data-validation="length" data-validation-length="min4">	
+				</div>
+				
+				<div>
+					<label for="">Segundo apellido</label>
+					<input type="text" name="apellido2" class="form-control">
+				</div>	
+				
+				<div>
+					<label for="">Sexo</label>
+					<select name="sexo" class="form-control" data-validation="required">
+						<option value>Seleccione..</option>
+						<option value="F">Femenino</option>
+						<option value="M">Masculino</option>
+					</select>
+				</div>
+				
+				<div>
+					<label for="">Telefono</label>
+					<input type="number" name="telefono" class="form-control" data-validation="length numeric" data-validation-length="min7">
+				</div>
+				<div>
+					<label for="">Tipo de Documento</label>
+					<select name="tipo_documento" class="form-control" data-validation="required">
+						<option value>Seleccione..</option>
+						<option value="C.C">C.C</option>
+						<option value="C.E">C.E</option>
+					</select>
+				</div>
+				
+				<div>
+					<label for="">Número de documento</label>
+					<input type="number" name="numero_documento" class="form-control" data-validation="length number" data-validation-length="min10">		
+				</div>
+				<div>
+					<label for="">Correo</label>
+					<input type="email" name="correo" class="form-control" data-validation="email">
+				</div>
+				<div>
+					<label for="">Contraseña</label>
+					<input type="password" name="contrasena" class="form-control" data-validation="length" data-validation-length="min8">
+				</div>
+				
 				<input type="submit" value="Registrarse" class="btn btn-primary">
 			</form>      
 	    </div>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+/*@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');*/
 
 /*------------------------------*/
 a[href], a:hover, a:focus { 
@@ -336,3 +336,14 @@ section button:hover {
 .form-group .input-edit { margin: 0; }
 .fa { color: #fff !important; }
 .fa-user, .fa-envelope { color: #333 !important; }
+
+form div span {
+	display: block;
+    background-color: brown;
+    color: white;
+    padding: 2px;
+    margin-bottom: 10px;
+}
+.form-error { 
+	background-color: initial;
+	color: rgb(185, 74, 72); }

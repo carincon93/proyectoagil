@@ -4,6 +4,9 @@
     <script src="<?php echo $base_url; ?>/js/bootstrap.min.js"></script>
     <script src="<?php echo $base_url; ?>/js/master.js"></script>
 	<script src="<?php echo $base_url; ?>/js/owl.carousel.min.js"></script>
+	<script src="<?php echo $base_url; ?>/js/jquery.form-validator.min.js"></script>
+	<script src="<?php echo $base_url; ?>/js/jquery.form_validator.es.js"></script>
+
 	<script>
 		$(document).ready(function() {
 			$('.owl-carousel').owlCarousel({
@@ -13,6 +16,10 @@
     			nav: true,
     			items: 2
 			});
+				$.validate({
+	          form: '#add',
+	          language: es
+	        });
 		});
 	</script>
   </body>
