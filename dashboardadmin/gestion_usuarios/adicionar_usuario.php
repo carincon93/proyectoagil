@@ -32,35 +32,57 @@
 ?>
   <div class="content">
     <div class="container">
-      <form method="POST" class="form-group">
+      <form method="POST" id="add">
         <h1>Adicionar usuario</h1>
         <hr>
-        <label>Nombre</label>
-        <input type="text" name="nombre" class="form-control" required>
-        <label>Primer apellido</label>
-        <input type="text" name="apellido1" class="form-control" required>    
-        <label>Segundo apellido</label>
-        <input type="text" name="apellido2" class="form-control" >        
-        <label>Sexo</label>
-        <select name="sexo" class="form-control">
-          <option value>Seleccione tipo de sexo</option>
-          <option value="M">Masculino</option>
-          <option value="F">Femenino</option>
-        </select>
-        <label>Telefono</label>
-        <input type="number" name="telefono" class="form-control" required>
-        <label>Tipo de Documento</label>
-        <select name="tipo_documento" class="form-control">
-          <option value>Seleccione tipo de documento</option>
-          <option value="C.C">C.C</option>
-          <option value="T.I">T.I</option>
-        </select>
-        <label>Número de documento</label>
-        <input type="number" name="numero_documento" class="form-control" required>   
-        <label>Correo</label>
-        <input type="correo" name="correo" class="form-control" required>
-        <label>Contraseña</label>
-        <input type="password" name="contrasena" class="form-control" required>
+        <div>
+          <label for="">Nombre</label>
+          <input type="text" name="nombre" class="form-control" data-validation="length" data-validation-length="min4">
+        </div>
+        <div>
+          <label for="">Primer apellido</label>
+          <input type="text" name="apellido1" class="form-control" data-validation="length" data-validation-length="min4">  
+        </div>
+        
+        <div>
+          <label for="">Segundo apellido</label>
+          <input type="text" name="apellido2" class="form-control">
+        </div>  
+        
+        <div>
+          <label for="">Sexo</label>
+          <select name="sexo" class="form-control" data-validation="required">
+            <option value>Seleccione..</option>
+            <option value="F">Femenino</option>
+            <option value="M">Masculino</option>
+          </select>
+        </div>
+        
+        <div>
+          <label for="">Telefono</label>
+          <input type="number" name="telefono" class="form-control" data-validation="length numeric" data-validation-length="min7">
+        </div>
+        <div>
+          <label for="">Tipo de Documento</label>
+          <select name="tipo_documento" class="form-control" data-validation="required">
+            <option value>Seleccione..</option>
+            <option value="C.C">C.C</option>
+            <option value="C.E">C.E</option>
+          </select>
+        </div>
+        
+        <div>
+          <label for="">Número de documento</label>
+          <input type="number" name="numero_documento" class="form-control" data-validation="length number" data-validation-length="min10">   
+        </div>
+        <div>
+          <label for="">Correo</label>
+          <input type="email" name="correo" class="form-control" data-validation="email">
+        </div>
+        <div>
+          <label for="">Contraseña</label>
+          <input type="password" name="contrasena" class="form-control" data-validation="length" data-validation-length="min8">
+        </div>
         <button type="submit" class="btn btn-success">Enviar</button>
         <button type="reset" class="btn btn-info">Borrar</button>
         <a class="btn btn-primary" href="usuarios.php">Volver</a>
