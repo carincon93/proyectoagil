@@ -57,11 +57,14 @@
 ?>
   <div class="content">
     <div class="container">
-      <form method="POST" class="form-group" enctype="multipart/form-data">
+      <form method="POST" enctype="multipart/form-data" id="add">
         <h1>Editar vehículo</h1>
         <hr>
-        <label>Marca:</label>
-        <input type="text" name="marca" class="form-control" value="<?php echo $row['marca']; ?>">
+        <div>
+          <label>Marca</label>
+          <input type="text" name="marca" class="form-control" value="<?php echo $row['marca']; ?>">
+        </div>
+        
         <label>Línea:</label>
         <input type="text" name="linea" class="form-control" value="<?php echo $row['linea']; ?>">
         <label>Imágen:</label>

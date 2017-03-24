@@ -46,7 +46,7 @@
 ?>
   <div class="content">
     <div class="container">
-      <form method="POST" class="form-group" enctype="multipart/form-data" id="add">
+      <form method="POST" enctype="multipart/form-data" id="add">
         <h1>Nuevo vehiculo</h1>
         <hr>
         <div>
@@ -88,8 +88,8 @@
         </div>
         
         <br>
-        <input class="btn btn-success" type="submit" value="Enviar">
-        <input class="btn btn-info" type="reset" value="Borrar">
+        <input class="btn btn-success input-edit" type="submit" value="Enviar">
+        <input class="btn btn-info input-edit" type="reset" value="Borrar">
         <a class="btn btn-primary" href="vehiculos.php">Volver</a>      
       </form>
     </div>

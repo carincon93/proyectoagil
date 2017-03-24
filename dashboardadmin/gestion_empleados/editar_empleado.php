@@ -21,23 +21,24 @@
     
   }
   require '../../layouts/header.php'; 
+  require '../../layouts/navbar.php';
 ?>
   <div class="content">
     <div class="container">
       <form method="POST" class="form-group">
-        <h1>nuevo empleado</h1>
+        <h1>Editar empleado</h1>
         <hr>
         <label>Nombre</label>
         <input type="text" name="nombre" class="form-control" value="<?php echo $row['nombre']; ?>" required>
         <label>Cargo</label>
         <input type="text" name="cargo" class="form-control" value="<?php echo $row['cargo']; ?>" required>
-        <label>tipo de documento</label>
-        <select class="btn btn-default" name="tipo_documento" >    
+        <label>Tipo de documento</label>
+        <select name="tipo_documento" class="form-control">    
           <option <?php if ($row['tipo_documento'] == "C.C") echo "selected"; ?> value="C.C">C.C</option>
           <option <?php if ($row['tipo_documento'] == "C.E") echo "selected"; ?> value="C.E">C.E</option>
-        </select>
+        </select><br>
         <label>Número documento</label>
-        <input type="text" name="numero_documento" class="form-control" value="<?php echo $row['numero_documento']; ?>" required>
+        <input type="number" name="numero_documento" class="form-control" value="<?php echo $row['numero_documento']; ?>" required>
         <br><br>
         <input class="btn btn-success input-edit" type="submit" value="Editar">
         <a class="btn btn-primary" href="empleados.php">Volver</a>

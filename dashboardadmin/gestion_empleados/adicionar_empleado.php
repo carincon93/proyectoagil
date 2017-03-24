@@ -21,21 +21,30 @@
 ?>
   <div class="content">
     <div class="container">
-      <form method="POST" class="form-group">
+      <form method="POST" id="add">
         <h1>Nuevo empleado</h1>
         <hr>
-        <label>Nombre</label>
-        <input type="text" name="nombre" class="form-control" required>
-        <label>Cargo</label>
-        <input type="text" name="cargo" class="form-control" required>
-        <label >Tipo de documento</label>
-        <select class="form-control" name="tipo_documento" >    
-          <option>Seleccione tipo de documento...</option>
-          <option value="C.C">C.C</option>
-          <option value="C.E">C.E</option>
-        </select>
-        <label>Número de documento</label>
-        <input type="number" name="numero_documento" class="form-control" required>
+        <div>
+          <label>Nombre</label>
+          <input type="text" name="nombre" class="form-control" data-validation="length" data-validation-length="min4">
+        </div>
+        <div>
+          <label>Cargo</label>
+          <input type="text" name="cargo" class="form-control" data-validation="required">
+        </div>
+        <div>
+          <label >Tipo de documento</label>
+          <select class="form-control" name="tipo_documento" data-validation="required">    
+            <option value>Seleccione tipo de documento...</option>
+            <option value="C.C">C.C</option>
+            <option value="C.E">C.E</option>
+          </select>
+        </div>
+        <div>
+          <label>Número de documento</label>
+          <input type="number" name="numero_documento" class="form-control" data-validation="length" data-validation-length="min10">
+        </div>
+        
         <br>
         <button type="submit" class="btn btn-success">Enviar</button>
         <button type="reset" class="btn btn-info">Borrar</button>

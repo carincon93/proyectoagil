@@ -4,7 +4,8 @@
     $query  = mysqli_query($con, "SELECT * FROM gestion_empleados_tbl WHERE id_empleados = $id");
     $row    = mysqli_fetch_array($query);
   }
-  require '../../layouts/header.php'; 
+  require '../../layouts/header.php';
+  require '../../layouts/navbar.php';
 ?>
   <div class="content">
     <div class="container-fluid">
