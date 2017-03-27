@@ -1,12 +1,12 @@
 <?php 
   session_start();
-  $page = "editar_vehiculo";
+  $page = 'gestionar_vehiculos';
   require "../../php/conexion.php";
  
   if ($_GET) {
-    $id   = $_GET['id'];
+    $id     = $_GET['id'];
     $sql  = mysqli_query($con, "SELECT * FROM vehiculos WHERE id_vehiculo = $id");
-    $row  = mysqli_fetch_array($sql);
+    $row    = mysqli_fetch_array($sql);
   }
   if ($_POST) {
     $marca = $_POST["marca"];
@@ -16,6 +16,8 @@
     $placa = $_POST["placa"];
     $descripcion = $_POST["descripcion"];
     $precio = $_POST["precio"];
+    $cantidad = $_POST["cantidad"];
+
   
     $sql = "UPDATE vehiculos SET 
     marca   = '$marca', 
@@ -24,7 +26,9 @@
     color   = '$color', 
     placa   = '$placa', 
     descripcion = '$descripcion', 
-    precio  = '$precio'
+    precio  = '$precio',
+    cantidad  = '$cantidad'
+
     WHERE id_vehiculo = $id";
 
     if (mysqli_query($con, $sql)) {
@@ -40,11 +44,7 @@
         if ($_FILES['imagen']['error'] > 0) {
           echo "Error: ".$_FILES['imagen']['error'];
         } else {
-          if (file_exists('../../imgs/'.$_FILES['imagen']['name'])) {
-            echo "El archivo ".$_FILES['imagen']['name']." ya existe!";
-          } else {
-            move_uploaded_file($_FILES['imagen']['tmp_name'], '../../imgs/' . $_FILES['imagen']['name']);
-          }
+          move_uploaded_file($_FILES['imagen']['tmp_name'], '../../imgs/' . $_FILES['imagen']['name']);
         }
       } else {
         echo "Error: La imagen no es png!";
@@ -52,15 +52,18 @@
     }
   }
   include '../../layouts/header.php';
-  include '../../layouts/navbar.php';  
+  include '../../layouts/navbar.php'; 
 ?>
   <div class="content">
     <div class="container">
-      <form method="POST" class="form-group" enctype="multipart/form-data">
+      <form method="POST" enctype="multipart/form-data" id="add">
         <h1>Editar vehículo</h1>
         <hr>
-        <label>Marca:</label>
-        <input type="text" name="marca" class="form-control" value="<?php echo $row['marca']; ?>">
+        <div>
+          <label>Marca</label>
+          <input type="text" name="marca" class="form-control" value="<?php echo $row['marca']; ?>">
+        </div>
+        
         <label>Línea:</label>
         <input type="text" name="linea" class="form-control" value="<?php echo $row['linea']; ?>">
         <label>Imágen:</label>
@@ -73,8 +76,10 @@
         <textarea name="descripcion" class="form-control" cols="30" rows="10"><?php echo $row['descripcion']; ?></textarea>
         <label>Precio</label>
         <input type="number" name="precio" class="form-control" value="<?php echo $row['precio']; ?>">
+        <label>Cantidad</label>
+        <input type="number" name="cantidad" class="form-control" value="<?php echo $row['cantidad']; ?>">
         <br>
-        <button type="submit" class="btn btn-success">Editar</button>
+        <input class="btn btn-success input-edit" type="submit" value="Editar">
         <a class="btn btn-primary" href="vehiculos.php">Volver</a>
       </form>
     </div>

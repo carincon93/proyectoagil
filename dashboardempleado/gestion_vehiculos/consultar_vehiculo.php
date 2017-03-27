@@ -39,6 +39,10 @@
           <tr>
             <th>Precio</th>
             <td><?php echo $row['precio']; ?></td>
+          </tr>
+          <tr>
+            <th>Cantidad</th>
+            <td><?php echo $row['cantidad']; ?></td>
           </tr> 
         </table>
       </div>

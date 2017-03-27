@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-03-2017 a las 05:58:33
+-- Tiempo de generación: 27-03-2017 a las 15:15:53
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -115,21 +115,22 @@ CREATE TABLE `vehiculos` (
   `color` varchar(100) COLLATE utf8_bin NOT NULL,
   `placa` varchar(100) COLLATE utf8_bin NOT NULL,
   `descripcion` mediumtext COLLATE utf8_bin NOT NULL,
-  `precio` bigint(11) NOT NULL
+  `precio` bigint(11) NOT NULL,
+  `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=COMPACT;
 
 --
 -- Volcado de datos para la tabla `vehiculos`
 --
 
-INSERT INTO `vehiculos` (`id_vehiculo`, `marca`, `linea`, `imagen`, `color`, `placa`, `descripcion`, `precio`) VALUES
-(1, 'mazda', 'cx-5', 'mazdacx5.png', 'rojo', 'mc2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 80000000),
-(2, 'mazda', 'cx-3', 'mazdacx3.png', 'blanco', 'RTW 875', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 75000000),
-(3, 'ford', 'fusion', 'fordfusion.png', 'blanco', 'ff01', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 92000000),
-(4, 'ford', 'taurus', 'fordtaurus.png', 'blanco', 'ft01', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 90000000),
-(5, 'volkswagen', 'tiguan', 'vwtiguan.png', 'azul', 'WA0', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 80000000),
-(6, 'volkswagen', 'passat', 'vwpassat.png', 'negro', 'vwp3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 65000000),
-(7, 'ford', 'fiesta', 'ford_fiesta.png', 'azul', 'ff1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 75000000);
+INSERT INTO `vehiculos` (`id_vehiculo`, `marca`, `linea`, `imagen`, `color`, `placa`, `descripcion`, `precio`, `cantidad`) VALUES
+(1, 'mazda', 'cx-5', 'mazdacx5.png', 'rojo', 'mc2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 80000000, 0),
+(2, 'mazda', 'cx-3', 'mazdacx3.png', 'blanco', 'RTW 875', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 75000000, 0),
+(3, 'ford', 'fusion', 'fordfusion.png', 'blanco', 'ff01', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 92000000, 0),
+(4, 'ford', 'taurus', 'fordtaurus.png', 'blanco', 'ft01', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 90000000, 0),
+(5, 'volkswagen', 'tiguan', 'vwtiguan.png', 'azul', 'WA0', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 80000000, 0),
+(6, 'volkswagen', 'passat', 'vwpassat.png', 'negro', 'vwp3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 65000000, 0),
+(7, 'ford', 'fiesta', 'ford_fiesta.png', 'azul', 'ff1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 75000000, 10);
 
 --
 -- Índices para tablas volcadas

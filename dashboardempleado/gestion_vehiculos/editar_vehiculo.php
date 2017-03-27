@@ -16,6 +16,8 @@
     $placa = $_POST["placa"];
     $descripcion = $_POST["descripcion"];
     $precio = $_POST["precio"];
+    $cantidad = $_POST["cantidad"];
+
   
     $sql = "UPDATE vehiculos SET 
     marca   = '$marca', 
@@ -24,7 +26,9 @@
     color   = '$color', 
     placa   = '$placa', 
     descripcion = '$descripcion', 
-    precio  = '$precio'
+    precio  = '$precio',
+    cantidad  = '$cantidad'
+
     WHERE id_vehiculo = $id";
 
     if (mysqli_query($con, $sql)) {
@@ -72,6 +76,8 @@
         <textarea name="descripcion" class="form-control" cols="30" rows="10"><?php echo $row['descripcion']; ?></textarea>
         <label>Precio</label>
         <input type="number" name="precio" class="form-control" value="<?php echo $row['precio']; ?>">
+        <label>Cantidad</label>
+        <input type="number" name="cantidad" class="form-control" value="<?php echo $row['cantidad']; ?>">
         <br>
         <input class="btn btn-success input-edit" type="submit" value="Editar">
         <a class="btn btn-primary" href="vehiculos.php">Volver</a>

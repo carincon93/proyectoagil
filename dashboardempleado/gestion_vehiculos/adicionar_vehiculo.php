@@ -1,9 +1,8 @@
 <?php 
   session_start();
   $page = 'gestionar_vehiculos';
-
   require "../../php/conexion.php";
-
+  
   if ($_POST) {
     $marca = $_POST["marca"];
     $linea = $_POST["linea"];
@@ -12,14 +11,15 @@
     $placa = $_POST["placa"];
     $descripcion = $_POST["descripcion"];
     $precio = $_POST["precio"];
+    $cantidad = $_POST["cantidad"];
 
-    if ($marca != "" && $linea != "" && $color != "" && $placa != "" && $descripcion != "" && $precio != "") {
-      $sql = "INSERT INTO vehiculos VALUES(DEFAULT, '$marca', '$linea', '$imagen', '$color', '$placa', '$descripcion', '$precio')";
 
+    if ($marca != "" && $linea != "" && $color != "" && $placa != "" && $descripcion != "" && $precio != "" && $cantidad != "") {
+      $sql = "INSERT INTO vehiculos VALUES(DEFAULT, '$marca', '$linea', '$imagen', '$color', '$placa', '$descripcion', '$precio', $cantidad)";
       if (mysqli_query($con, $sql)) {
-          $_SESSION['action'] = 'add';
-          header("location:vehiculos.php");
-          exit();
+        $_SESSION['action'] = 'add';
+        header("location:vehiculos.php");
+        exit();
       } else {
           echo "<script>alert('Error al realizar la consulta!');</script>";
       }
@@ -38,7 +38,7 @@
     }
   }
   include '../../layouts/header-empleado.php';
-  include '../../layouts/navbar-empleado.php'; 
+  include '../../layouts/navbar-empleado.php';
 ?>
   <div class="content">
     <div class="container">
@@ -81,7 +81,11 @@
         <div>
           <label>Precio</label>
           <input type="number" name="precio" class="form-control" data-validation="required">
-        </div>        
+        </div>
+        <div>
+          <label>Cantidad</label>
+          <input type="number" name="cantidad" class="form-control" data-validation="required">
+        </div>      
         <br>
         <input class="btn btn-success input-edit" type="submit" value="Enviar">
         <input class="btn btn-info input-edit" type="reset" value="Borrar">
