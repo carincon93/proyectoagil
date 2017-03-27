@@ -22,6 +22,7 @@
     			</li>
     		</ul>
             <a href="<?php echo $base_url; ?>/dashboardempleado/gestion_vehiculos/vehiculos.php" class="link <?php if ($page == 'gestionar_vehiculos') { echo 'active';} ?>">Gestionar Vehículos</a>
+            <a href="<?php echo $base_url; ?>/dashboardempleado/usuarios.php" class="link <?php if ($page == 'clientes') { echo 'active';} ?>">Clientes</a>
       
     	</nav>
     </div>

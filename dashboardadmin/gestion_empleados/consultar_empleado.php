@@ -14,6 +14,9 @@
     <div class="container-fluid">
       <a class="btn btn-primary" href="empleados.php">Volver</a>
       <div class="table-fluid">
+      <div class="form-group">
+                <img id="avatar" src="../../imgs/<?php echo $row['imagen']; ?>">               
+        </div>
         <table class="table">
           <tr>
             <th>Nombre</th>

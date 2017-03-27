@@ -39,4 +39,34 @@ $(document).ready(function() {
 	  	}
 	});
 
+	$('.cart').click(function(event) {
+		var cantidad = $(this).parent().prev().prev().html();
+
+		parseInt(cantidad);
+		$nveces = 0;
+		$(this).parent().prev().prev().text(++$nveces);
+	});
+    	$(document).ready(function() {
+    		$('.btn-upload').click(function() {
+    			$('#upload').click();
+    		});
+        $.validate({
+          form: '#add',
+          language: es
+        });
+        $('#upload').change(function(event) {
+          previewAvatar();
+        });
+
+    	});
+
+      function previewAvatar(argument) {
+        var fr = new FileReader();
+        fr.readAsDataURL(document.getElementById("upload").files[0]);
+        fr.onload = function (frevent) {
+          document.getElementById("avatar").src = frevent.target.result;
+        }
+      }
+
+
 });

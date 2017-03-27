@@ -2,7 +2,7 @@
 	include 'php/conexion.php';
 	$base_url="http://localhost/proyectoagil";
 	if ($_POST) {
-
+		$imagen = $_FILES['imagen']['name'];
 	    $nombre =$_POST["nombre"];
 	    $apellido1 = $_POST["apellido1"];
 	    $apellido2 = $_POST["apellido2"];
@@ -16,7 +16,7 @@
 
 
 	    if ($nombre != '' && $apellido1 != '' && $sexo != '' && $telefono != '' && $tipo_documento != '' && $numero_documento != '' && $correo != '' && $contrasena != '') {
-	        $sql = "INSERT INTO clientes VALUES (DEFAULT, '$nombre', '$apellido1', '$apellido2', '$sexo', '$telefono', '$tipo_documento', '$numero_documento', '$correo', '$contrasena')";
+	        $sql = "INSERT INTO clientes VALUES (DEFAULT, '$imagen', '$nombre', '$apellido1', '$apellido2', '$sexo', '$telefono', '$tipo_documento', '$numero_documento', '$correo', '$contrasena')";
 
 	        if (mysqli_query($con, $sql)) {
 	            header("location:login.php");
@@ -24,6 +24,18 @@
 	        } else {
 	            echo "<script>alert('Error al realizar la consulta!')</script>";            
 	        }
+	    }
+	    if ($_FILES) {
+	      if ($_FILES['imagen']['type'] == 'imagen/png') {
+	     
+	        if ($_FILES['imagen']['error'] > 0) {
+	          echo "Error: ".$_FILES['imagen']['error'];
+	        } else {
+	          move_uploaded_file($_FILES['imagen']['tmp_name'], 'imgs/' . $_FILES['imagen']['name']);
+	        }
+	      } else {
+	        echo "Error: La imagen no es png!";
+	      }
 	    }
 	}
 ?>
@@ -37,7 +49,8 @@
 	<title>Registro</title>	
 	<link rel="stylesheet" href="<?php echo $base_url; ?>/css/bootstrap.min.css">
   	<link rel="stylesheet" href="<?php echo $base_url; ?>/css/master.css">
-  	<link rel="stylesheet" href="<?php echo $base_url; ?>/css/font-awesome.min.css">	
+  	<link rel="stylesheet" href="<?php echo $base_url; ?>/css/font-awesome.min.css">
+  	<link rel="stylesheet" href="<?php echo $base_url; ?>/css/registro.css">	
 </head>
 <body>
 	<div class="container-fluid">
@@ -46,7 +59,14 @@
 	    </div>
 	    <div class="sign-form col-md-6 offset-md-3 col-sm-6">
 	    	<h1>Registro</h1>
-			<form action="" method="POST" id="add">
+			<form action="" method="POST" id="add" enctype="multipart/form-data">
+				<div class="form-group">
+	              <img id="avatar" src="../proyectoagil/imgs/avatar.png">
+	          		<button class="btn btn-default btn-upload" type="button">
+	          			<i class=""></i>Cargar foto
+	          		</button>
+	          		<input type="file" id="upload" name="imagen" accept="image/*" style="display: none">
+          		</div>
 				<div>
 					<label for="">Nombre</label>
 					<input type="text" name="nombre" class="form-control" data-validation="length" data-validation-length="min4">
@@ -69,7 +89,7 @@
 						<option value="M">Masculino</option>
 					</select>
 				</div>
-				
+
 				<div>
 					<label for="">Telefono</label>
 					<input type="number" name="telefono" class="form-control" data-validation="length numeric" data-validation-length="min7">

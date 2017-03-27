@@ -28,27 +28,27 @@
             <?php unset($_SESSION['action']); ?>
             <?php endif ?>
             <a class="fa fa-plus btn btn-success ar" href="adicionar_usuario.php"></a>
-            <div class="table-fluid">
-                <table class="table table-bordered">
-                    <thead class="thead-inverse">
-                        <tr>
-                            <th>#</th>
-                            <th>Correo</th>
-                            <th>Acciones</th>
-                        </tr>                        
-                    </thead>
-                    <?php while ($row = mysqli_fetch_array($sql)): ?>
-                    <tr>
-                        <td><?= $row['id_cliente'] ?></td>
-                        <td><?= $row['correo'] ?></td>
-                        <td>
-                            <a class='fa fa-search btn btn-success btn-actions' href='consultar_usuario.php?id=<?= $row['id_cliente'] ?>'></a>
-                            <a class='fa fa-pencil btn btn-success btn-actions' href='editar_usuario.php?id=<?= $row['id_cliente'] ?>'></a>
-                            <a class='fa fa-trash btn btn-danger btn-actions' href='eliminar_usuario.php?id=<?= $row['id_cliente'] ?>' onclick="return confirm('Seguro que quieres eliminar este usuario?')"></a>
-                        </td>
-                    </tr>
-                    <?php endwhile; ?>
-                </table>
+            <div class="row">
+             <?php while ($row = mysqli_fetch_array($sql)): ?>
+                <div class="col-md-4">
+                    <figure class="avatars" id="avatar" style="background: url(../../imgs/<?= $row['imagen'] ?>) center center no-repeat;">                
+                      <figcaption><?= $row['nombre']; ?></figcaption>
+                      <div class="nav">
+                        <nav class="text-center">
+                          <a href="consultar_usuario.php?id=<?= $row['id_cliente'] ?>" class="btn btn-actions" data-toggle="tooltip" data-placement="top" title="Consultar">
+                            <i class="fa fa-search"></i>
+                          </a>
+                          <a href="editar_usuario.php?id=<?= $row['id_cliente'] ?>" class="btn btn-actions" data-toggle="tooltip" data-placement="top" title="Modificar">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                          <a href="" class="fa fa-delete" data-toggle="tooltip" data-placement="top" data-id="<?= $row['id_cliente'] ?>" title="Eliminar">
+                            <i class="fa fa-trash"></i>
+                          </a>
+                        </nav>
+                      </div>
+                    </figure>
+                </div>              
+              <?php endwhile; ?>
             </div>
         </div>
     </div>

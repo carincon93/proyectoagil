@@ -3,6 +3,7 @@
   $page = 'gestionar_usuarios';
   require "../../php/conexion.php";
   if ($_POST) {
+    $imagen = $_FILES['imagen']['name'];
     $nombre =$_POST["nombre"];
     $apellido1 = $_POST["apellido1"];
     $apellido2 = $_POST["apellido2"];
@@ -15,7 +16,7 @@
 
     if ($nombre != '' && $apellido1 != '' && $sexo !='' && $telefono != '' && $tipo_documento != '' && $numero_documento != '' && $correo != '' && $contrasena != '') {
     
-      $sql = "INSERT INTO clientes VALUES (default, '$nombre', '$apellido1', '$apellido2', '$sexo', '$telefono', '$tipo_documento', '$numero_documento', '$correo', '$contrasena')";
+      $sql = "INSERT INTO clientes VALUES (default, '$imagen', '$nombre', '$apellido1', '$apellido2', '$sexo', '$telefono', '$tipo_documento', '$numero_documento', '$correo', '$contrasena')";
 
       if (mysqli_query($con, $sql)) {
         $_SESSION['action'] = 'add';
@@ -25,15 +26,35 @@
         echo "<script>alert('Error al realizar la consulta!');</script>";
       }
     }
+    if ($_FILES) {
+        if ($_FILES['imagen']['type'] == 'imagen/png') {
+       
+          if ($_FILES['imagen']['error'] > 0) {
+            echo "Error: ".$_FILES['imagen']['error'];
+          } else {
+            move_uploaded_file($_FILES['imagen']['tmp_name'], 'imgs/' . $_FILES['imagen']['name']);
+          }
+        } else {
+          echo "Error: La imagen no es png!";
+        }
+      }
   }
+  
   include '../../layouts/header.php';
   include '../../layouts/navbar.php';
 ?>
   <div class="content">
     <div class="container">
-      <form method="POST" id="add">
+      <form method="POST" id="add" enctype="multipart/form-data">
         <h1>Adicionar usuario</h1>
         <hr>
+        <div class="form-group">
+                <img id="avatar" src="../../imgs/avatar.png">
+                <button class="btn btn-default btn-upload" type="button">
+                  <i class=""></i>Cargar foto
+                </button>
+                <input type="file" id="upload" name="imagen" accept="image/*" style="display: none">
+        </div>
         <div>
           <label for="">Nombre</label>
           <input type="text" name="nombre" class="form-control" data-validation="length" data-validation-length="min4">

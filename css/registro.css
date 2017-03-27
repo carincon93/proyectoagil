@@ -1,0 +1,41 @@
+a[href] {
+	color: initial;
+	text-decoration: none;
+}
+img#avatar {
+	border: 1px solid silver;
+	border-radius: 5px;
+	display: block;
+	height: 120px;
+	margin-bottom: 2px;
+	width: 120px;
+}
+figcaption { 
+	background-color: rgba(0,0,0,0.4);
+	color: #fff;
+	font-size: 20px;
+	padding: 1rem;
+	text-align: center; }
+figure.avatars { 
+	height: 209px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+figure.avatars:hover div.nav {
+	display: block;
+}
+figure.avatars div.nav { display: none; }
+figure.avatars nav {
+	flex: 1;
+    align-items: flex-end;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+	justify-content: center;
+}
+figure.avatars nav a { color: #fff;}
+.btn-actions {
+	flex: 1;
+    border-radius: inherit;
+    background-color: transparent;
+}

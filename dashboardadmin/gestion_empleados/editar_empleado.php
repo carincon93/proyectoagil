@@ -8,6 +8,7 @@
         $row  = mysqli_fetch_array($sql);
     }
     if ($_POST) {
+        $imagen = $_FILES['imagen']['name'];
         $nombre =$_POST["nombre"];
         $apellido1 = $_POST["apellido1"];
         $apellido2 = $_POST["apellido2"];
@@ -19,7 +20,7 @@
         $contrasena = $_POST["contrasena"];
         $cargo = $_POST["cargo"];
         
-        $sql = "UPDATE empleados SET nombre = '$nombre', apellido1 = '$apellido1', apellido2 = '$apellido2', sexo = '$sexo', telefono = '$telefono', tipo_documento = '$tipo_documento', numero_documento = '$numero_documento', correo = '$correo', contrasena = '$contrasena', cargo = '$cargo' WHERE id_empleado = $id";
+        $sql = "UPDATE empleados SET imagen = '$imagen', nombre = '$nombre', apellido1 = '$apellido1', apellido2 = '$apellido2', sexo = '$sexo', telefono = '$telefono', tipo_documento = '$tipo_documento', numero_documento = '$numero_documento', correo = '$correo', contrasena = '$contrasena', cargo = '$cargo' WHERE id_empleado = $id";
 
         if (mysqli_query($con, $sql)) {
             $_SESSION['action'] = 'edit';
@@ -28,6 +29,18 @@
         } else {
             echo "<script>alert('Error al realizar la consulta!')</script>";       
         }
+        if ($_FILES) {
+          if ($_FILES['imagen']['type'] == 'imagen/png') {
+         
+            if ($_FILES['imagen']['error'] > 0) {
+              echo "Error: ".$_FILES['imagen']['error'];
+            } else {
+              move_uploaded_file($_FILES['imagen']['tmp_name'], 'imgs/' . $_FILES['imagen']['name']);
+            }
+          } else {
+            echo "Error: La imagen no es png!";
+          }
+        }
     
     }
     include '../../layouts/header.php';
@@ -35,9 +48,16 @@
 ?>
     <div class="content">
       <div class="container">
-        <form method="POST" class="form-group">
+        <form method="POST" class="form-group" enctype="multipart/form-data">
         <h1>Editar Empleado</h1>
         <hr>
+        <div class="form-group">
+                <img id="avatar" src="../../imgs/<?php echo $row['imagen']; ?>">
+                <button class="btn btn-default btn-upload" type="button">
+                  <i class=""></i>Cargar foto
+                </button>
+                <input type="file" id="upload" name="imagen" accept="image/*" style="display: none">
+        </div>
         <label>Nombre</label>
         <input type="text" name="nombre" class="form-control" value="<?php echo $row['nombre']; ?>">
         <label>Primer apellido</label>

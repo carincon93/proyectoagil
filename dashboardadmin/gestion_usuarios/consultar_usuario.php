@@ -15,6 +15,9 @@
       <a class="btn btn-primary" href="usuarios.php">Volver</a>
       <div class="table-fluid">
         <table class="table">
+          <div class="form-group">
+                <img id="avatar" src="../../imgs/<?php echo $row['imagen']; ?>">               
+         </div>
           <tr>
             <th>Nombre</th>
             <td><?php echo $row['nombre']; ?></td>
