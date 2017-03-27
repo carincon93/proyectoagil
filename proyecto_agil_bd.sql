@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-03-2017 a las 15:15:53
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 7.1.1
+-- Tiempo de generación: 27-03-2017 a las 18:00:08
+-- Versión del servidor: 10.1.13-MariaDB
+-- Versión de PHP: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -124,12 +124,12 @@ CREATE TABLE `vehiculos` (
 --
 
 INSERT INTO `vehiculos` (`id_vehiculo`, `marca`, `linea`, `imagen`, `color`, `placa`, `descripcion`, `precio`, `cantidad`) VALUES
-(1, 'mazda', 'cx-5', 'mazdacx5.png', 'rojo', 'mc2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 80000000, 0),
-(2, 'mazda', 'cx-3', 'mazdacx3.png', 'blanco', 'RTW 875', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 75000000, 0),
-(3, 'ford', 'fusion', 'fordfusion.png', 'blanco', 'ff01', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 92000000, 0),
-(4, 'ford', 'taurus', 'fordtaurus.png', 'blanco', 'ft01', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 90000000, 0),
-(5, 'volkswagen', 'tiguan', 'vwtiguan.png', 'azul', 'WA0', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 80000000, 0),
-(6, 'volkswagen', 'passat', 'vwpassat.png', 'negro', 'vwp3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 65000000, 0),
+(1, 'mazda', 'cx-5', 'mazdacx5.png', 'rojo', 'mc2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 80000000, 10),
+(2, 'mazda', 'cx-3', 'mazdacx3.png', 'blanco', 'RTW 875', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 75000000, 10),
+(3, 'ford', 'fusion', 'fordfusion.png', 'blanco', 'ff01', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 92000000, 10),
+(4, 'ford', 'taurus', 'fordtaurus.png', 'blanco', 'ft01', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 90000000, 10),
+(5, 'volkswagen', 'tiguan', 'vwtiguan.png', 'azul', 'WA0', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 80000000, 10),
+(6, 'volkswagen', 'passat', 'vwpassat.png', 'negro', 'vwp3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 65000000, 10),
 (7, 'ford', 'fiesta', 'ford_fiesta.png', 'azul', 'ff1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 75000000, 10);
 
 --
