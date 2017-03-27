@@ -1,6 +1,6 @@
-<?php      
+<?php 
     //Si la variable sesión está vacía
-    if (!isset($_SESSION['administrador'])) 
+    if (!isset($_SESSION['empleado'])) 
     {
        /* nos envía a la siguiente dirección en el caso de no poseer autorización */
        header("location:../login.php");

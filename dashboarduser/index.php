@@ -1,33 +1,17 @@
 <?php 
 	$page = "catalogo"; 
-	session_start();
-	$base_url="http://localhost/proyectoagil";
-	include '../layouts/conexion.php';
-	$query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl");
+	include '../php/conexion.php';
+	$sql = mysqli_query($con, "SELECT * FROM vehiculos");
+    include '../layouts/header-user.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?php echo $base_url; ?>/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo $base_url; ?>/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo $base_url; ?>/css/master.css">
-    <link rel="stylesheet" href="<?php echo $base_url; ?>/css/owl.carousel.min.css">
-  </head>
-  <body>
-    <div class="container-page">	
 	<?php include '../layouts/navbar-user.php'; ?>
 	<div class="content">
-		<div class="container-fluid">
-			<h1>Nuestro Cátalogo</h1>
-			<ul class="row justify-content-around">
-				<?php while($row = mysqli_fetch_array($query)): ?>
-                <li class="col-md-4 vehicle-card-user">
-                    <div>
+		<div class="container">
+			<h1>Nuestro Catálogo</h1>
+			<ul class="row">
+				<?php while($row = mysqli_fetch_array($sql)): ?>
+                <li class="col-md-4 col-sm-10 offset-sm-1">
+                    <div class="vehicle-card-user">
                         <div class="card-title">
                             <h1 class="marca-title"><?= $row['marca'] ?></h1>
                             <h2 class="modelo-title"><?= $row['linea'] ?></h2>

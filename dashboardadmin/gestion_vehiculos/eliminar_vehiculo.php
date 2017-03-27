@@ -1,13 +1,13 @@
 <?php
-	include "../../layouts/conexion.php";
+	session_start();
+	include "../../php/conexion.php";
 	if ($_GET) {
 		$id = $_GET['id'];
-		$row = mysqli_query($con, "DELETE FROM gestion_vehiculos_tbl WHERE id_vehiculos = $id");
-		if ($row) {
-		echo "<script>
-			alert('Vehículo eliminado con exito!');
-			window.location.replace('vehiculos.php');
-		</script>";
+		$sql = "DELETE FROM vehiculos WHERE id_vehiculo = $id";
+		if (mysqli_query($con, $sql)) {
+			$_SESSION['action'] = 'delete';
+			header("location:vehiculos.php");
+			exit();
 		}
 	}
 ?>

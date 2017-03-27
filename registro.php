@@ -1,5 +1,5 @@
 <?php 
-	include 'layouts/conexion.php';
+	include 'php/conexion.php';
 	$base_url="http://localhost/proyectoagil";
 	if ($_POST) {
 
@@ -15,14 +15,13 @@
 
 
 
-	    if ($nombre !='' && $apellido1 !='' && $apellido2 !='' && $sexo !='' && $telefono !='' && $tipo_documento !='' && $numero_documento !='' && $correo !='' && $contrasena !='') {
-	        $sql = "INSERT INTO registro_tbl VALUES (default, '$nombre', '$apellido1', '$apellido2', '$sexo', '$telefono', '$tipo_documento', '$numero_documento', '$correo', '$contrasena')";
+	    if ($nombre != '' && $apellido1 != '' && $sexo != '' && $telefono != '' && $tipo_documento != '' && $numero_documento != '' && $correo != '' && $contrasena != '') {
+	        $sql = "INSERT INTO clientes VALUES (DEFAULT, '$nombre', '$apellido1', '$apellido2', '$sexo', '$telefono', '$tipo_documento', '$numero_documento', '$correo', '$contrasena')";
 
-	        $row=mysqli_query($con,$sql);
-	        if ($row) {
-	            echo "<script>alert('Registro realizado con exito!');
-	            windows.location.replace(dashboard.php)</script>";
-	        }else{
+	        if (mysqli_query($con, $sql)) {
+	            header("location:login.php");
+	            exit(); 
+	        } else {
 	            echo "<script>alert('Error al realizar la consulta!')</script>";            
 	        }
 	    }
@@ -96,8 +95,9 @@
 					<label for="">Contraseña</label>
 					<input type="password" name="contrasena" class="form-control" data-validation="length" data-validation-length="min8">
 				</div>
-				
+				<br>
 				<input type="submit" value="Registrarse" class="btn btn-primary">
+        		<a class="btn btn-primary" href="index.php">Volver</a>
 			</form>      
 	    </div>
   	</div>

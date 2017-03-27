@@ -1,9 +1,9 @@
 <?php 
+	session_start();
 	$page = 'dashboardadmin';
 	require "../layouts/header.php";
-	require "../layouts/seguridad1.php";
+	include '../layouts/navbar.php'; 
 ?>
-<?php include '../layouts/navbar.php'; ?>
 	<div class="content">
 		<div class="container-fluid">
 			<h1>Bienvenido admin!</h1>

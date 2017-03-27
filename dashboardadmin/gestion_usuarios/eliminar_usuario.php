@@ -1,15 +1,15 @@
 <?php 
+	session_start();
 	$page = 'gestionar_usuarios';
 
-	include "../../layouts/conexion.php";
+	include "../../php/conexion.php";
 	if ($_GET) {
 		$id = $_GET['id'];
-		$row = mysqli_query($con, "DELETE FROM registro_tbl WHERE id_registro = $id");
-		if ($row) {
-		echo "<script>
-				alert('Usuario eliminado con exito!');
-				window.location.replace('usuarios.php');
-			</script>";
+		$sql =  "DELETE FROM clientes WHERE id_cliente = $id";
+		if (mysqli_query($con, $sql)) {
+			$_SESSION['action'] = 'delete';
+			header("location:usuarios.php");
+			exit();
 		}
 	}
 ?>

@@ -1,13 +1,14 @@
 <?php 
+  session_start();
   $page = 'gestionar_usuarios';
-  require "../../layouts/conexion.php";
-  include '../../layouts/header.php';
+  require "../../php/conexion.php";
   if ($_GET) {
     $id     = $_GET['id'];
-    $query  = mysqli_query($con,"SELECT * FROM registro_tbl WHERE id_registro = $id");
-    $row    = mysqli_fetch_array($query);
+    $sql  = mysqli_query($con, "SELECT * FROM clientes WHERE id_cliente = $id");
+    $row    = mysqli_fetch_array($sql);
   }
-  include '../../layouts/navbar.php' 
+  include '../../layouts/header.php';
+  include '../../layouts/navbar.php';
 ?>
   <div class="content">
     <div class="container-fluid">
@@ -31,7 +32,7 @@
             <td><?php echo $row['sexo']; ?></td>
           </tr>
           <tr>
-            <th>Telefono</th>
+            <th>Teléfono</th>
             <td><?php echo $row['telefono']; ?></td>
           </tr>
           <tr>
@@ -47,7 +48,7 @@
             <td><?php echo $row['correo']; ?></td>
           </tr>
           <tr>
-            <th>Contrasena</th>
+            <th>Contraseña</th>
             <td><?php echo $row['contrasena']; ?></td>
           </tr>   
         </table>

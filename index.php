@@ -1,7 +1,7 @@
 <?php 
-    include 'layouts/conexion.php';
+    include 'php/conexion.php';
     $base_url="http://localhost/proyectoagil";
-    $query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl");
+    $query = mysqli_query($con, "SELECT * FROM vehiculos");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,8 +20,8 @@
 	<div class="index-content hero-index">
 		<div class="overlay"></div>
 		<div class="buttons-container">
-			<a href="login.php" class="button-index">Login</a>
-            <a href="#catalogo" class="button-index">Ver vehículos</a>
+			<a href="login.php" class="btn btn-success">Login</a>
+            <a href="#catalogo" class="btn btn-success">Ver vehículos</a>
 		</div>		
 	</div>
 	<div id="catalogo" class="logos container">
@@ -33,10 +33,10 @@
 	</div>
 	<div >
 		<div class="container">
-			<ul class="row justify-content-around">
-				<?php while($row = mysqli_fetch_array($query)): ?>
-                <li class="col-md-4 col-10 vehicle-card">
-                    <div>
+            <ul class="row">
+                <?php while($row = mysqli_fetch_array($query)): ?>
+                <li class="col-md-4 col-sm-10 offset-sm-1">
+                    <div class="vehicle-card">
                         <div class="card-title">
                             <h1 class="marca-title"><?= $row['marca'] ?></h1>
                             <h2 class="modelo-title"><?= $row['linea'] ?></h2>
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </li>
-            	<?php endwhile; ?>
+                <?php endwhile; ?>
             </ul>
 		</div>
 	</div>

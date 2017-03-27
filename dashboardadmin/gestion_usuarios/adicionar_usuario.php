@@ -1,34 +1,33 @@
 <?php 
+  session_start();
   $page = 'gestionar_usuarios';
-  require "../../layouts/conexion.php";
-    if ($_POST) {
-      $nombre =$_POST["nombre"];
-      $apellido1 = $_POST["apellido1"];
-      $apellido2 = $_POST["apellido2"];
-      $sexo = $_POST["sexo"];
-      $telefono = $_POST["telefono"];
-      $tipo_documento = $_POST["tipo_documento"];
-      $numero_documento = $_POST["numero_documento"];
-      $correo = $_POST["correo"];
-      $contrasena = $_POST["contrasena"];
+  require "../../php/conexion.php";
+  if ($_POST) {
+    $nombre =$_POST["nombre"];
+    $apellido1 = $_POST["apellido1"];
+    $apellido2 = $_POST["apellido2"];
+    $sexo = $_POST["sexo"];
+    $telefono = $_POST["telefono"];
+    $tipo_documento = $_POST["tipo_documento"];
+    $numero_documento = $_POST["numero_documento"];
+    $correo = $_POST["correo"];
+    $contrasena = $_POST["contrasena"];
 
-      if ($nombre !='' && $apellido1 !='' && $apellido2 !='' && $sexo !='' && $telefono !='' && $tipo_documento !='' && $numero_documento !='' && $correo !='' && $contrasena !='') {
-      
-        $query = "INSERT INTO registro_tbl VALUES (default, '$nombre', '$apellido1', '$apellido2', '$sexo', '$telefono', '$tipo_documento', '$numero_documento', '$correo', '$contrasena')";
+    if ($nombre != '' && $apellido1 != '' && $sexo !='' && $telefono != '' && $tipo_documento != '' && $numero_documento != '' && $correo != '' && $contrasena != '') {
+    
+      $sql = "INSERT INTO clientes VALUES (default, '$nombre', '$apellido1', '$apellido2', '$sexo', '$telefono', '$tipo_documento', '$numero_documento', '$correo', '$contrasena')";
 
-        $row = mysqli_query($con,$query);
-        if ($row) {
-            echo "<script>
-                    alert('Usuario registrado con exito!');
-                    window.location.replace('usuarios.php');
-                  </script>";
-        } else {
-            echo "<script>alert('Error al realizar la consulta!');</script>";
-        }
+      if (mysqli_query($con, $sql)) {
+        $_SESSION['action'] = 'add';
+        header("location:usuarios.php");
+        exit();
+      } else {
+        echo "<script>alert('Error al realizar la consulta!');</script>";
       }
     }
+  }
   include '../../layouts/header.php';
-  include '../../layouts/navbar.php' 
+  include '../../layouts/navbar.php';
 ?>
   <div class="content">
     <div class="container">
@@ -59,7 +58,7 @@
         </div>
         
         <div>
-          <label for="">Telefono</label>
+          <label for="">Teléfono</label>
           <input type="number" name="telefono" class="form-control" data-validation="length numeric" data-validation-length="min7">
         </div>
         <div>
@@ -83,6 +82,7 @@
           <label for="">Contraseña</label>
           <input type="password" name="contrasena" class="form-control" data-validation="length" data-validation-length="min8">
         </div>
+        <br>
         <button type="submit" class="btn btn-success">Enviar</button>
         <button type="reset" class="btn btn-info">Borrar</button>
         <a class="btn btn-primary" href="usuarios.php">Volver</a>

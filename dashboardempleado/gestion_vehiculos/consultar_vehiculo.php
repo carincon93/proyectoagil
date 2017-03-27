@@ -1,12 +1,14 @@
-<?php 
-  require "../../layouts/conexion.php"; 
+<?php
+  session_start();
+  $page = 'gestionar_vehiculos';
+  require "../../php/conexion.php"; 
 
   if ($_GET) {
     $id     = $_GET['id'];
-    $query  = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl WHERE id_vehiculos = $id");
-    $row    = mysqli_fetch_array($query);
+    $sql  = mysqli_query($con, "SELECT * FROM vehiculos WHERE id_vehiculo = $id");
+    $row    = mysqli_fetch_array($sql);
   }
-  include '../../layouts/header.php';
+  include '../../layouts/header-empleado.php';
   include '../../layouts/navbar-empleado.php';
 ?>
   <div class="content">

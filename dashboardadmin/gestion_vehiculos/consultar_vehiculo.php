@@ -1,10 +1,11 @@
 <?php 
-  require "../../layouts/conexion.php"; 
+  session_start();
+  require "../../php/conexion.php"; 
 
   if ($_GET) {
     $id     = $_GET['id'];
-    $query  = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl WHERE id_vehiculos = $id");
-    $row    = mysqli_fetch_array($query);
+    $sql  = mysqli_query($con, "SELECT * FROM vehiculos WHERE id_vehiculo = $id");
+    $row    = mysqli_fetch_array($sql);
   }
   include '../../layouts/header.php';
   include '../../layouts/navbar.php';

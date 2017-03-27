@@ -1,13 +1,13 @@
 <?php
-	include "../../layouts/conexion.php";
+	session_start();
+	include "../../php/conexion.php";
 	if ($_GET) {
 		$id = $_GET['id'];
-		$row = mysqli_query($con, "DELETE FROM gestion_empleados_tbl WHERE id_empleados = $id");
-		if ($row) {
-			echo "<script>
-				alert('Empleado eliminado con exito!');
-				window.location.replace('empleados.php');
-			</script>";
+		$sql =  "DELETE FROM empleados WHERE id_empleado = $id";
+		if (mysqli_query($con, $sql)) {
+			$_SESSION['action'] = 'delete';
+            header("location:empleados.php");
+            exit();
 		}
 	}
 ?>

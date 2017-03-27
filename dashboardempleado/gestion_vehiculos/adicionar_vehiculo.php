@@ -1,6 +1,9 @@
-<?php $page = 'gestionar_vehiculos' ?>
-<?php require "../../layouts/conexion.php"; ?>
 <?php 
+  session_start();
+  $page = 'gestionar_vehiculos';
+
+  require "../../php/conexion.php";
+
   if ($_POST) {
     $marca = $_POST["marca"];
     $linea = $_POST["linea"];
@@ -11,13 +14,12 @@
     $precio = $_POST["precio"];
 
     if ($marca != "" && $linea != "" && $color != "" && $placa != "" && $descripcion != "" && $precio != "") {
-      $query = "INSERT INTO gestion_vehiculos_tbl VALUES(default, '$marca', '$linea', '$imagen', '$color', '$placa', '$descripcion', '$precio')";
-      $row = mysqli_query($con,$query);
-      if ($row) {
-          echo "<script>
-                  alert('Vehículo registrado con exito!');
-                  
-                </script>";
+      $sql = "INSERT INTO vehiculos VALUES(DEFAULT, '$marca', '$linea', '$imagen', '$color', '$placa', '$descripcion', '$precio')";
+
+      if (mysqli_query($con, $sql)) {
+          $_SESSION['action'] = 'add';
+          header("location:vehiculos.php");
+          exit();
       } else {
           echo "<script>alert('Error al realizar la consulta!');</script>";
       }
@@ -28,20 +30,14 @@
         if ($_FILES['imagen']['error'] > 0) {
           echo "Error: ".$_FILES['imagen']['error'];
         } else {
-          if (file_exists('../../imgs/'.$_FILES['imagen']['name'])) {
-            echo "El archivo ".$_FILES['imagen']['name']." ya existe!";
-          } else {
-            move_uploaded_file($_FILES['imagen']['tmp_name'], '../../imgs/' . $_FILES['imagen']['name']);
-          }
+          move_uploaded_file($_FILES['imagen']['tmp_name'], '../../imgs/' . $_FILES['imagen']['name']);
         }
       } else {
         echo "Error: La imagen no es png!";
       }
     }
   }
-?>
-<?php 
-  include '../../layouts/header.php';
+  include '../../layouts/header-empleado.php';
   include '../../layouts/navbar-empleado.php'; 
 ?>
   <div class="content">
@@ -85,8 +81,7 @@
         <div>
           <label>Precio</label>
           <input type="number" name="precio" class="form-control" data-validation="required">
-        </div>
-        
+        </div>        
         <br>
         <input class="btn btn-success input-edit" type="submit" value="Enviar">
         <input class="btn btn-info input-edit" type="reset" value="Borrar">

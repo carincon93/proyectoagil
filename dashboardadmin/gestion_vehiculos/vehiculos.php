@@ -1,7 +1,8 @@
 <?php 
+    session_start();
     $page = "gestionar_vehiculos";
-    require "../../layouts/conexion.php";
-    $query = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl");
+    require "../../php/conexion.php";
+    $sql = mysqli_query($con, "SELECT * FROM vehiculos");
     include '../../layouts/header.php';
     require "../../layouts/navbar.php"; 
 ?>
@@ -9,7 +10,24 @@
         <div class="container-fluid">
             <h1>Gestionar vehículos</h1>
             <hr>
-            <a class="fa fa-plus btn btn-success ar" href="adicionar_vehiculo.php"></a>
+            <?php if (isset($_SESSION['action'])): ?>
+            <div class="">
+                <div class="alert alert-success alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <?php if ($_SESSION['action'] == 'add'): ?>
+                    <strong>Aviso!</strong> El vehículo se registró correctamente!
+                  <?php endif ?>
+                  <?php if ($_SESSION['action'] == 'edit'): ?>
+                    <strong>Aviso!</strong> El vehículo se modificó correctamente!
+                  <?php endif ?>
+                  <?php if ($_SESSION['action'] == 'delete'): ?>
+                    <strong>Aviso!</strong> El vehículo se eliminó correctamente!
+                  <?php endif ?>  
+                </div>
+            </div>
+            <?php unset($_SESSION['action']); ?>
+            <?php endif ?>
+            <a class="fa fa-plus btn btn-success" href="adicionar_vehiculo.php"></a>
             <div class="table-fluid">
                 <table class="table table-bordered">
                     <thead class="thead-inverse">
@@ -20,15 +38,15 @@
                             <th>Acciones</th>
                         </tr>                            
                     </thead>
-                    <?php while ($row = mysqli_fetch_array($query)): ?>
+                    <?php while ($row = mysqli_fetch_array($sql)): ?>
                     <tr>
-                        <td><?= $row['id_vehiculos'] ?></td>
+                        <td><?= $row['id_vehiculo'] ?></td>
                         <td><?= $row['marca'] ?></td>
                         <td><?= $row['linea'] ?></td>
                         <td>
-                            <a class='fa fa-search btn btn-info btn-actions' href='consultar_vehiculo.php?id=<?= $row['id_vehiculos'] ?>'></a>
-                            <a class='fa fa-pencil btn btn-primary btn-actions' href='editar_vehiculo.php?id=<?= $row['id_vehiculos'] ?>'></a>
-                            <a class='fa fa-trash btn btn-danger btn-actions' href='eliminar_vehiculo.php?id=<?= $row['id_vehiculos'] ?>' onclick="return confirm('Seguro que quieres eliminar este vehículo?')"></a>
+                            <a class='fa fa-search btn btn-success btn-actions' href='consultar_vehiculo.php?id=<?= $row['id_vehiculo'] ?>'></a>
+                            <a class='fa fa-pencil btn btn-success btn-actions' href='editar_vehiculo.php?id=<?= $row['id_vehiculo'] ?>'></a>
+                            <a class='fa fa-trash btn btn-danger btn-actions' href='eliminar_vehiculo.php?id=<?= $row['id_vehiculo'] ?>' onclick="return confirm('Seguro que quieres eliminar este vehículo?')"></a>
                         </td>
                     </tr>
                     <?php endwhile; ?>

@@ -1,15 +1,28 @@
 /*@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');*/
 
 /*------------------------------*/
-a[href], a:hover, a:focus { 
+a:hover { text-decoration: none; }
+a:focus { 
 	color: inherit;
 	text-decoration: none; }
 ul { padding: 0;}
+label { margin: 0.5rem }
 body { 
 	color: #333;
 	font-family: 'Roboto', sans-serif; }
 html, body { height: 100%; }
-.btn-primary { background-color: #6799ab;}
+ul.row { list-style: none; }
+/*Botones*/
+.btn-primary { 
+	background-color: #6799ab;
+	border: none; }
+.btn-primary:hover { background-color: #538495; }
+.btn-success { 
+	background-color: rgba(169, 141, 72, 0.5);
+	border: none; }
+	.btn-success:hover { 
+	background-color:rgba(204, 185, 138, 1); }
+
 /*Tablas*/
 .table-fluid { overflow: auto;}
 .btn-actions { 
@@ -20,24 +33,14 @@ html, body { height: 100%; }
 	min-height: 100%;
 	position: relative; }
 /*---------------Login---------------*/
-.container-login {
-    display: flex;
-    height: inherit;
-    justify-content: space-around;
-    position: relative; }
-    .title-login {
-    	display: flex;
-    	align-items: center; }
-    .title-login h1 { font-size: 4rem; }
+.container-login { height: inherit; }
+	.container-login .form-control { margin-bottom: 0.6rem;  }
+	.container-login button[type="submit"], .container-login a { 
+    	cursor: pointer;
+    	display: block; 
+		width: 100%; }
 	.btn { border-radius: initial; }
-	.login-form {
-		display: flex;
-    	align-items: center; }
-    .flex-content {
-    	display: flex;
-    }
     .form-group input { 
-    	margin-bottom: 0.6rem;
     	border-radius: initial;  }
 
 /*---------------Navbar---------------*/
@@ -84,7 +87,7 @@ nav a.link {
 	border-top: 10px solid #867043;
 	display: inline-block;
 	margin-bottom: 1rem;
-}
+	padding: 1rem; }
 .card-title {
     color: #fff;
     height: 6rem;
@@ -134,10 +137,14 @@ nav a.link {
 	background: url(../imgs/bgc.jpg) no-repeat center center;
 	background-size: cover;
 	height: 100vh; }
-.buttons-container a:nth-child(2) { background-color: rgba(181, 156, 36, 0.66); }
-.button-index, .button-card {
+.buttons-container a { 
+	display: block;
+	padding: 1rem;
+	width: 15rem; }
+.button-card {
 	background-color: #988050;
     border: none;
+    color: #fff;
     display: block;
     font-size: 1.2rem;
     padding: 1rem;
@@ -167,8 +174,8 @@ nav a.link {
 	    padding: 1rem;
 	    text-decoration: none; }
 	.link-vehiculos:hover { transform: scaleX(1.1); }
-
-.buttons-container { position: relative; }
+.buttons-container { position: relative;}
+.buttons-container a:hover { color: #fff; }
 
 .logos .row {
 	align-items: center;
@@ -201,14 +208,17 @@ nav a.link {
 	    font-size: 1.5rem; }
 	     .fa-bars:hover { color: aliceblue;}
 	.name-user {
-		text-transform: capitalize;
 		list-style: none;
 		display: inline-block; }
 	.dropdown-toggle { cursor: pointer; }
 	.dropdown-menu { 
+		padding: initial;
+		border-radius: initial;
+		width: 100%; }
+	.dropdown-menu a { 
+		display: block;
 		padding: 0.4rem;
-		border-radius: initial; }
-	.dropdown-menu a { text-decoration: none; }
+		text-decoration: none; }
 
 
 /*---------------Slider (Carousel)---------------*/
@@ -233,8 +243,8 @@ nav a.link {
 /*---------------Vista user---------------*/
 i.fa-user, i.fa-envelope {
     position: relative;
-    top: 25px;
-    left: 10px; }
+    left: 0.5rem;
+	top: 2rem; }
 .form-control { padding: .5rem 2em; }
 /*---------------Chat---------------*/
 .chat {

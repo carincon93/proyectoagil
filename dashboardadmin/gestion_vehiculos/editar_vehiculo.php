@@ -1,11 +1,12 @@
 <?php 
+  session_start();
   $page = "editar_vehiculo";
-  require "../../layouts/conexion.php";
+  require "../../php/conexion.php";
  
   if ($_GET) {
-    $id     = $_GET['id'];
-    $query  = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl WHERE id_vehiculos = $id");
-    $row    = mysqli_fetch_array($query);
+    $id   = $_GET['id'];
+    $sql  = mysqli_query($con, "SELECT * FROM vehiculos WHERE id_vehiculo = $id");
+    $row  = mysqli_fetch_array($sql);
   }
   if ($_POST) {
     $marca = $_POST["marca"];
@@ -16,7 +17,7 @@
     $descripcion = $_POST["descripcion"];
     $precio = $_POST["precio"];
   
-    $query = "UPDATE gestion_vehiculos_tbl SET 
+    $sql = "UPDATE vehiculos SET 
     marca   = '$marca', 
     linea   = '$linea',
     imagen  = '$imagen', 
@@ -24,14 +25,12 @@
     placa   = '$placa', 
     descripcion = '$descripcion', 
     precio  = '$precio'
-    WHERE id_vehiculos = $id";
+    WHERE id_vehiculo = $id";
 
-    $row = mysqli_query($con,$query);
-    if ($row) {
-      echo "<script>
-              alert('Vehículo modificado con exito!');
-              window.location.replace('vehiculos.php');
-            </script>";
+    if (mysqli_query($con, $sql)) {
+      $_SESSION['action'] = 'edit';
+      header("location:vehiculos.php");
+      exit();
     } else {
       echo "<script>alert('Error al realizar la consulta!')<script>";
     }

@@ -1,11 +1,13 @@
 <?php 
+    session_start();
+
     $page = 'gestionar_usuarios';
-    require "../../layouts/conexion.php";
-    include '../../layouts/header.php';
+    require "../../php/conexion.php";
+    
     if ($_GET) {
-        $id=$_GET['id'];
-        $query=mysqli_query($con,"SELECT * FROM registro_tbl WHERE id_registro=$id");
-        $row=mysqli_fetch_array($query);
+        $id     = $_GET['id'];
+        $sql    = mysqli_query($con, "SELECT * FROM clientes WHERE id_cliente = $id");
+        $row    = mysqli_fetch_array($sql);
     }
     if ($_POST) {
         $nombre =$_POST["nombre"];
@@ -18,21 +20,21 @@
         $correo = $_POST["correo"];
         $contrasena = $_POST["contrasena"];
         
-        $query = "UPDATE registro_tbl SET nombre = '$nombre', apellido1 = '$apellido1', apellido2 = '$apellido2', sexo = '$sexo', telefono = '$telefono', tipo_documento = '$tipo_documento', numero_documento = '$numero_documento', correo = '$correo', contrasena = '$contrasena' WHERE id_registro = $id";
+        $sql = "UPDATE clientes SET nombre = '$nombre', apellido1 = '$apellido1', apellido2 = '$apellido2', sexo = '$sexo', telefono = '$telefono', tipo_documento = '$tipo_documento', numero_documento = '$numero_documento', correo = '$correo', contrasena = '$contrasena' WHERE id_cliente = $id";
 
-        $row = mysqli_query($con,$query);
-        if ($row) {
-            echo "<script>
-                        alert('Usuario modificado con exito!');
-                        windows.location.replace(usuarios.php);
-                </script>";
+        if (mysqli_query($con, $sql)) {
+            $_SESSION['action'] = 'edit';
+            header("location:usuarios.php");
+            exit();
         } else {
             echo "<script>alert('Error al realizar la consulta!')</script>";       
         }
     
     }
+    include '../../layouts/header.php';
+    include '../../layouts/navbar.php';
+
 ?>
-<?php include '../../layouts/navbar.php' ?>
     <div class="content">
       <div class="container">
         <form method="POST" class="form-group">
@@ -54,7 +56,7 @@
         <label>Tipo de Documento</label>
         <select name="tipo_documento" class="form-control">
           <option <?php if ($row['tipo_documento'] == "C.C") echo "selected"; ?>  value="C.C">C.C</option>
-          <option <?php if ($row['tipo_documento'] == "T.I") echo "selected"; ?> value="T.I">T.I</option>
+          <option <?php if ($row['tipo_documento'] == "C.E") echo "selected"; ?> value="C.E">C.E</option>
         </select>
         <label>Número de documento</label>
         <input type="number" name="numero_documento" class="form-control" value="<?php echo $row['numero_documento']; ?>">   
@@ -62,6 +64,7 @@
         <input type="correo" name="correo" class="form-control" value="<?php echo $row['correo']; ?>" >
         <label>Contraseña</label>
         <input type="password" class="form-control" value="<?php echo $row['contrasena']; ?>" name="contrasena">
+        <br>
         <input class="btn btn-success input-edit" type="submit" value="Editar">
         <a class="btn btn-primary" href="usuarios.php">Volver</a>
       </form>

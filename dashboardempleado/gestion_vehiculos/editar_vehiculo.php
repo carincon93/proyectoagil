@@ -1,11 +1,12 @@
 <?php 
-  $page = "editar_vehiculo";
-  require "../../layouts/conexion.php";
+  session_start();
+  $page = 'gestionar_vehiculos';
+  require "../../php/conexion.php";
  
   if ($_GET) {
     $id     = $_GET['id'];
-    $query  = mysqli_query($con, "SELECT * FROM gestion_vehiculos_tbl WHERE id_vehiculos = $id");
-    $row    = mysqli_fetch_array($query);
+    $sql  = mysqli_query($con, "SELECT * FROM vehiculos WHERE id_vehiculo = $id");
+    $row    = mysqli_fetch_array($sql);
   }
   if ($_POST) {
     $marca = $_POST["marca"];
@@ -16,7 +17,7 @@
     $descripcion = $_POST["descripcion"];
     $precio = $_POST["precio"];
   
-    $query = "UPDATE gestion_vehiculos_tbl SET 
+    $sql = "UPDATE vehiculos SET 
     marca   = '$marca', 
     linea   = '$linea',
     imagen  = '$imagen', 
@@ -24,14 +25,12 @@
     placa   = '$placa', 
     descripcion = '$descripcion', 
     precio  = '$precio'
-    WHERE id_vehiculos = $id";
+    WHERE id_vehiculo = $id";
 
-    $row = mysqli_query($con,$query);
-    if ($row) {
-      echo "<script>
-              alert('Vehículo modificado con exito!');
-              window.location.replace('vehiculos.php');
-            </script>";
+    if (mysqli_query($con, $sql)) {
+      $_SESSION['action'] = 'edit';
+      header("location:vehiculos.php");
+      exit();
     } else {
       echo "<script>alert('Error al realizar la consulta!')<script>";
     }
@@ -41,18 +40,14 @@
         if ($_FILES['imagen']['error'] > 0) {
           echo "Error: ".$_FILES['imagen']['error'];
         } else {
-          if (file_exists('../../imgs/'.$_FILES['imagen']['name'])) {
-            echo "El archivo ".$_FILES['imagen']['name']." ya existe!";
-          } else {
-            move_uploaded_file($_FILES['imagen']['tmp_name'], '../../imgs/' . $_FILES['imagen']['name']);
-          }
+          move_uploaded_file($_FILES['imagen']['tmp_name'], '../../imgs/' . $_FILES['imagen']['name']);
         }
       } else {
         echo "Error: La imagen no es png!";
       }
     }
   }
-  include '../../layouts/header.php';
+  include '../../layouts/header-empleado.php';
   include '../../layouts/navbar-empleado.php'; 
 ?>
   <div class="content">
@@ -77,7 +72,6 @@
         <textarea name="descripcion" class="form-control" cols="30" rows="10"><?php echo $row['descripcion']; ?></textarea>
         <label>Precio</label>
         <input type="number" name="precio" class="form-control" value="<?php echo $row['precio']; ?>">
-
         <br>
         <input class="btn btn-success input-edit" type="submit" value="Editar">
         <a class="btn btn-primary" href="vehiculos.php">Volver</a>
