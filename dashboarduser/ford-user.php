@@ -27,7 +27,7 @@
                                 <input type="hidden" name="add" value="1">
                                 <input type="hidden" name="business" value="payments@yoursite.com">
                                 <input type="hidden" name="item_name" value="<?= $row['marca']." ".$row['linea'] ?>">
-                                <input type="hidden" name="item_number" value="<?= $row['id_vehiculos'] ?>">
+                                <input type="hidden" name="item_number" value="<?= $row['id_vehiculo'] ?>">
                                 <input type="hidden" name="amount" value="<?= $row['precio'] ?>">
                                 <input type="hidden" name="currency_code" value="COP">
                                 <input type="hidden" name="return" value="http://www.yoursite.com/thankyou.htm">

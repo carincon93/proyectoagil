@@ -39,12 +39,4 @@ $(document).ready(function() {
 	  	}
 	});
 
-	$('.cart').click(function(event) {
-		var cantidad = $(this).parent().prev().prev().html();
-
-		parseInt(cantidad);
-		$nveces = 0;
-		$(this).parent().prev().prev().text(++$nveces);
-	});
-
 });
