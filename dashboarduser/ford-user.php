@@ -20,7 +20,6 @@
                                 <img src="../imgs/<?= $row['imagen'] ?>" width="100%">
                             </div>
                             <p class="card-description"><?= $row['descripcion']  ?></p>
-                            <p class="precio cantidad">Cantidad: <?= $row['cantidad']  ?></p>
                             <p class="precio"><span>Desde </span>$<?= $row['precio'] ?> COP</p>
                             <form method="post" action="https://www.paypal.com/cgi-bin/webscr">
                                 <input type="hidden" name="cmd" value="_cart">
@@ -33,7 +32,7 @@
                                 <input type="hidden" name="return" value="http://www.yoursite.com/thankyou.htm">
                                 <input type="hidden" name="undefined_quantity" value="1">
                                 <input type="hidden" name="lc" value="HN">
-                                <input type="submit" class="cart" name="submit" value="Añadir al carrito">
+                                <input type="submit" class="cart" name="submit" value="Añadir al carrito">                          
                             </form>
                         </div>
                     </div>                    
