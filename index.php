@@ -13,6 +13,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo $base_url; ?>/css/animate.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>/css/master.css">
     <script src="<?php echo $base_url; ?>/js/googlemaps.js"></script>
   </head>
@@ -43,7 +44,7 @@
                                     <h1 class="marca-title"><?= $row['marca'] ?></h1>
                                     <h2 class="modelo-title"><?= $row['linea'] ?></h2>
                                 </div>
-                                <img src="imgs/<?= $row['imagen'] ?>" class="right-card" width="100%">
+                                <img src="imgs/<?= $row['imagen'] ?>" class="right-card animated" width="100%">
                             </div>
                             <div class="col-md-6">
                                 <p class="card-description"><?= $row['descripcion'] ?></p>
@@ -66,8 +67,8 @@
     <script src="<?php echo $base_url; ?>/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('.vehicle-card').mouseover(function(event) {
-                $('.right-card').css('left', '0');
+            $('.vehicle-card').hover(function(event) {
+                $(this).find('.right-card').toggleClass('pulse');
               });
         });
     </script>

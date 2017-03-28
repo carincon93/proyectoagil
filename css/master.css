@@ -395,3 +395,4 @@ figure.avatars nav {
 figure.avatars nav a { 
 	background-color: #384346;
 	color: #fff;}
+.vehicle-card:hover {background-color: #666869;}
