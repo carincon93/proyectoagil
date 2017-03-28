@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-03-2017 a las 14:02:04
+-- Tiempo de generación: 27-03-2017 a las 15:15:53
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -54,7 +54,6 @@ INSERT INTO `administradores` (`id_registro`, `nombre`, `apellido1`, `apellido2`
 
 CREATE TABLE `clientes` (
   `id_cliente` int(11) NOT NULL,
-  `imagen` varchar(80) COLLATE utf8_bin NOT NULL,
   `nombre` varchar(100) COLLATE utf8_bin NOT NULL,
   `apellido1` varchar(100) COLLATE utf8_bin NOT NULL,
   `apellido2` varchar(100) COLLATE utf8_bin NOT NULL,
@@ -70,16 +69,10 @@ CREATE TABLE `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id_cliente`, `imagen`, `nombre`, `apellido1`, `apellido2`, `sexo`, `telefono`, `tipo_documento`, `numero_documento`, `correo`, `contrasena`) VALUES
-(1, 'av01.png', 'Camilo', 'Vasquez', 'Rincon', 'M', 12345678, 'C.C', 1234567890, 'camilo@mail.com', '12345678'),
-(2, 'av03.png', 'Luis', 'Alfonso', 'Gutierrez', 'M', 12345678, 'C.C', 1234567890, 'lalfonso@mail.com', '12345678'),
-(3, 'av02.png', 'daniel', 'pineda', '', 'M', 12345678, 'C.E', 1234567890, 'dpin@mail.com', '12345678'),
-(4, 'av05.png', 'Paola', 'Sanchez', 'Quintero', 'F', 8740490, 'C.C', 2147483647, 'paolasq@hotmail.com', 'administrador'),
-(5, 'av07.png', 'Paola', 'Sanchez', 'Quintero', 'F', 8454554, 'C.C', 2147483647, 'paolasq@hotmail.com', 'paolasanchez'),
-(6, 'av08.png', 'jaime', 'palomino', '', 'M', 12345678, 'C.C', 1234567890, 'ca@mail.com', '12345677'),
-(7, 'av06.png', 'jaimita', 'grisales', '', 'F', 44545251, 'C.C', 2147483647, 'dad12@gmail.com', 'holacomoestan'),
-(8, 'av06.png', 'Paola', 'Sanchez', 'Quintero', 'F', 444545458878, 'C.C', 2147483647, 'paolasanchezq@gmail.com', '55555555'),
-(9, 'av04.png', 'Pablo', 'Zuluaga', '', 'M', 55645454, 'C.C', 2147483647, 'pablo123@gmail.com', '00000000');
+INSERT INTO `clientes` (`id_cliente`, `nombre`, `apellido1`, `apellido2`, `sexo`, `telefono`, `tipo_documento`, `numero_documento`, `correo`, `contrasena`) VALUES
+(1, 'Camilo', 'Vasquez', 'Rincon', 'M', 12345678, 'C.C', 1234567890, 'camilo@mail.com', '12345678'),
+(2, 'Luis', 'Alfonso', 'Gutierrez', 'M', 12345678, 'C.C', 1234567890, 'lalfonso@mail.com', '12345678'),
+(3, 'daniel', 'pineda', '', 'M', 12345678, 'C.E', 1234567890, 'dpin@mail.com', '12345678');
 
 -- --------------------------------------------------------
 
@@ -89,7 +82,6 @@ INSERT INTO `clientes` (`id_cliente`, `imagen`, `nombre`, `apellido1`, `apellido
 
 CREATE TABLE `empleados` (
   `id_empleado` int(11) NOT NULL,
-  `imagen` varchar(80) COLLATE utf8_bin NOT NULL,
   `nombre` varchar(100) COLLATE utf8_bin NOT NULL,
   `apellido1` varchar(100) COLLATE utf8_bin NOT NULL,
   `apellido2` varchar(100) COLLATE utf8_bin NOT NULL,
@@ -106,8 +98,8 @@ CREATE TABLE `empleados` (
 -- Volcado de datos para la tabla `empleados`
 --
 
-INSERT INTO `empleados` (`id_empleado`, `imagen`, `nombre`, `apellido1`, `apellido2`, `sexo`, `telefono`, `tipo_documento`, `numero_documento`, `correo`, `contrasena`, `cargo`) VALUES
-(1, 'av06.png', 'marina', 'toro', 'gallego', 'F', 874157, 'C.C', 455454545, 'marina@hotmail.com', 'empleado', 'Gerente');
+INSERT INTO `empleados` (`id_empleado`, `nombre`, `apellido1`, `apellido2`, `sexo`, `telefono`, `tipo_documento`, `numero_documento`, `correo`, `contrasena`, `cargo`) VALUES
+(1, 'marina', 'toro', 'gallego', 'F', 874157, 'C.C', 455454545, 'marina@hotmail.com', 'empleado', 'Gerente');
 
 -- --------------------------------------------------------
 
@@ -132,12 +124,12 @@ CREATE TABLE `vehiculos` (
 --
 
 INSERT INTO `vehiculos` (`id_vehiculo`, `marca`, `linea`, `imagen`, `color`, `placa`, `descripcion`, `precio`, `cantidad`) VALUES
-(1, 'mazda', 'cx-5', 'mazdacx5.png', 'rojo', 'mc2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 80000000, 10),
-(2, 'mazda', 'cx-3', 'mazdacx3.png', 'blanco', 'RTW 875', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 75000000, 10),
-(3, 'ford', 'fusion', 'fordfusion.png', 'blanco', 'ff01', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 92000000, 10),
-(4, 'ford', 'taurus', 'fordtaurus.png', 'blanco', 'ft01', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 90000000, 10),
-(5, 'volkswagen', 'tiguan', 'vwtiguan.png', 'azul', 'WA0', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 80000000, 10),
-(6, 'volkswagen', 'passat', 'vwpassat.png', 'negro', 'vwp3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 65000000, 10),
+(1, 'mazda', 'cx-5', 'mazdacx5.png', 'rojo', 'mc2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 80000000, 0),
+(2, 'mazda', 'cx-3', 'mazdacx3.png', 'blanco', 'RTW 875', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 75000000, 0),
+(3, 'ford', 'fusion', 'fordfusion.png', 'blanco', 'ff01', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 92000000, 0),
+(4, 'ford', 'taurus', 'fordtaurus.png', 'blanco', 'ft01', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 90000000, 0),
+(5, 'volkswagen', 'tiguan', 'vwtiguan.png', 'azul', 'WA0', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 80000000, 0),
+(6, 'volkswagen', 'passat', 'vwpassat.png', 'negro', 'vwp3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 65000000, 0),
 (7, 'ford', 'fiesta', 'ford_fiesta.png', 'azul', 'ff1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia recusandae deserunt enim, eos quas eum ea molestias, similique suscipit. Inventore blanditiis magni fugit molestiae.', 75000000, 10);
 
 --
@@ -181,7 +173,7 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `empleados`
 --

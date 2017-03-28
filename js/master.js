@@ -38,35 +38,30 @@ $(document).ready(function() {
 		    },3400);
 	  	}
 	});
+	$(document).ready(function() {
+		$('.btn-upload').click(function() {
+			$('#upload').click();
+		});
+    $.validate({
+      form: '#add',
+      language: es
+    });
+    $('#upload').change(function(event) {
+      previewAvatar();
+    });
 
-	$('.cart').click(function(event) {
-		var cantidad = $(this).parent().prev().prev().html();
-
-		parseInt(cantidad);
-		$nveces = 0;
-		$(this).parent().prev().prev().text(++$nveces);
 	});
-    	$(document).ready(function() {
-    		$('.btn-upload').click(function() {
-    			$('#upload').click();
-    		});
-        $.validate({
-          form: '#add',
-          language: es
-        });
-        $('#upload').change(function(event) {
-          previewAvatar();
-        });
 
-    	});
-
-      function previewAvatar(argument) {
-        var fr = new FileReader();
-        fr.readAsDataURL(document.getElementById("upload").files[0]);
-        fr.onload = function (frevent) {
-          document.getElementById("avatar").src = frevent.target.result;
-        }
-      }
+  function previewAvatar(argument) {
+    var fr = new FileReader();
+    fr.readAsDataURL(document.getElementById("upload").files[0]);
+    fr.onload = function (frevent) {
+      document.getElementById("avatar").src = frevent.target.result;
+    }
+  }
+  $('.vehicle-card').mouseover(function(event) {
+  	alert('asdas');
+  });
 
 
 });

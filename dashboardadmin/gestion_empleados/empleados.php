@@ -41,7 +41,7 @@
                         <a href="editar_empleado.php?id=<?= $row['id_empleado'] ?>" class="btn btn-actions" data-toggle="tooltip" data-placement="top" title="Modificar">
                           <i class="fa fa-pencil"></i>
                         </a>
-                        <a href="eliminar_empleado.php?id=<?= $row['id_empleado'] ?>" class="fa fa-delete" data-toggle="tooltip" data-placement="top" data-id="<?= $row['id_empleado'] ?>" title="Eliminar" onclick="return confirm('Seguro que quieres eliminar este empleado?')">
+                        <a href="eliminar_empleado.php?id=<?= $row['id_empleado'] ?>" class="btn btn-actions" data-toggle="tooltip" data-placement="top" data-id="<?= $row['id_empleado'] ?>" title="Eliminar" onclick="return confirm('Seguro que quieres eliminar este empleado?')">
                           <i class="fa fa-trash"></i>
                         </a>
                       </nav>

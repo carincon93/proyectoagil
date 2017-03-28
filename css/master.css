@@ -92,10 +92,12 @@ nav a.link {
     color: #fff;
     height: 6rem;
     text-align: center;
-    text-shadow: 4px 2px 3px rgba(109, 109, 109, 0.92); }
-.img-card {
-	height: 14rem;
-}
+    text-shadow: 4px 2px 3px rgba(109, 109, 109, 0.92);
+    text-transform: capitalize; }
+.img-card {	text-align: center; }
+.right-card {
+	position: relative;
+    left: 2rem;}
 .card-description {
 	color: #fff; }
 	.actions button {
@@ -187,6 +189,7 @@ nav a.link {
 .logos figure:nth-child(1){ background: url(../imgs/ford_logo.png) no-repeat center center}
 .logos figure:nth-child(2){ background: url(../imgs/volkswagen_logo.png) no-repeat center center}
 .logos figure:nth-child(3){ background: url(../imgs/mazda_logo.png) no-repeat center center}
+
 .logos .row figure {
     height: 10rem;
     display: inline-block;
@@ -246,6 +249,7 @@ i.fa-user, i.fa-envelope {
     left: 0.5rem;
 	top: 2rem; }
 .form-control { padding: .5rem 2em; }
+
 /*---------------Chat---------------*/
 .chat {
 	position: fixed;
@@ -347,6 +351,7 @@ section button:hover {
 .fa { color: #fff !important; }
 .fa-user, .fa-envelope { color: #333 !important; }
 
+/*Avatars*/
 form div span {
 	display: block;
     background-color: brown;
@@ -370,18 +375,16 @@ figcaption {
 	background-color: rgba(0,0,0,0.4);
 	color: #fff;
 	font-size: 20px;
-	padding: 1rem;
+	padding: 0.5rem;
 	text-align: center; }
 figure.avatars { 
 	height: 209px;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
+	justify-content: space-between;
 }
-figure.avatars:hover div.nav {
-	display: block;
-}
-figure.avatars div.nav { display: none; }
+figure.avatars:hover div.nav {	display: block; }
+
 figure.avatars nav {
 	flex: 1;
     align-items: flex-end;
@@ -389,4 +392,6 @@ figure.avatars nav {
     display: flex;
 	justify-content: center;
 }
-figure.avatars nav a { color: #fff;}
+figure.avatars nav a { 
+	background-color: #384346;
+	color: #fff;}
